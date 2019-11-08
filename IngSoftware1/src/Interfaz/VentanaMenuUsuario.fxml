@@ -12,16 +12,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaMenuUsuarioController">
    <children>
       <ImageView fitHeight="620.0" fitWidth="644.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@imagenes%20ventanas%20obkigatorio2/diseno-naturaleza-efecto-bokeh_1048-1882.jpg" />
+            <Image url="@../Imagenes/diseno-naturaleza-efecto-bokeh_1048-1882.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="74.0" fitWidth="71.0" layoutX="83.0" layoutY="115.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 70;">
          <image>
-            <Image url="@imagenes%20ventanas%20obkigatorio2/580b585b2edbce24c47b26cf.png" />
+            <Image url="@../Imagenes/580b585b2edbce24c47b26cf.png" />
          </image>
          <cursor>
             <Cursor fx:constant="MOVE" />
@@ -29,7 +29,7 @@
       </ImageView>
       <ImageView fitHeight="74.0" fitWidth="71.0" layoutX="88.0" layoutY="164.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 100;">
          <image>
-            <Image url="@imagenes%20ventanas%20obkigatorio2/580b585b2edbce24c47b26cf.png" />
+            <Image url="@../Imagenes/580b585b2edbce24c47b26cf.png" />
          </image>
          <cursor>
             <Cursor fx:constant="MOVE" />
@@ -37,7 +37,7 @@
       </ImageView>
       <ImageView fitHeight="74.0" fitWidth="71.0" layoutX="93.0" layoutY="216.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 70;">
          <image>
-            <Image url="@imagenes%20ventanas%20obkigatorio2/580b585b2edbce24c47b26cf.png" />
+            <Image url="@../Imagenes/580b585b2edbce24c47b26cf.png" />
          </image>
          <cursor>
             <Cursor fx:constant="MOVE" />
@@ -45,7 +45,7 @@
       </ImageView>
       <ImageView fitHeight="74.0" fitWidth="71.0" layoutX="252.0" layoutY="141.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 70;">
          <image>
-            <Image url="@imagenes%20ventanas%20obkigatorio2/580b585b2edbce24c47b26cf.png" />
+            <Image url="@../Imagenes/580b585b2edbce24c47b26cf.png" />
          </image>
          <cursor>
             <Cursor fx:constant="MOVE" />
@@ -53,7 +53,7 @@
       </ImageView>
       <ImageView fitHeight="74.0" fitWidth="71.0" layoutX="252.0" layoutY="202.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 100;">
          <image>
-            <Image url="@imagenes%20ventanas%20obkigatorio2/580b585b2edbce24c47b26cf.png" />
+            <Image url="@../Imagenes/580b585b2edbce24c47b26cf.png" />
          </image>
          <cursor>
             <Cursor fx:constant="MOVE" />
@@ -61,7 +61,7 @@
       </ImageView>
       <ImageView fitHeight="74.0" fitWidth="71.0" layoutX="412.0" layoutY="134.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 70;">
          <image>
-            <Image url="@imagenes%20ventanas%20obkigatorio2/580b585b2edbce24c47b26cf.png" />
+            <Image url="@../Imagenes/580b585b2edbce24c47b26cf.png" />
          </image>
          <cursor>
             <Cursor fx:constant="MOVE" />
@@ -69,7 +69,7 @@
       </ImageView>
       <ImageView fitHeight="74.0" fitWidth="71.0" layoutX="417.0" layoutY="193.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 100;">
          <image>
-            <Image url="@imagenes%20ventanas%20obkigatorio2/580b585b2edbce24c47b26cf.png" />
+            <Image url="@../Imagenes/580b585b2edbce24c47b26cf.png" />
          </image>
          <cursor>
             <Cursor fx:constant="MOVE" />
@@ -77,7 +77,7 @@
       </ImageView>
       <ImageView fitHeight="74.0" fitWidth="71.0" layoutX="252.0" layoutY="254.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 85;">
          <image>
-            <Image url="@imagenes%20ventanas%20obkigatorio2/580b585b2edbce24c47b26cf.png" />
+            <Image url="@../Imagenes/580b585b2edbce24c47b26cf.png" />
          </image>
          <cursor>
             <Cursor fx:constant="MOVE" />
@@ -85,7 +85,7 @@
       </ImageView>
       <ImageView fitHeight="74.0" fitWidth="71.0" layoutX="407.0" layoutY="254.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 100;">
          <image>
-            <Image url="@imagenes%20ventanas%20obkigatorio2/580b585b2edbce24c47b26cf.png" />
+            <Image url="@../Imagenes/580b585b2edbce24c47b26cf.png" />
          </image>
          <cursor>
             <Cursor fx:constant="MOVE" />
@@ -93,7 +93,7 @@
       </ImageView>
       <ImageView fitHeight="143.0" fitWidth="136.0" layoutX="72.0" layoutY="251.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 1;">
          <image>
-            <Image url="@imagenes%20ventanas%20obkigatorio2/Creme-Green-Tree-(2c,-Eco)-Bags-.png" />
+            <Image url="@../Imagenes/Creme-Green-Tree-(2c,-Eco)-Bags-.png" />
          </image>
          <cursor>
             <Cursor fx:constant="MOVE" />
@@ -109,7 +109,7 @@
       </Button>
       <ImageView fitHeight="80.0" fitWidth="165.0" layoutX="215.0" layoutY="301.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 10;">
          <image>
-            <Image url="@imagenes%20ventanas%20obkigatorio2/calendar.png" />
+            <Image url="@../Imagenes/calendar.png" />
          </image>
          <cursor>
             <Cursor fx:constant="MOVE" />
@@ -125,7 +125,7 @@
       </Button>
       <ImageView fitHeight="67.0" fitWidth="115.0" layoutX="385.0" layoutY="292.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: -5;">
          <image>
-            <Image url="@imagenes%20ventanas%20obkigatorio2/icon-mapa.png" />
+            <Image url="@../Imagenes/icon-mapa.png" />
          </image>
          <cursor>
             <Cursor fx:constant="MOVE" />

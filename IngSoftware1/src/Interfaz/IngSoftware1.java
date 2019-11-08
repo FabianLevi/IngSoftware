@@ -27,7 +27,7 @@ public class IngSoftware1 extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         ventana = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaMenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
         Scene scene = new Scene(root);
         
         primaryStage.setScene(scene);
