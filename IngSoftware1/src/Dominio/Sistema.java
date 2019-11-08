@@ -12,7 +12,50 @@ import java.util.ArrayList;
  * @author Fabian
  */
 public class Sistema {
+    
+    class NodoArticulo {
+        String nombre;
+        String codigo;
+        int cantVendidas;
+    }
+    
+    //Atributos
+    private ArrayList<Envase> listaEnvases;
+    private ArrayList<Articulo> listaArticulo;
+    private ArrayList<PuntoDeVenta> listaPuntoDeVenta;
+    private ArrayList<Venta> listaVentas;
+    private ArrayList<PreVenta> listaPreVenta;
+    private ArrayList<Usuario> listaUsuario;
+    //Atributos Auxiliares
+    private ArrayList<NodoArticulo> listaArticulosVendidos;
+    private ArrayList<NodoArticulo> listaArticulosMasVendidos;
+    
+    //Constructores
+    public Sistema(ArrayList<Envase> unaListaEnvases, ArrayList<Articulo> unaListaArticulo, ArrayList<PuntoDeVenta> unaListaPuntoDeVenta, 
+            ArrayList<Venta> unaListaVentas, ArrayList<PreVenta> unaListaPreVenta, ArrayList<Usuario> unaListaUsuario, 
+            ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos) {
+        this.listaEnvases = unaListaEnvases;
+        this.listaArticulo = unaListaArticulo;
+        this.listaPuntoDeVenta = unaListaPuntoDeVenta;
+        this.listaVentas = unaListaVentas;
+        this.listaPreVenta = unaListaPreVenta;
+        this.listaUsuario = unaListaUsuario;
+        this.listaArticulosVendidos = unaListaArticulosVendidos;
+        this.listaArticulosMasVendidos = unaListaArticulosMasVendidos;
+    }
+    
+    public Sistema(){
+        this.listaArticulo = new ArrayList<Articulo>();
+        this.listaEnvases = new ArrayList<Envase>();
+        this.listaPreVenta = new ArrayList<PreVenta>();
+        this.listaPuntoDeVenta = new ArrayList<PuntoDeVenta>();
+        this.listaUsuario = new ArrayList<Usuario>();
+        this.listaVentas = new ArrayList<Venta>();
+        this.listaArticulosVendidos = new ArrayList<NodoArticulo>();
+        this.listaArticulosMasVendidos = new ArrayList<NodoArticulo>();
+    }
 
+    //Getters & Setters
     public ArrayList<Envase> getListaEnvases() {
         return listaEnvases;
     }
@@ -60,23 +103,21 @@ public class Sistema {
     public void setListaUsuario(ArrayList<Usuario> listaUsuario) {
         this.listaUsuario = listaUsuario;
     }
+    
+    public ArrayList<NodoArticulo> getListaArticulosVendidos() {
+        return listaArticulosVendidos;
+    }
 
-    public Sistema(ArrayList<Envase> listaEnvases, ArrayList<Articulo> listaArticulo, ArrayList<PuntoDeVenta> listaPuntoDeVenta, ArrayList<Venta> listaVentas, ArrayList<PreVenta> listaPreVenta, ArrayList<Usuario> listaUsuario) {
-        this.listaEnvases = listaEnvases;
-        this.listaArticulo = listaArticulo;
-        this.listaPuntoDeVenta = listaPuntoDeVenta;
-        this.listaVentas = listaVentas;
-        this.listaPreVenta = listaPreVenta;
-        this.listaUsuario = listaUsuario;
+    public void setListaArticulosVendidos(ArrayList<NodoArticulo> listaArticulosVendidos) {
+        this.listaArticulosVendidos = listaArticulosVendidos;
     }
     
-    public Sistema(){
-        this.listaArticulo = new ArrayList<Articulo>();
-        this.listaEnvases = new ArrayList<Envase>();
-        this.listaPreVenta = new ArrayList<PreVenta>();
-        this.listaPuntoDeVenta = new ArrayList<PuntoDeVenta>();
-        this.listaUsuario = new ArrayList<Usuario>();
-        this.listaVentas = new ArrayList<Venta>();
+    public ArrayList<NodoArticulo> getListaArticulosMasVendidos() {
+        return listaArticulosMasVendidos;
+    }
+
+    public void setListaArticulosMasVendidos(ArrayList<NodoArticulo> listaArticulosMasVendidos) {
+        this.listaArticulosMasVendidos = listaArticulosMasVendidos;
     }
     
     public boolean existeAlias(String alias) {
@@ -107,12 +148,32 @@ public class Sistema {
     
     public void agregarVenta(Venta v){
         this.getListaVentas().add(v);
+        ArrayList<Articulo> articulos = v.getArticulos();
+        for (int i = 0; i < articulos.size(); i++) {
+            int pos = this.getListaArticulosVendidos().indexOf(articulos.get(i));
+            NodoArticulo nodo = this.getListaArticulosVendidos().get(pos);
+            nodo.cantVendidas++;
+            if (this.getListaArticulosMasVendidos().isEmpty() || this.getListaArticulosMasVendidos().get(0).cantVendidas == nodo.cantVendidas ) {
+                this.getListaArticulosMasVendidos().add(nodo);
+            }
+            else {
+                if (this.getListaArticulosMasVendidos().get(0).cantVendidas < nodo.cantVendidas) {
+                    this.getListaArticulosMasVendidos().clear();
+                    this.getListaArticulosMasVendidos().add(nodo);
+                }
+            }
+        }
     }
     public void agregarEnvase(Envase e){
         this.getListaEnvases().add(e);
     }
     public void agregarArticulo(Articulo a){
         this.getListaArticulo().add(a);
+        NodoArticulo nodo = new NodoArticulo();
+        nodo.nombre = a.getNombre();
+        nodo.codigo = a.getCodigo();
+        nodo.cantVendidas = 0;
+        this.getListaArticulosVendidos().add(nodo);
     }
     public void agregarPuntoVenta(PuntoDeVenta p){
         this.getListaPuntoDeVenta().add(p);
@@ -121,11 +182,6 @@ public class Sistema {
         this.getListaPreVenta().add(pv);
     }
     
-        private ArrayList<Envase> listaEnvases;
-        private ArrayList<Articulo> listaArticulo;
-        private ArrayList<PuntoDeVenta> listaPuntoDeVenta;
-        private ArrayList<Venta> listaVentas;
-        private ArrayList<PreVenta> listaPreVenta;
-        private ArrayList<Usuario> listaUsuario;
+    
     
 }

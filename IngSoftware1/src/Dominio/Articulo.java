@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class Articulo {
     
     //Atributos
+    private String nombre;
     private String origenMatPrima;
     private int precio;
     private String material;
@@ -22,7 +23,8 @@ public class Articulo {
     private Envase envaseElegido;
 
     //Constructores
-    public Articulo(String unOrigenMatPrima, int unPrecio, String unMaterial, String unCodigo, ArrayList<Envase> listaEnvasesPosibles, Envase unEnvaseElegido) {
+    public Articulo(String unNombre, String unOrigenMatPrima, int unPrecio, String unMaterial, String unCodigo, ArrayList<Envase> listaEnvasesPosibles, Envase unEnvaseElegido) {
+        nombre = unNombre;
         origenMatPrima = unOrigenMatPrima;
         precio = unPrecio;
         material = unMaterial;
@@ -32,6 +34,10 @@ public class Articulo {
     }
 
     //Setters
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
     public void setOrigenMatPrima(String origenMatPrima) {
         this.origenMatPrima = origenMatPrima;
     }
@@ -57,6 +63,10 @@ public class Articulo {
     }
     
     //Getters
+    public String getNombre() {
+        return nombre;
+    }
+    
     public String getOrigenMatPrima() {
         return origenMatPrima;
     }
