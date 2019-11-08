@@ -1,9 +1,11 @@
+package ingsoftware1;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ingsoftware1;
+
 
 import java.io.IOException;
 import javafx.application.Application;
@@ -16,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -23,12 +26,22 @@ import javafx.stage.Stage;
  */
 public class IngSoftware1 extends Application {
     
+    public static Stage ventana;
+    
     @Override
     public void start(Stage primaryStage) throws IOException {
+        
+        ventana =primaryStage;
+        Parent root = FXMLLoader.load(getClass().getResource("prueba.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.setResizable(false);
+        primaryStage.show();
 //        Button btn = new Button();
 //        btn.setText("Say 'Hello World'");
 //        btn.setOnAction(new EventHandler<ActionEvent>() {
-//            
+//            s
 //            @Override
 //            public void handle(ActionEvent event) {
 //                System.out.println("Hello World!");
@@ -41,11 +54,11 @@ public class IngSoftware1 extends Application {
 //        primaryStage.setTitle("Hello World!");
 //        primaryStage.setScene(scene);
 //        primaryStage.show();
-          Parent root = FXMLLoader.load(getClass().getResource("Interfaz/MiVentana.fxml"));
-          Scene scene = new Scene(root);
-          primaryStage.setScene(scene);
-          primaryStage.show();
-        
+//          Parent root = FXMLLoader.load(getClass().getResource("Interfaz/MiVentana.fxml"));
+//          Scene scene = new Scene(root);
+//          primaryStage.setScene(scene);
+//          primaryStage.show();
+//        
     }
 
     /**
@@ -53,9 +66,7 @@ public class IngSoftware1 extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        System.out.println("hola mundo");
-        System.out.println("Obligatorio Ing Software");
-        System.out.println("holaaaaaaaaaaaaaaaaaaaaaa");
+        
         
      
     }
