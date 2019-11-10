@@ -29,11 +29,22 @@ public class Sistema {
     //Atributos Auxiliares
     private ArrayList<NodoArticulo> listaArticulosVendidos;
     private ArrayList<NodoArticulo> listaArticulosMasVendidos;
+    private ArrayList<Envase>listaEnvasesReutilizables;
+
+    public ArrayList<Envase> getListaEnvasesReutilizables() {
+        return listaEnvasesReutilizables;
+    }
+
+    public void setListaEnvasesReutilizables(ArrayList<Envase> listaEnvasesReutilizables) {
+        this.listaEnvasesReutilizables = listaEnvasesReutilizables;
+    }
+
+    
     
     //Constructores
     public Sistema(ArrayList<Envase> unaListaEnvases, ArrayList<Articulo> unaListaArticulo, ArrayList<PuntoDeVenta> unaListaPuntoDeVenta, 
             ArrayList<Venta> unaListaVentas, ArrayList<PreVenta> unaListaPreVenta, ArrayList<Usuario> unaListaUsuario, 
-            ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos) {
+            ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos,ArrayList<Envase>unaListaEnvasesReutilizables) {
         this.listaEnvases = unaListaEnvases;
         this.listaArticulo = unaListaArticulo;
         this.listaPuntoDeVenta = unaListaPuntoDeVenta;
@@ -42,6 +53,7 @@ public class Sistema {
         this.listaUsuario = unaListaUsuario;
         this.listaArticulosVendidos = unaListaArticulosVendidos;
         this.listaArticulosMasVendidos = unaListaArticulosMasVendidos;
+        this.listaEnvasesReutilizables=unaListaEnvasesReutilizables;
     }
     
     public Sistema(){
@@ -53,6 +65,7 @@ public class Sistema {
         this.listaVentas = new ArrayList<Venta>();
         this.listaArticulosVendidos = new ArrayList<NodoArticulo>();
         this.listaArticulosMasVendidos = new ArrayList<NodoArticulo>();
+        this.listaEnvasesReutilizables = new ArrayList<Envase>();
     }
 
     //Getters & Setters
@@ -153,6 +166,7 @@ public class Sistema {
             int pos = this.getListaArticulosVendidos().indexOf(articulos.get(i));
             NodoArticulo nodo = this.getListaArticulosVendidos().get(pos);
             nodo.cantVendidas++;
+            this.getListaEnvases().add(articulos.get(i).getEnvaseElegido());
             if (this.getListaArticulosMasVendidos().isEmpty() || this.getListaArticulosMasVendidos().get(0).cantVendidas == nodo.cantVendidas ) {
                 this.getListaArticulosMasVendidos().add(nodo);
             }
@@ -164,6 +178,45 @@ public class Sistema {
             }
         }
     }
+    
+    public ArrayList<Envase>envasesReutilizables(){
+        return this.getListaEnvasesReutilizables();
+    }
+    
+    public ArrayList<Articulo> articulosMasVendidos(){
+        ArrayList<Articulo> aux = new ArrayList<Articulo>();
+        int cantVendidas=0;
+        for (int i = 0; i < this.getListaArticulosMasVendidos().size(); i++) {
+            NodoArticulo nodo =this.getListaArticulosMasVendidos().get(i);
+            for (int j = 0; j < this.getListaArticulo().size(); j++) {
+                Articulo a = this.getListaArticulo().get(j);
+                if(nodo.codigo==a.getCodigo()){
+                    aux.add(a);
+                }
+            }
+        }
+        return aux;
+    }
+    
+    public int cantidadDeVentasEnMes(int mes){
+        int cantVentas=0;
+        for (int i = 0; i < this.getListaVentas().size(); i++) {
+            Venta v = this.getListaVentas().get(i);
+            if(v.getFecha().getMonth()==mes){
+                cantVentas++;
+            }
+        }
+        // duda de si es necesario
+        for (int i = 0; i < this.getListaPreVenta().size(); i++) {
+            PreVenta p = this.getListaPreVenta().get(i);
+            if(p.getFecha().getMonth()==mes){
+                cantVentas++;
+            }
+        }
+        
+        return cantVentas;
+    }
+    
     public void agregarEnvase(Envase e){
         this.getListaEnvases().add(e);
     }
