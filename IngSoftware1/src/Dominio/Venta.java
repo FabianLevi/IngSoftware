@@ -10,6 +10,7 @@ package Dominio;
  * @author Fabian
  */
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Venta {
     
@@ -17,12 +18,22 @@ public class Venta {
     public ArrayList<Articulo> articulos;
     public PuntoDeVenta puntoDeVenta;
     public Usuario usuario;
+    public Date fecha;
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
     
     //Constructores
-    public Venta(ArrayList<Articulo> listaArticulos, PuntoDeVenta unPuntoDeVenta, Usuario unUsuario) {
+    public Venta(ArrayList<Articulo> listaArticulos, PuntoDeVenta unPuntoDeVenta, Usuario unUsuario, int unMes,Date unaFecha) {
         articulos = listaArticulos;
         puntoDeVenta = unPuntoDeVenta;
         usuario = unUsuario;
+        fecha=unaFecha;
     }
 
     //Setters
