@@ -21,9 +21,12 @@ public class Articulo {
     private String codigo;
     private ArrayList<Envase> envasesPosibles;
     private Envase envaseElegido;
+    private String rutaImagen;
+    
 
     //Constructores
-    public Articulo(String unNombre, String unOrigenMatPrima, int unPrecio, String unMaterial, String unCodigo, ArrayList<Envase> listaEnvasesPosibles, Envase unEnvaseElegido) {
+    public Articulo(String unNombre, String unOrigenMatPrima, int unPrecio, String unMaterial, String unCodigo, 
+            ArrayList<Envase> listaEnvasesPosibles, Envase unEnvaseElegido, String unaRutaImagen) {
         nombre = unNombre;
         origenMatPrima = unOrigenMatPrima;
         precio = unPrecio;
@@ -31,6 +34,7 @@ public class Articulo {
         codigo = unCodigo;
         envasesPosibles = listaEnvasesPosibles;
         envaseElegido = unEnvaseElegido;
+        rutaImagen = unaRutaImagen;
     }
 
     //Setters
@@ -62,6 +66,10 @@ public class Articulo {
         this.envaseElegido = envaseElegido;
     }
     
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
+    }
+    
     //Getters
     public String getNombre() {
         return nombre;
@@ -89,5 +97,9 @@ public class Articulo {
 
     public Envase getEnvaseElegido() {
         return envaseElegido;
+    }
+    
+    public String getRutaImagen() {
+        return rutaImagen;
     }
 }
