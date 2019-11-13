@@ -6,6 +6,8 @@
 package Dominio;
 
 import java.util.ArrayList;
+import java.util.Date;
+import javafx.util.Pair;
 
 /**
  *
@@ -13,11 +15,25 @@ import java.util.ArrayList;
  */
 public class Sistema {
     
-    class NodoArticulo {
-        String nombre;
-        String codigo;
-        int cantVendidas;
-    }
+//    class NodoArticulo {
+//        Articulo articulo;
+//        int cantVendidas;
+//        
+//        @Override
+//        public boolean equals(Object o){
+//            return articulo.getNombre().equals(((Articulo) o).getNombre());
+//        }
+//    }
+//    class NodoEnvase {
+//        Envase envase;
+//        int cantVendidas;
+//        
+//        
+//        @Override
+//        public boolean equals(Object o){
+//            return envase.getTipo().equals(((Envase) o).getTipo());
+//        }
+//    }
     
     //Atributos
     private ArrayList<Envase> listaEnvases;
@@ -29,22 +45,23 @@ public class Sistema {
     //Atributos Auxiliares
     private ArrayList<NodoArticulo> listaArticulosVendidos;
     private ArrayList<NodoArticulo> listaArticulosMasVendidos;
-    private ArrayList<Envase>listaEnvasesReutilizables;
-
-    public ArrayList<Envase> getListaEnvasesReutilizables() {
+    private ArrayList<NodoEnvase>listaEnvasesReutilizables;
+   
+    
+    private ArrayList<Pair>listaParesArticulos;
+    public ArrayList<NodoEnvase> getListaEnvasesReutilizables() {
         return listaEnvasesReutilizables;
     }
 
-    public void setListaEnvasesReutilizables(ArrayList<Envase> listaEnvasesReutilizables) {
+    public void setListaEnvasesReutilizables(ArrayList<NodoEnvase> listaEnvasesReutilizables) {
         this.listaEnvasesReutilizables = listaEnvasesReutilizables;
     }
 
-    
-    
+   
     //Constructores
     public Sistema(ArrayList<Envase> unaListaEnvases, ArrayList<Articulo> unaListaArticulo, ArrayList<PuntoDeVenta> unaListaPuntoDeVenta, 
             ArrayList<Venta> unaListaVentas, ArrayList<PreVenta> unaListaPreVenta, ArrayList<Usuario> unaListaUsuario, 
-            ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos,ArrayList<Envase>unaListaEnvasesReutilizables) {
+            ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos,ArrayList<NodoEnvase>unaListaEnvasesReutilizables) {
         this.listaEnvases = unaListaEnvases;
         this.listaArticulo = unaListaArticulo;
         this.listaPuntoDeVenta = unaListaPuntoDeVenta;
@@ -65,7 +82,7 @@ public class Sistema {
         this.listaVentas = new ArrayList<Venta>();
         this.listaArticulosVendidos = new ArrayList<NodoArticulo>();
         this.listaArticulosMasVendidos = new ArrayList<NodoArticulo>();
-        this.listaEnvasesReutilizables = new ArrayList<Envase>();
+        this.listaEnvasesReutilizables = new ArrayList<NodoEnvase>();
     }
 
     //Getters & Setters
@@ -163,37 +180,67 @@ public class Sistema {
         this.getListaVentas().add(v);
         ArrayList<Articulo> articulos = v.getArticulos();
         for (int i = 0; i < articulos.size(); i++) {
-            int pos = this.getListaArticulosVendidos().indexOf(articulos.get(i));
+            //ArrayList<NodoArticulo>lista = this.getListaArticulosVendidos();
+            //NodoArticulo esta = new NodoArticulo();
+            //esta.articulo=articulos.get(i);
+            //int pos = this.getListaArticulosVendidos().indexOf(esta);
+            int pos =0;
+            while(!(this.getListaArticulosVendidos().get(pos).articulo.getNombre().equals(articulos.get(i).getNombre()))){
+                pos++;
+            }
             NodoArticulo nodo = this.getListaArticulosVendidos().get(pos);
             nodo.cantVendidas++;
-            this.getListaEnvases().add(articulos.get(i).getEnvaseElegido());
-            if (this.getListaArticulosMasVendidos().isEmpty() || this.getListaArticulosMasVendidos().get(0).cantVendidas == nodo.cantVendidas ) {
+            //int posEnvase  = this.getListaEnvasesReutilizables().indexOf(articulos.get(i).getEnvaseElegido());
+            int posEnvase=0;
+            while(!(this.getListaEnvasesReutilizables().get(posEnvase).envase.getTipo().equals(articulos.get(i).getEnvaseElegido().getTipo()))){
+                posEnvase++;
+            }
+            NodoEnvase nodoEnvase = this.getListaEnvasesReutilizables().get(posEnvase);
+            nodoEnvase.cantVendidas++;
+            // esta mal la segunda condicon del if si modifico directamente la posicion 0 siempre va a ser igual y me va a agregar el nodo aunque sea mas 
+            if (this.getListaArticulosMasVendidos().isEmpty()) {
                 this.getListaArticulosMasVendidos().add(nodo);
             }
+            //|| this.getListaArticulosMasVendidos().get(0).cantVendidas == nodo.cantVendidas 
             else {
-                if (this.getListaArticulosMasVendidos().get(0).cantVendidas < nodo.cantVendidas) {
-                    this.getListaArticulosMasVendidos().clear();
+                if(!this.getListaArticulosMasVendidos().contains(nodo) && this.getListaArticulosMasVendidos().get(0).cantVendidas == nodo.cantVendidas ){
                     this.getListaArticulosMasVendidos().add(nodo);
+                }else{
+                    if(this.getListaArticulosMasVendidos().contains(nodo)){
+                        this.getListaArticulosMasVendidos().clear();
+                        this.getListaArticulosMasVendidos().add(nodo);
+                    }else{
+                        if (this.getListaArticulosMasVendidos().get(0).cantVendidas < nodo.cantVendidas) {
+                                this.getListaArticulosMasVendidos().clear();
+                                this.getListaArticulosMasVendidos().add(nodo);
+                        }
+                       
+                    }
                 }
+                
             }
         }
     }
     
-    public ArrayList<Envase>envasesReutilizables(){
-        return this.getListaEnvasesReutilizables();
+    public ArrayList<NodoEnvase>envasesReutilizables(){
+        ArrayList<NodoEnvase>aux = new ArrayList<NodoEnvase>();
+        for (int i = 0; i < this.getListaEnvasesReutilizables().size(); i++) {
+            NodoEnvase nodo = this.getListaEnvasesReutilizables().get(i);
+            //Envase e = nodo.envase;
+            //if(nodo.cantVendidas!=0){
+                 aux.add(nodo);
+            //}
+           
+        }
+        return aux;
     }
     
-    public ArrayList<Articulo> articulosMasVendidos(){
-        ArrayList<Articulo> aux = new ArrayList<Articulo>();
-        int cantVendidas=0;
+    public ArrayList<NodoArticulo> articulosMasVendidos(){
+        ArrayList<NodoArticulo> aux = new ArrayList<NodoArticulo>();
         for (int i = 0; i < this.getListaArticulosMasVendidos().size(); i++) {
             NodoArticulo nodo =this.getListaArticulosMasVendidos().get(i);
-            for (int j = 0; j < this.getListaArticulo().size(); j++) {
-                Articulo a = this.getListaArticulo().get(j);
-                if(nodo.codigo==a.getCodigo()){
-                    aux.add(a);
-                }
-            }
+            //Articulo a = nodo.articulo;
+            aux.add(nodo);
         }
         return aux;
     }
@@ -204,13 +251,7 @@ public class Sistema {
             Venta v = this.getListaVentas().get(i);
             if(v.getFecha().getMonth()==mes){
                 cantVentas++;
-            }
-        }
-        // duda de si es necesario
-        for (int i = 0; i < this.getListaPreVenta().size(); i++) {
-            PreVenta p = this.getListaPreVenta().get(i);
-            if(p.getFecha().getMonth()==mes){
-                cantVentas++;
+                
             }
         }
         
@@ -219,12 +260,47 @@ public class Sistema {
     
     public void agregarEnvase(Envase e){
         this.getListaEnvases().add(e);
+        NodoEnvase nodo = new NodoEnvase(e,0);
+//        nodo.envase=e;
+//        nodo.cantVendidas =0;
+        this.getListaEnvasesReutilizables().add(nodo);
+                
     }
+    
+    public ArrayList<PreVenta>preVentasAntesDeFecha(){
+        ArrayList<PreVenta> aux = new ArrayList<PreVenta>();
+        Date fechaActual =new Date();
+        fechaActual.setMonth(11);
+        for (int i = 0; i < this.getListaPreVenta().size(); i++) {
+            PreVenta p = this.getListaPreVenta().get(i);
+            if(p.getFecha().before(fechaActual) || p.getFecha().compareTo(fechaActual)==0){
+                aux.add(p);
+            }
+        }
+        return aux;
+    }
+    public ArrayList<PreVenta>preVentasDespuesDeFecha(){
+        ArrayList<PreVenta> aux = new ArrayList<PreVenta>();
+        Date fechaActual =new Date();
+        fechaActual.setMonth(11);
+        for (int i = 0; i < this.getListaPreVenta().size(); i++) {
+            PreVenta p = this.getListaPreVenta().get(i);
+            if(p.getFecha().after(fechaActual)){
+                aux.add(p);
+            }
+        }
+        return aux;
+    }
+    
+    public void realizarVenta(PreVenta p){
+        this.getListaVentas().add(p.getVentaRealizar());
+        this.getListaPreVenta().remove(p);  
+    }
+    
     public void agregarArticulo(Articulo a){
         this.getListaArticulo().add(a);
-        NodoArticulo nodo = new NodoArticulo();
-        nodo.nombre = a.getNombre();
-        nodo.codigo = a.getCodigo();
+        NodoArticulo nodo = new NodoArticulo(a,0);
+        nodo.articulo=a;
         nodo.cantVendidas = 0;
         this.getListaArticulosVendidos().add(nodo);
     }

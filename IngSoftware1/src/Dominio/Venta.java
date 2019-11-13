@@ -29,7 +29,7 @@ public class Venta {
     }
     
     //Constructores
-    public Venta(ArrayList<Articulo> listaArticulos, PuntoDeVenta unPuntoDeVenta, Usuario unUsuario, int unMes,Date unaFecha) {
+    public Venta(ArrayList<Articulo> listaArticulos, PuntoDeVenta unPuntoDeVenta, Usuario unUsuario,Date unaFecha) {
         articulos = listaArticulos;
         puntoDeVenta = unPuntoDeVenta;
         usuario = unUsuario;
