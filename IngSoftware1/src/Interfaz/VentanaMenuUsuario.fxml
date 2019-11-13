@@ -29,7 +29,7 @@
             <Image url="@../Imagenes/ios-back-icon-10.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="391.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnSalir" fitHeight="42.0" fitWidth="40.0" layoutX="391.0" onMouseClicked="#handleButtonSalir" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/close-icon.png" />
          </image>
@@ -94,13 +94,13 @@
             <Font name="Lucida Console" size="25.0" />
          </font>
       </Label>
-      <ImageView fitHeight="32.0" fitWidth="67.0" layoutX="-2.0" layoutY="608.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="btnVenta" layoutX="-6.0" layoutY="157.0" mnemonicParsing="false" prefHeight="167.0" prefWidth="442.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnPreventa" layoutY="319.0" mnemonicParsing="false" prefHeight="167.0" prefWidth="442.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnLocales" layoutY="484.0" mnemonicParsing="false" prefHeight="167.0" prefWidth="442.0" style="-fx-background-color: transparent;" />
+      <ImageView fx:id="btnAtras" fitHeight="32.0" fitWidth="67.0" layoutX="6.0" layoutY="610.0" onMouseClicked="#handleButtonAtras" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/ios-back-icon-10.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnVenta" layoutX="-6.0" layoutY="157.0" mnemonicParsing="false" prefHeight="167.0" prefWidth="442.0" style="-fx-background-color: transparent;" />
-      <Button fx:id="btnPreventa" layoutY="319.0" mnemonicParsing="false" prefHeight="167.0" prefWidth="442.0" style="-fx-background-color: transparent;" />
-      <Button fx:id="btnLocales" layoutY="484.0" mnemonicParsing="false" prefHeight="167.0" prefWidth="442.0" style="-fx-background-color: transparent;" />
    </children>
 </AnchorPane>

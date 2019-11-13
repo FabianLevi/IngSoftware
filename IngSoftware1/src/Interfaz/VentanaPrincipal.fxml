@@ -23,7 +23,7 @@
             <Rectangle2D height="650.0" width="435.0" />
          </viewport>
       </ImageView>
-      <ImageView fitHeight="42.0" fitWidth="40.0" layoutX="391.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnSalir" fitHeight="42.0" fitWidth="40.0" layoutX="391.0" onMouseClicked="#handleButtonSalir" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/close-icon.png" />
          </image>

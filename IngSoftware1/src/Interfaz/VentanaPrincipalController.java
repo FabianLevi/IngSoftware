@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -32,6 +33,9 @@ public class VentanaPrincipalController implements Initializable {
     
     @FXML
     private Button btnUsuario;
+    
+    @FXML
+    private ImageView btnSalir;
 
     /**
      * Initializes the controller class.
@@ -49,6 +53,11 @@ public class VentanaPrincipalController implements Initializable {
     private void handleButtonUsuario(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
         Scene scene = new Scene(root);
-        IngSoftware1.ventana.setScene(scene);
+        Main.ventana.setScene(scene);
+    }
+
+    @FXML
+    private void handleButtonSalir(MouseEvent event) {
+        Main.ventana.close();
     }
 }

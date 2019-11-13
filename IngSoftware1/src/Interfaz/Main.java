@@ -23,7 +23,7 @@ import javafx.stage.StageStyle;
  *
  * @author Fabian
  */
-public class IngSoftware1 extends Application {
+public class Main extends Application {
     public static Sistema sistema;
     public static Stage ventana;
     
