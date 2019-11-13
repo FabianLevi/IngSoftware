@@ -60,9 +60,9 @@ public class IngSoftware1 extends Application {
 //        for (int i = 0; i < s.getListaEnvases().size(); i++) {
 //            System.out.println(s.getListaEnvases().get(i).getTipo());
 //        }
-        Articulo a1 = new Articulo("Banana","origenA",100,"materialA","codigoA",aux,e1);
-        Articulo a2 = new Articulo("Manzana","origenB",10,"materialB","codigoB",aux2,e2);
-        Articulo a3 = new Articulo("Pera","origenC",100,"materialC","codigoC",aux,e3);
+        Articulo a1 = new Articulo("Banana","origenA",100,"materialA","codigoA",aux,e1,"imagenA");
+        Articulo a2 = new Articulo("Manzana","origenB",10,"materialB","codigoB",aux2,e2,"imagenB");
+        Articulo a3 = new Articulo("Pera","origenC",100,"materialC","codigoC",aux,e3,"imagenC");
         s.agregarArticulo(a1);
         s.agregarArticulo(a2);
         s.agregarArticulo(a3);
