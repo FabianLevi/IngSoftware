@@ -50,7 +50,6 @@ public class Main extends Application {
         ventana = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
         Scene scene = new Scene(root);
-        
         primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setResizable(false);
