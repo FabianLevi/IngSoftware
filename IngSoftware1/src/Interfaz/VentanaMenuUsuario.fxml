@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -12,12 +8,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="651.0" prefWidth="433.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaMenuUsuarioController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaMenuUsuarioController">
    <children>
-      <ImageView fitHeight="160.0" fitWidth="435.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="262.0" fitWidth="625.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/f4da698a867c29621157f881a1653cd7.jpg" />
          </image>
+         <viewport>
+            <Rectangle2D width="625.0" />
+         </viewport>
       </ImageView>
       <ImageView fitHeight="66.0" fitWidth="80.0" layoutX="14.0" layoutY="597.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -29,78 +28,84 @@
             <Image url="@../Imagenes/ios-back-icon-10.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="btnSalir" fitHeight="42.0" fitWidth="40.0" layoutX="391.0" onMouseClicked="#handleButtonSalir" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnSalir" fitHeight="42.0" fitWidth="40.0" layoutX="585.0" onMouseClicked="#handleButtonSalir" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/close-icon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="182.0" fitWidth="435.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="278.0" fitWidth="625.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/verdeagua.jpg" />
          </image>
+         <viewport>
+            <Rectangle2D width="625.0" />
+         </viewport>
       </ImageView>
-      <ImageView fitHeight="194.0" fitWidth="435.0" layoutY="318.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="275.0" fitWidth="625.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/oscuro.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="167.0" fitWidth="435.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="239.0" fitWidth="625.0" layoutY="531.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/verdemanzana.jpg" />
          </image>
+         <viewport>
+            <Rectangle2D width="625.0" />
+         </viewport>
       </ImageView>
-      <ImageView fitHeight="177.0" fitWidth="160.0" layoutX="12.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="188.0" fitWidth="193.0" layoutX="14.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/cart-icon-16.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="167.0" fitWidth="160.0" layoutX="14.0" layoutY="344.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="188.0" fitWidth="205.0" layoutX="6.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/5d39f86131745cb8040d08e5_calendar.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="220.0" fitWidth="303.0" layoutX="-60.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="239.0" fitWidth="369.0" layoutX="-90.0" layoutY="493.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/white-location-icon-png-7.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="109.0" fitWidth="116.0" layoutX="159.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="149.0" fitWidth="137.0" layoutX="244.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/icon-daun-png-1.png" />
          </image>
       </ImageView>
-      <Label layoutX="149.0" layoutY="86.0" prefHeight="49.0" prefWidth="67.0" text="eco" textFill="WHITE">
+      <Label layoutX="227.0" layoutY="79.0" prefHeight="74.0" prefWidth="97.0" text="eco" textFill="WHITE">
          <font>
-            <Font size="40.0" />
+            <Font name="System Bold" size="51.0" />
          </font>
       </Label>
-      <Label layoutX="210.0" layoutY="115.0" prefHeight="24.0" prefWidth="67.0" text="shop" textFill="WHITE">
+      <Label layoutX="279.0" layoutY="130.0" prefHeight="24.0" prefWidth="67.0" text="shop" textFill="WHITE">
          <font>
-            <Font size="22.0" />
+            <Font name="System Italic" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="331.0" layoutY="208.0" prefHeight="58.0" prefWidth="80.0" text="venta" textFill="WHITE">
+      <Label layoutX="455.0" layoutY="246.0" prefHeight="32.0" prefWidth="170.0" text="venta" textFill="WHITE">
          <font>
-            <Font name="Lucida Console" size="25.0" />
+            <Font name="Lucida Console" size="43.0" />
          </font>
       </Label>
-      <Label layoutX="301.0" layoutY="373.0" prefHeight="58.0" prefWidth="131.0" text="preventa" textFill="WHITE">
+      <Label layoutX="392.0" layoutY="400.0" prefHeight="58.0" prefWidth="233.0" text="preventa" textFill="WHITE">
          <font>
-            <Font name="Lucida Console" size="25.0" />
+            <Font name="Lucida Console" size="43.0" />
          </font>
       </Label>
-      <Label layoutX="308.0" layoutY="539.0" prefHeight="58.0" prefWidth="118.0" text="locales" textFill="WHITE">
+      <Label layoutX="420.0" layoutY="579.0" prefHeight="58.0" prefWidth="205.0" text="locales" textFill="WHITE">
          <font>
-            <Font name="Lucida Console" size="25.0" />
+            <Font name="Lucida Console" size="43.0" />
          </font>
       </Label>
-      <Button fx:id="btnVenta" layoutX="-6.0" layoutY="157.0" mnemonicParsing="false" prefHeight="167.0" prefWidth="442.0" style="-fx-background-color: transparent;" />
-      <Button fx:id="btnPreventa" layoutY="319.0" mnemonicParsing="false" prefHeight="167.0" prefWidth="442.0" style="-fx-background-color: transparent;" />
-      <Button fx:id="btnLocales" layoutY="484.0" mnemonicParsing="false" prefHeight="167.0" prefWidth="442.0" style="-fx-background-color: transparent;" />
-      <ImageView fx:id="btnAtras" fitHeight="32.0" fitWidth="67.0" layoutX="6.0" layoutY="610.0" onMouseClicked="#handleButtonAtras" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnAtras" fitHeight="32.0" fitWidth="67.0" layoutX="-2.0" layoutY="668.0" onMouseClicked="#handleButtonAtras" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/ios-back-icon-10.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="btnVenta" layoutX="1.0" layoutY="185.0" mnemonicParsing="false" prefHeight="167.0" prefWidth="625.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnPreventa" layoutX="1.0" layoutY="352.0" mnemonicParsing="false" prefHeight="179.0" prefWidth="625.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnLocales" layoutY="534.0" mnemonicParsing="false" prefHeight="167.0" prefWidth="625.0" style="-fx-background-color: transparent;" />
    </children>
 </AnchorPane>

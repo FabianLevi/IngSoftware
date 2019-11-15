@@ -49,7 +49,6 @@ public class VentanaPrincipalController implements Initializable {
     private void handleButtonEmpresa(ActionEvent event) {
     }
 
-    @FXML
     private void handleButtonUsuario(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
         Scene scene = new Scene(root);
