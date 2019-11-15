@@ -23,12 +23,20 @@
             <Image url="@../Imagenes/close-icon.png" />
          </image>
       </ImageView>
+<<<<<<< HEAD
       <ImageView fitHeight="248.0" fitWidth="278.0" layoutX="-7.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+=======
+      <ImageView fx:id="imgEmpresa" fitHeight="230.0" fitWidth="234.0" layoutX="-7.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
+>>>>>>> develop
          <image>
             <Image url="@../Imagenes/tea_leaf_png_1355682.png" />
          </image>
       </ImageView>
+<<<<<<< HEAD
       <ImageView fitHeight="150.0" fitWidth="157.0" layoutX="42.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
+=======
+      <ImageView fx:id="imgUsuario" fitHeight="130.0" fitWidth="152.0" layoutX="31.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
+>>>>>>> develop
          <image>
             <Image url="@../Imagenes/white-person-md.png" />
          </image>
@@ -48,17 +56,34 @@
             <Font name="System Italic" size="22.0" />
          </font>
       </Label>
+<<<<<<< HEAD
       <Label layoutX="402.0" layoutY="259.0" prefHeight="73.0" prefWidth="214.0" text="empresa" textFill="WHITE">
+=======
+      <Label fx:id="lblEmpresa" layoutX="261.0" layoutY="249.0" prefHeight="58.0" prefWidth="170.0" text="empresa" textFill="WHITE">
+>>>>>>> develop
          <font>
             <Font name="Lucida Console" size="49.0" />
          </font>
       </Label>
+<<<<<<< HEAD
       <Label layoutX="402.0" layoutY="496.0" prefHeight="58.0" prefWidth="214.0" text="usuario" textFill="WHITE">
+=======
+      <Label fx:id="lblUsuario" layoutX="262.0" layoutY="474.0" prefHeight="58.0" prefWidth="157.0" text="usuario" textFill="WHITE">
+>>>>>>> develop
          <font>
             <Font name="Lucida Console" size="49.0" />
          </font>
       </Label>
+<<<<<<< HEAD
       <Button fx:id="btnEmpresa" layoutY="174.0" mnemonicParsing="false" onAction="#handleButtonEmpresa" prefHeight="224.0" prefWidth="625.0" style="-fx-background-color: transparent;" />
       <Button fx:id="btnUsuario" layoutY="419.0" mnemonicParsing="false" onAction="#handleButtonEmpresa" prefHeight="224.0" prefWidth="625.0" style="-fx-background-color: transparent;" />
+=======
+      <Button fx:id="btnEmpresa" layoutY="212.0" mnemonicParsing="false" onAction="#handleButtonEmpresa" onMouseEntered="#entroMouseEmpresa" onMouseExited="#salioMouseEmpresa" prefHeight="136.0" prefWidth="435.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnUsuario" layoutY="424.0" mnemonicParsing="false" onAction="#handleButtonUsuario" onMouseEntered="#entroMouseUsuario" onMouseExited="#salioMouseUsuario" prefHeight="147.0" prefWidth="435.0" style="-fx-background-color: transparent;">
+         <font>
+            <Font name="Lucida Console" size="12.0" />
+         </font>
+      </Button>
+>>>>>>> develop
    </children>
 </AnchorPane>
