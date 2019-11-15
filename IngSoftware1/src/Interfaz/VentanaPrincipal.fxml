@@ -54,12 +54,12 @@
             <Font name="System Italic" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="lblEmpresa" layoutX="320.0" layoutY="249.0" prefHeight="58.0" prefWidth="234.0" text="empresa" textFill="WHITE">
+      <Label fx:id="lblEmpresa" layoutX="320.0" layoutY="249.0" prefHeight="58.0" prefWidth="234.0" text="Empresa" textFill="WHITE">
          <font>
             <Font name="Lucida Console" size="49.0" />
          </font>
       </Label>
-      <Label fx:id="lblUsuario" layoutX="320.0" layoutY="510.0" prefHeight="58.0" prefWidth="234.0" text="usuario" textFill="WHITE">
+      <Label fx:id="lblUsuario" layoutX="320.0" layoutY="510.0" prefHeight="58.0" prefWidth="234.0" text="Usuario" textFill="WHITE">
          <font>
             <Font name="Lucida Console" size="49.0" />
          </font>

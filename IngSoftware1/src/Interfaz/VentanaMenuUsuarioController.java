@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -40,6 +41,14 @@ public class VentanaMenuUsuarioController implements Initializable {
     private Button btnLocales;
     @FXML
     private Button btnDonar;
+    @FXML
+    private ImageView imgVenta;
+    @FXML
+    private ImageView imgPreventa;
+    @FXML
+    private ImageView imgLocales;
+    @FXML
+    private ImageView imgDonar;
 
     /**
      * Initializes the controller class.
@@ -59,6 +68,80 @@ public class VentanaMenuUsuarioController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
+    }
+
+    @FXML
+    private void salioMouseVenta(MouseEvent event) {
+        imgVenta.setFitHeight(imgVenta.getFitHeight() - 20);
+        imgVenta.setFitWidth(imgVenta.getFitWidth() - 20);
+    }
+
+    @FXML
+    private void entroMouseVenta(MouseEvent event) {
+        imgVenta.setFitHeight(imgVenta.getFitHeight() + 20);
+        imgVenta.setFitWidth(imgVenta.getFitWidth() + 20);
+    }
+
+    @FXML
+    private void salioMousePreventa(MouseEvent event) {
+        imgPreventa.setFitHeight(imgPreventa.getFitHeight() - 20);
+        imgPreventa.setFitWidth(imgPreventa.getFitWidth() - 20);
+    }
+
+    @FXML
+    private void entroMousePreventa(MouseEvent event) {
+        imgPreventa.setFitHeight(imgPreventa.getFitHeight() + 20);
+        imgPreventa.setFitWidth(imgPreventa.getFitWidth() + 20);
+    }
+
+    @FXML
+    private void salioMouseLocales(MouseEvent event) {
+        imgLocales.setFitHeight(imgLocales.getFitHeight() - 20);
+        imgLocales.setFitWidth(imgLocales.getFitWidth() - 20);
+    }
+
+    @FXML
+    private void entroMouseLocales(MouseEvent event) {
+        imgLocales.setFitHeight(imgLocales.getFitHeight() + 20);
+        imgLocales.setFitWidth(imgLocales.getFitWidth() + 20);
+    }
+
+    @FXML
+    private void salioMouseDonar(MouseEvent event) {
+        imgDonar.setFitHeight(imgDonar.getFitHeight() - 20);
+        imgDonar.setFitWidth(imgDonar.getFitWidth() - 20);
+    }
+
+    @FXML
+    private void entroMouseDonar(MouseEvent event) {
+        imgDonar.setFitHeight(imgDonar.getFitHeight() + 20);
+        imgDonar.setFitWidth(imgDonar.getFitWidth() + 20);
+    }
+
+    @FXML
+    private void handleButtonVenta(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaPreCompra.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+
+    @FXML
+    private void handleButtonPreventa(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaPreventa.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+
+    @FXML
+    private void handleButtonLocales(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaLocales.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+
+    @FXML
+    private void handleButtonDonar(ActionEvent event) {
+        
     }
     
 }
