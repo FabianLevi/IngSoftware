@@ -28,8 +28,6 @@ import javafx.scene.input.MouseEvent;
  * @author Darío
  */
 public class VentanaMenuUsuarioController implements Initializable {
-    private int posListaArticulos;
-    
     @FXML
     private ImageView btnSalir;
     @FXML
