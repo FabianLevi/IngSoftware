@@ -70,25 +70,29 @@ public class VentanaPrincipalController implements Initializable {
 
     @FXML
     private void salioMouseEmpresa(MouseEvent event) {
-        imgEmpresa.setFitHeight(imgEmpresa.getFitHeight() - 20);
-        imgEmpresa.setFitWidth(imgEmpresa.getFitWidth() - 20);
+        imgEmpresa.setFitHeight(imgEmpresa.getFitHeight() - 30);
+        imgEmpresa.setFitWidth(imgEmpresa.getFitWidth() - 30);
+        //lblEmpresa.setPrefSize(lblEmpresa.getPrefWidth() - 30, lblEmpresa.getPrefHeight() - 30);
     }
 
     @FXML
     private void entroMouseEmpresa(MouseEvent event) {
-        imgEmpresa.setFitHeight(imgEmpresa.getFitHeight() + 20);
-        imgEmpresa.setFitWidth(imgEmpresa.getFitWidth() + 20);
+        imgEmpresa.setFitHeight(imgEmpresa.getFitHeight() + 30);
+        imgEmpresa.setFitWidth(imgEmpresa.getFitWidth() + 30);
+        //lblEmpresa.setPrefSize(lblEmpresa.getPrefWidth() + 30, lblEmpresa.getPrefHeight() + 30);
     }
 
     @FXML
     private void salioMouseUsuario(MouseEvent event) {
-        imgUsuario.setFitHeight(imgUsuario.getFitHeight() - 20);
-        imgUsuario.setFitWidth(imgUsuario.getFitWidth() - 20);
+        imgUsuario.setFitHeight(imgUsuario.getFitHeight() - 30);
+        imgUsuario.setFitWidth(imgUsuario.getFitWidth() - 30);
+        //lblUsuario.setPrefSize(lblUsuario.getPrefWidth() - 30, lblUsuario.getPrefHeight() - 30);
     }
 
     @FXML
     private void entroMouseUsuario(MouseEvent event) {
-        imgUsuario.setFitHeight(imgUsuario.getFitHeight() + 20);
-        imgUsuario.setFitWidth(imgUsuario.getFitWidth() + 20);
+        imgUsuario.setFitHeight(imgUsuario.getFitHeight() + 30);
+        imgUsuario.setFitWidth(imgUsuario.getFitWidth() + 30);
+        //lblUsuario.setPrefSize(lblUsuario.getPrefWidth() + 30, lblUsuario.getPrefHeight() + 30);
     }
 }
