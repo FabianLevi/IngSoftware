@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -30,12 +31,18 @@ public class VentanaPrincipalController implements Initializable {
     
     @FXML
     private Button btnEmpresa;
-    
     @FXML
     private Button btnUsuario;
-    
     @FXML
     private ImageView btnSalir;
+    @FXML
+    private ImageView imgEmpresa;
+    @FXML
+    private ImageView imgUsuario;
+    @FXML
+    private Label lblEmpresa;
+    @FXML
+    private Label lblUsuario;
 
     /**
      * Initializes the controller class.
@@ -59,5 +66,29 @@ public class VentanaPrincipalController implements Initializable {
     @FXML
     private void handleButtonSalir(MouseEvent event) {
         Main.ventana.close();
+    }
+
+    @FXML
+    private void salioMouseEmpresa(MouseEvent event) {
+        imgEmpresa.setFitHeight(imgEmpresa.getFitHeight() - 20);
+        imgEmpresa.setFitWidth(imgEmpresa.getFitWidth() - 20);
+    }
+
+    @FXML
+    private void entroMouseEmpresa(MouseEvent event) {
+        imgEmpresa.setFitHeight(imgEmpresa.getFitHeight() + 20);
+        imgEmpresa.setFitWidth(imgEmpresa.getFitWidth() + 20);
+    }
+
+    @FXML
+    private void salioMouseUsuario(MouseEvent event) {
+        imgUsuario.setFitHeight(imgUsuario.getFitHeight() - 20);
+        imgUsuario.setFitWidth(imgUsuario.getFitWidth() - 20);
+    }
+
+    @FXML
+    private void entroMouseUsuario(MouseEvent event) {
+        imgUsuario.setFitHeight(imgUsuario.getFitHeight() + 20);
+        imgUsuario.setFitWidth(imgUsuario.getFitWidth() + 20);
     }
 }
