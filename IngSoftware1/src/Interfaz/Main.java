@@ -30,6 +30,23 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         sistema = new Sistema();
+        
+        Envase e1 = new Envase("plastico");
+        Envase e2 = new Envase("espuma plast");
+        
+        sistema.getListaEnvases().add(e1);
+        sistema.getListaEnvases().add(e2);
+        
+        ArrayList<Envase> listaEnvases = new ArrayList<>();
+        listaEnvases.add(e1);
+        listaEnvases.add(e2);
+        
+        Articulo art1 = new Articulo("bananas", "campo", 12, "orgánico", "bananas123", listaEnvases, e1, "/Imagenes/bananas.jpg");
+        Articulo art2 = new Articulo("manzanas", "campo", 15, "organico", "manzanas123", listaEnvases, e2, "/Imagenes/manzana.png");
+        
+        sistema.getListaArticulo().add(art1);
+        sistema.getListaArticulo().add(art2);
+        
         ventana = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
         Scene scene = new Scene(root);
@@ -42,6 +59,5 @@ public class Main extends Application {
     
     public static void main(String[] args) {
         launch(args);
-        
     }
 }

@@ -5,8 +5,11 @@
  */
 package Interfaz;
 
+import Dominio.Articulo;
+import Dominio.Sistema;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +17,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -23,24 +28,25 @@ import javafx.scene.input.MouseEvent;
  * @author Darío
  */
 public class VentanaMenuUsuarioController implements Initializable {
-
+    private int posListaArticulos;
+    
+    @FXML
+    private ImageView btnSalir;
+    @FXML
+    private ImageView btnAtras;
     @FXML
     private Button btnVenta;
     @FXML
     private Button btnPreventa;
     @FXML
     private Button btnLocales;
-    @FXML
-    private ImageView btnSalir;
-    @FXML
-    private ImageView btnAtras;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        //TODO
     }    
 
     @FXML
