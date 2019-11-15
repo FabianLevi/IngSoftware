@@ -84,7 +84,6 @@
             <Font name="System Italic" size="22.0" />
          </font>
       </Label>
-<<<<<<< Updated upstream
       <Label layoutX="476.0" layoutY="220.0" prefHeight="45.0" prefWidth="149.0" text="venta" textFill="WHITE">
          <font>
             <Font name="Lucida Console" size="43.0" />
