@@ -34,6 +34,8 @@ public class VentanaMenuUsuarioController implements Initializable {
     private ImageView btnSalir;
     @FXML
     private ImageView btnAtras;
+    @FXML
+    private Button btnDonar;
 
     /**
      * Initializes the controller class.
