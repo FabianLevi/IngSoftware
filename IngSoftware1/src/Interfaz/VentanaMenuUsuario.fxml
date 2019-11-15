@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaMenuUsuarioController">
    <children>
-      <ImageView fitHeight="262.0" fitWidth="625.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="245.0" fitWidth="625.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/f4da698a867c29621157f881a1653cd7.jpg" />
          </image>
@@ -41,12 +41,12 @@
             <Rectangle2D width="625.0" />
          </viewport>
       </ImageView>
-      <ImageView fitHeight="275.0" fitWidth="625.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="275.0" fitWidth="625.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/oscuro.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="239.0" fitWidth="625.0" layoutY="531.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="239.0" fitWidth="625.0" layoutY="429.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/verdemanzana.jpg" />
          </image>
@@ -54,17 +54,17 @@
             <Rectangle2D width="625.0" />
          </viewport>
       </ImageView>
-      <ImageView fitHeight="188.0" fitWidth="193.0" layoutX="14.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="146.0" fitWidth="137.0" layoutX="14.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/cart-icon-16.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="188.0" fitWidth="205.0" layoutX="6.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="117.0" fitWidth="137.0" layoutX="21.0" layoutY="321.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/5d39f86131745cb8040d08e5_calendar.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="239.0" fitWidth="369.0" layoutX="-90.0" layoutY="493.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="199.0" fitWidth="288.0" layoutX="-61.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/white-location-icon-png-7.jpg" />
          </image>
@@ -84,17 +84,18 @@
             <Font name="System Italic" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="455.0" layoutY="246.0" prefHeight="32.0" prefWidth="170.0" text="venta" textFill="WHITE">
+<<<<<<< Updated upstream
+      <Label layoutX="476.0" layoutY="220.0" prefHeight="45.0" prefWidth="149.0" text="venta" textFill="WHITE">
          <font>
             <Font name="Lucida Console" size="43.0" />
          </font>
       </Label>
-      <Label layoutX="392.0" layoutY="400.0" prefHeight="58.0" prefWidth="233.0" text="preventa" textFill="WHITE">
+      <Label layoutX="406.0" layoutY="340.0" prefHeight="58.0" prefWidth="233.0" text="preventa" textFill="WHITE">
          <font>
             <Font name="Lucida Console" size="43.0" />
          </font>
       </Label>
-      <Label layoutX="420.0" layoutY="579.0" prefHeight="58.0" prefWidth="205.0" text="locales" textFill="WHITE">
+      <Label layoutX="420.0" layoutY="471.0" prefHeight="58.0" prefWidth="205.0" text="locales" textFill="WHITE">
          <font>
             <Font name="Lucida Console" size="43.0" />
          </font>
@@ -104,8 +105,24 @@
             <Image url="@../Imagenes/ios-back-icon-10.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="btnVenta" layoutX="1.0" layoutY="185.0" mnemonicParsing="false" prefHeight="167.0" prefWidth="625.0" style="-fx-background-color: transparent;" />
-      <Button fx:id="btnPreventa" layoutX="1.0" layoutY="352.0" mnemonicParsing="false" prefHeight="179.0" prefWidth="625.0" style="-fx-background-color: transparent;" />
-      <Button fx:id="btnLocales" layoutY="534.0" mnemonicParsing="false" prefHeight="167.0" prefWidth="625.0" style="-fx-background-color: transparent;" />
+      <ImageView fitHeight="675.0" fitWidth="669.0" layoutX="-44.0" layoutY="566.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/cd904482fb392e4d6f6f2909d06b0b56.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="129.0" fitWidth="125.0" layoutX="25.0" layoutY="562.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/Handshake2.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="476.0" layoutY="596.0" prefHeight="58.0" prefWidth="149.0" text="donar" textFill="WHITE">
+         <font>
+            <Font name="Lucida Console" size="43.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnVenta" layoutX="-3.0" layoutY="185.0" mnemonicParsing="false" prefHeight="117.0" prefWidth="632.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnPreventa" layoutX="-3.0" layoutY="311.0" mnemonicParsing="false" prefHeight="117.0" prefWidth="625.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnLocales" layoutX="1.0" layoutY="431.0" mnemonicParsing="false" prefHeight="137.0" prefWidth="625.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="btnDonar" layoutX="1.0" layoutY="572.0" mnemonicParsing="false" prefHeight="137.0" prefWidth="625.0" style="-fx-background-color: transparent;" />
    </children>
 </AnchorPane>

@@ -40,6 +40,8 @@ public class VentanaMenuUsuarioController implements Initializable {
     private Button btnPreventa;
     @FXML
     private Button btnLocales;
+    @FXML
+    private Button btnDonar;
 
     /**
      * Initializes the controller class.
