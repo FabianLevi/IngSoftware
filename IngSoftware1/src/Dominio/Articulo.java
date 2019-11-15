@@ -29,14 +29,16 @@ public class Articulo {
             ArrayList<Envase> listaEnvasesPosibles, Envase unEnvaseElegido, String unaRutaImagen) {
         nombre = unNombre;
         origenMatPrima = unOrigenMatPrima;
-        precio = unPrecio;
+        this.setPrecio(unPrecio);
         material = unMaterial;
         codigo = unCodigo;
         envasesPosibles = listaEnvasesPosibles;
         envaseElegido = unEnvaseElegido;
         rutaImagen = unaRutaImagen;
     }
-
+    public Articulo(){
+    this.setPrecio(0);
+    }
     //Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;
