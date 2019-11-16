@@ -74,12 +74,12 @@
             <Rectangle2D width="625.0" />
          </viewport>
       </ImageView>
-      <ImageView fx:id="btnAtras" fitHeight="71.0" fitWidth="67.0" layoutX="9.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnAtras" fitHeight="71.0" fitWidth="67.0" layoutX="9.0" layoutY="203.0" onMouseClicked="#handleButtonAtras" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/ios-back-icon-10.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="btnMenu" fitHeight="135.0" fitWidth="191.0" layoutX="-53.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnMenu" fitHeight="135.0" fitWidth="191.0" layoutX="-53.0" layoutY="75.0" onMouseClicked="#handleButtonMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/home-transparent-white-12.png" />
          </image>

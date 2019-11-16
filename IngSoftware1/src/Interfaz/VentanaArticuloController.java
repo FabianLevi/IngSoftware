@@ -6,11 +6,16 @@
 package Interfaz;
 
 import Dominio.Articulo;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -74,10 +79,28 @@ public class VentanaArticuloController implements Initializable {
 
     @FXML
     private void handleButtonSalir(MouseEvent event) {
+        Main.ventana.close();
     }
 
     @FXML
-    private void handleButtonAtras(MouseEvent event) {
+    private void handleButtonAtras(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaPreCompra.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+
+    @FXML
+    private void handleButtonComprar(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaCompra.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+
+    @FXML
+    private void handleButtonMenu(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
     }
     
 }

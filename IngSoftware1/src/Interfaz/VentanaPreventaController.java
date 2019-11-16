@@ -72,15 +72,26 @@ public class VentanaPreventaController implements Initializable {
 
     @FXML
     private void handleButtonSalir(MouseEvent event) {
+        Main.ventana.close();
     }
 
     @FXML
-    private void handleButtonAtras(MouseEvent event) {
+    private void handleButtonAtras(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
     }
 
     @FXML
     private void handleButtonRegistrarPreventa(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPreventaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+
+    @FXML
+    private void handleButtonMenu(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
