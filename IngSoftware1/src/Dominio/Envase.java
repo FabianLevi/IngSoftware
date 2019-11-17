@@ -13,10 +13,12 @@ public class Envase {
     
     //Atributos
     private String tipo;
-    
+    private String rutaImagen;
+
     //Constructores
-    public Envase(String unTipo) {
+    public Envase(String unTipo, String unaRutaImagen) {
         tipo = unTipo;
+        rutaImagen = unaRutaImagen;
     }
 
     //Setters
@@ -24,8 +26,16 @@ public class Envase {
         this.tipo = tipo;
     }
     
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
+    }
+    
     //Getter
     public String getTipo() {
         return tipo;
+    }
+    
+    public String getRutaImagen() {
+        return rutaImagen;
     }
 }

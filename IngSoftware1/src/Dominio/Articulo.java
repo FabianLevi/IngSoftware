@@ -37,8 +37,9 @@ public class Articulo {
         rutaImagen = unaRutaImagen;
     }
     public Articulo(){
-    this.setPrecio(0);
+        this.setPrecio(0);
     }
+    
     //Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;

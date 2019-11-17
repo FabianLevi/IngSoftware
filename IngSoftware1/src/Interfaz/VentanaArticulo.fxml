@@ -93,53 +93,53 @@
             <InnerShadow />
          </effect>
       </Button>
-      <Label layoutX="103.0" layoutY="108.0" prefHeight="40.0" prefWidth="349.0" text="Nombre:" textFill="#5ac3a8">
+      <Label layoutX="103.0" layoutY="104.0" prefHeight="40.0" prefWidth="349.0" text="Nombre:" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <TextField fx:id="textNombre" layoutX="105.0" layoutY="148.0" prefHeight="25.0" prefWidth="201.0" />
-      <Label layoutX="103.0" layoutY="436.0" prefHeight="67.0" prefWidth="349.0" text="Envases Posibles:" textFill="#5ac3a8">
+      <Label layoutX="103.0" layoutY="450.0" prefHeight="40.0" prefWidth="349.0" text="Envases Posibles:" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="183.0" prefHeight="40.0" prefWidth="349.0" text="Precio:" textFill="#5ac3a8">
+      <Label layoutX="103.0" layoutY="186.0" prefHeight="40.0" prefWidth="349.0" text="Precio:" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <TextField fx:id="textPrecio" layoutX="105.0" layoutY="237.0" prefHeight="25.0" prefWidth="201.0" />
-      <Label layoutX="103.0" layoutY="270.0" prefHeight="40.0" prefWidth="349.0" text="Código:" textFill="#5ac3a8">
+      <Label layoutX="103.0" layoutY="272.0" prefHeight="40.0" prefWidth="349.0" text="Código:" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <TextField fx:id="textCodigo" layoutX="105.0" layoutY="319.0" prefHeight="25.0" prefWidth="201.0" />
       <ImageView fx:id="imagen1" fitHeight="114.0" fitWidth="121.0" layoutX="114.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagen2" fitHeight="114.0" fitWidth="121.0" layoutX="259.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="btnSiguiente" fitHeight="47.0" fitWidth="57.0" layoutX="282.0" layoutY="645.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnSiguiente" fitHeight="47.0" fitWidth="57.0" layoutX="282.0" layoutY="645.0" onMouseClicked="#handleButtonSiguiente" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/avance.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="btnAnterior" fitHeight="47.0" fitWidth="57.0" layoutX="188.0" layoutY="645.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+      <ImageView fx:id="btnAnterior" fitHeight="47.0" fitWidth="57.0" layoutX="188.0" layoutY="645.0" onMouseClicked="#handleButtonAnterior" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
          <image>
             <Image url="@../Imagenes/avance.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imagenArticulo" fitHeight="199.0" fitWidth="238.0" layoutX="359.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="103.0" layoutY="350.0" prefHeight="40.0" prefWidth="349.0" text="Material:" textFill="#5ac3a8">
+      <Label layoutX="103.0" layoutY="360.0" prefHeight="40.0" prefWidth="180.0" text="Material:" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <TextField fx:id="textCodigo1" layoutX="105.0" layoutY="399.0" prefHeight="25.0" prefWidth="201.0" />
-      <Label layoutX="345.0" layoutY="350.0" prefHeight="40.0" prefWidth="349.0" text="Materia Prima:" textFill="#5ac3a8">
+      <Label layoutX="345.0" layoutY="360.0" prefHeight="40.0" prefWidth="260.0" text="Materia Prima:" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <TextField fx:id="textCodigo11" layoutX="352.0" layoutY="399.0" prefHeight="25.0" prefWidth="229.0" />
+      <Label fx:id="lblNombre" layoutX="103.0" layoutY="144.0" prefHeight="30.0" prefWidth="300.0" text="Label" />
+      <Label fx:id="lblPrecio" layoutX="103.0" layoutY="226.0" prefHeight="30.0" prefWidth="300.0" text="Label" />
+      <Label fx:id="lblCodigo" layoutX="103.0" layoutY="312.0" prefHeight="30.0" prefWidth="300.0" text="Label" />
+      <Label fx:id="lblMaterial" layoutX="103.0" layoutY="400.0" prefHeight="30.0" prefWidth="180.0" text="Label" />
+      <Label fx:id="lblMatPrima" layoutX="345.0" layoutY="400.0" prefHeight="30.0" prefWidth="180.0" text="Label" />
    </children>
 </AnchorPane>

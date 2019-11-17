@@ -31,11 +31,15 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         sistema = new Sistema();
         
-        Envase e1 = new Envase("plastico");
-        Envase e2 = new Envase("espuma plast");
+        Envase e1 = new Envase("plastico", "/Imagenes/plastico.jpg");
+        Envase e2 = new Envase("espuma plast", "/Imagenes/espuma plast.jpg");
+        Envase e3 = new Envase("carton", "/Imagenes/carton.jpg");
+        Envase e4 = new Envase("vidrio", "/Imagenes/vidrio.jpg");
         
         sistema.getListaEnvases().add(e1);
         sistema.getListaEnvases().add(e2);
+        sistema.getListaEnvases().add(e3);
+        sistema.getListaEnvases().add(e4);
         
         ArrayList<Envase> listaEnvases = new ArrayList<>();
         listaEnvases.add(e1);
@@ -43,9 +47,13 @@ public class Main extends Application {
         
         Articulo art1 = new Articulo("bananas", "campo", 12, "orgánico", "bananas123", listaEnvases, e1, "/Imagenes/bananas.jpg");
         Articulo art2 = new Articulo("manzanas", "campo", 15, "organico", "manzanas123", listaEnvases, e2, "/Imagenes/manzana.png");
+        Articulo art3 = new Articulo("peras", "campo", 12, "orgánico", "´peras123", listaEnvases, e1, "/Imagenes/peras.jpg");
+        Articulo art4 = new Articulo("naranjas", "campo", 15, "organico", "naranjas123", listaEnvases, e2, "/Imagenes/naranjas.jpg");
         
         sistema.getListaArticulo().add(art1);
         sistema.getListaArticulo().add(art2);
+        sistema.getListaArticulo().add(art3);
+        sistema.getListaArticulo().add(art4);
         
         ventana = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));

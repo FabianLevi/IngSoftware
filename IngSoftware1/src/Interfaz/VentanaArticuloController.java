@@ -5,7 +5,7 @@
  */
 package Interfaz;
 
-import Dominio.Articulo;
+import Dominio.Envase;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -28,7 +29,7 @@ import javafx.scene.input.MouseEvent;
  * @author Darío
  */
 public class VentanaArticuloController implements Initializable {
-    private int posListaArticulos;
+    private int posListaEnvases;
     
     @FXML
     private ImageView btnSalir;
@@ -38,12 +39,6 @@ public class VentanaArticuloController implements Initializable {
     private ImageView btnMenu;
     @FXML
     private Button btnComprar;
-    @FXML
-    private TextField textNombre;
-    @FXML
-    private TextField textPrecio;
-    @FXML
-    private TextField textCodigo;
     @FXML
     private ImageView imagen1;
     @FXML
@@ -55,26 +50,26 @@ public class VentanaArticuloController implements Initializable {
     @FXML
     private ImageView imagenArticulo;
     @FXML
-    private TextField textCodigo1;
+    private Label lblNombre;
     @FXML
-    private TextField textCodigo11;
+    private Label lblPrecio;
+    @FXML
+    private Label lblCodigo;
+    @FXML
+    private Label lblMaterial;
+    @FXML
+    private Label lblMatPrima;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.posListaArticulos = 0;
-        
-        ArrayList<Articulo> listaArticulos = Main.sistema.getListaArticulo();
-        String rutaImg1 = listaArticulos.get(posListaArticulos).getRutaImagen();
-        String rutaImg2 = listaArticulos.get(posListaArticulos + 1).getRutaImagen();
-        
-        Image img1 = new Image(rutaImg1);
-        Image img2 = new Image(rutaImg2);
-        
-        this.imagen1 = new ImageView(img1);
-        this.imagen2 = new ImageView(img2);
+        this.posListaEnvases = 0;
+        setearImagen1();
+        this.posListaEnvases++;
+        setearImagen2();
+        this.posListaEnvases++;
     }    
 
     @FXML
@@ -102,5 +97,49 @@ public class VentanaArticuloController implements Initializable {
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
+
+    @FXML
+    private void handleButtonSiguiente(MouseEvent event) {
+        siguiente();
+    }
+
+    @FXML
+    private void handleButtonAnterior(MouseEvent event) {
+        anterior();
+    }
     
+    public void siguiente() {
+        ArrayList<Envase> listaEnvases = Main.sistema.getListaEnvases();
+        if (listaEnvases.size() > this.posListaEnvases) {
+            this.imagen1.setImage(imagen2.getImage());
+            setearImagen2();
+            this.posListaEnvases++;
+        }
+    }
+    
+    public void anterior() {
+        if (this.posListaEnvases > 2 ) {
+            this.posListaEnvases -= 3;
+            setearImagen1();
+            this.posListaEnvases++;
+            setearImagen2();
+            this.posListaEnvases++;
+        }
+    }
+    
+    public void setearImagen1() {
+        ArrayList<Envase> listaEnvases = Main.sistema.getListaEnvases();
+        this.imagen1.setVisible(true);
+        String rutaImg1 = listaEnvases.get(posListaEnvases).getRutaImagen();
+        Image img1 = new Image(rutaImg1);
+        this.imagen1.setImage(img1);
+    }
+    
+    public void setearImagen2() {
+        ArrayList<Envase> listaEnvases = Main.sistema.getListaEnvases();
+        this.imagen2.setVisible(true);
+        String rutaImg2 = listaEnvases.get(posListaEnvases).getRutaImagen();
+        Image img2 = new Image(rutaImg2);
+        this.imagen2.setImage(img2);
+    }
 }
