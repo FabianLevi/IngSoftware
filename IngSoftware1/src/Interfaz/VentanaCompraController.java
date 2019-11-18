@@ -79,9 +79,5 @@ public class VentanaCompraController implements Initializable {
             Scene scene = new Scene(root);
             Main.ventana.setScene(scene);
         }
-
     }
-
-    
-    
 }

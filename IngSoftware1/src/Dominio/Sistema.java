@@ -45,7 +45,7 @@ public class Sistema {
     //Atributos Auxiliares
     private ArrayList<NodoArticulo> listaArticulosVendidos;
     private ArrayList<NodoArticulo> listaArticulosMasVendidos;
-    private ArrayList<NodoEnvase>listaEnvasesReutilizables;
+    private ArrayList<NodoEnvase> listaEnvasesReutilizables;
 
     public int getArticulo() {
         return articulo;

@@ -76,14 +76,14 @@ public class VentanaFinalizarPreventaController implements Initializable {
     private void handleButtonFinalizarCompra(ActionEvent event) throws IOException {
         
         if(datePicker.getValue().getYear()!= 0){
-        int dia = datePicker.getValue().getDayOfMonth();
-        int mes = datePicker.getValue().getMonthValue();
-        int ano = datePicker.getValue().getYear();
-        Date fechaPreVenta = new Date();
-        fechaPreVenta.setDate(dia);
-        fechaPreVenta.setMonth(mes);
-        fechaPreVenta.setYear(ano);
-        Venta v = Main.sistema.getVentaActual();
+            int dia = datePicker.getValue().getDayOfMonth();
+            int mes = datePicker.getValue().getMonthValue();
+            int ano = datePicker.getValue().getYear();
+            Date fechaPreVenta = new Date();
+            fechaPreVenta.setDate(dia);
+            fechaPreVenta.setMonth(mes);
+            fechaPreVenta.setYear(ano);
+            Venta v = Main.sistema.getVentaActual();
             if(v!=null){
                 PreVenta pv = new PreVenta();
                 pv.setVentaRealizar(v);
