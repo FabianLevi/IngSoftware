@@ -61,6 +61,8 @@ public class VentanaPreventaController implements Initializable {
     private ImageView btnSiguiente;
     @FXML
     private ImageView btnAnterior;
+    @FXML
+    private ImageView btnAtras2;
 
     /**
      * Initializes the controller class.

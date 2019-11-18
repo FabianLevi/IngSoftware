@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaPreventaCodigoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaPreventaCodigoController">
    <children>
       <ImageView fitWidth="625.0" layoutY="-129.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -87,6 +80,6 @@
             <Font name="Lucida Console" size="31.0" />
          </font>
       </Label>
-      <TextField fx:id="textCodigo" layoutX="147.0" layoutY="212.0" prefHeight="166.0" prefWidth="389.0" />
+      <ImageView fx:id="imagenCodigo" fitHeight="287.0" fitWidth="399.0" layoutX="149.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

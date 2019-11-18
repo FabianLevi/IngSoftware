@@ -16,6 +16,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -35,11 +37,11 @@ public class VentanaCompraController implements Initializable {
     @FXML
     private ImageView btnMenu;
     @FXML
+    private Label lblNombre;
+    @FXML
+    private Label lblTarjeta;
+    @FXML
     private Button btnFinalizarCompra;
-    @FXML
-    private TextField textNombre;
-    @FXML
-    private TextField textTarjeta;
 
     /**
      * Initializes the controller class.
@@ -78,6 +80,10 @@ public class VentanaCompraController implements Initializable {
             Main.ventana.setScene(scene);
         }
 
+    }
+
+    @FXML
+    private void handleButtonFinalizarCompra(ActionEvent event) {
     }
     
 }

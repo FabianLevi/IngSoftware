@@ -15,7 +15,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -34,29 +37,23 @@ public class VentanaPreventaArticuloController implements Initializable {
     @FXML
     private ImageView btnMenu;
     @FXML
-    private Button btnAceptar;
-    @FXML
-    private TextField textNombre;
-    @FXML
-    private TextField textPrecio;
-    @FXML
-    private TextField textCodigo;
-    @FXML
-    private ImageView imagen1;
-    @FXML
-    private ImageView imagen2;
-    @FXML
-    private ImageView btnSiguiente;
-    @FXML
-    private ImageView btnAnterior;
-    @FXML
     private ImageView imagenArticulo;
     @FXML
-    private DatePicker datePicker;
+    private Button btnComprar;
     @FXML
-    private TextField textNombre1;
+    private Label lblNombre;
     @FXML
-    private TextField textNombre11;
+    private Label lblPrecio;
+    @FXML
+    private Label lblCodigo;
+    @FXML
+    private Label lblMaterial;
+    @FXML
+    private Label lblMatPrima;
+    @FXML
+    private ListView<?> lstEnvases;
+    @FXML
+    private ComboBox<?> boxCantidad;
 
     /**
      * Initializes the controller class.
@@ -78,7 +75,6 @@ public class VentanaPreventaArticuloController implements Initializable {
         Main.ventana.setScene(scene);
     }
 
-    @FXML
     private void handleButtonAceptar(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPreventaCodigo.fxml"));
         Scene scene = new Scene(root);
@@ -90,6 +86,10 @@ public class VentanaPreventaArticuloController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
+    }
+
+    @FXML
+    private void handleButtonAgregarAlCarrito(ActionEvent event) {
     }
     
 }

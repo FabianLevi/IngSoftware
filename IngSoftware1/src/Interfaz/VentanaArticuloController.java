@@ -73,11 +73,11 @@ public class VentanaArticuloController implements Initializable {
         lblCodigo.setText("");
         lblMaterial.setText("");
         lblMatPrima.setText("");
-        inizialiarLabel();
+        inicializarLabel();
     }    
     
     
-    public void inizialiarLabel(){
+    public void inicializarLabel(){
         lblNombre.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getNombre());
         lblPrecio.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getPrecio() + "");
         lblCodigo.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getCodigo());

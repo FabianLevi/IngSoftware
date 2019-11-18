@@ -2,16 +2,15 @@
 
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaPreventaArticuloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaFinalizarPreventaController">
    <children>
       <ImageView fitWidth="625.0" layoutY="-129.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,6 +19,16 @@
          <viewport>
             <Rectangle2D width="625.0" />
          </viewport>
+      </ImageView>
+      <ImageView fitHeight="66.0" fitWidth="80.0" layoutX="14.0" layoutY="597.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/home-transparent-white-12.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="61.0" fitWidth="32.0" layoutX="-2.0" layoutY="608.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/ios-back-icon-10.jpg" />
+         </image>
       </ImageView>
       <ImageView fx:id="btnSalir" fitHeight="42.0" fitWidth="40.0" layoutX="585.0" onMouseClicked="#handleButtonSalir" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -46,7 +55,12 @@
             <Font name="System Italic" size="19.0" />
          </font>
       </Label>
-      <ImageView fitHeight="607.0" fitWidth="605.0" layoutX="-511.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnAtras" fitHeight="32.0" fitWidth="67.0" layoutX="-2.0" layoutY="668.0" onMouseClicked="#handleButtonAtras" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/ios-back-icon-10.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="615.0" fitWidth="602.0" layoutX="-508.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/78291390-fondo-liso-verde-oscuro-para-el-sitio-web-patrón-fondo-de-pantalla-borroso%20(1).jpg" />
          </image>
@@ -64,7 +78,7 @@
             <Image url="@../Imagenes/home-transparent-white-12.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnComprar" layoutX="473.0" layoutY="607.0" mnemonicParsing="false" onAction="#handleButtonAgregarAlCarrito" prefHeight="74.0" prefWidth="131.0" style="-fx-background-color: white;" text="Agregar al Carrito" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="btnFinalizarPreventa" layoutX="370.0" layoutY="620.0" mnemonicParsing="false" onAction="#handleButtonFinalizarCompra" prefHeight="61.0" prefWidth="234.0" style="-fx-background-color: white;" text="Finalizar Preventa">
          <font>
             <Font name="Rockwell" size="22.0" />
          </font>
@@ -72,48 +86,18 @@
             <InnerShadow />
          </effect>
       </Button>
-      <Label layoutX="103.0" layoutY="104.0" prefHeight="40.0" prefWidth="349.0" text="Nombre:" textFill="#327966">
+      <Label layoutX="113.0" layoutY="344.0" prefHeight="67.0" prefWidth="349.0" text="Nombre:" textFill="#327966">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="450.0" prefHeight="40.0" prefWidth="349.0" text="Envases Posibles:" textFill="#327966">
+      <Label layoutX="113.0" layoutY="473.0" prefHeight="67.0" prefWidth="349.0" text="Número de tarjeta:" textFill="#327966">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="186.0" prefHeight="40.0" prefWidth="349.0" text="Precio:" textFill="#327966">
-         <font>
-            <Font name="Lucida Console" size="29.0" />
-         </font>
-      </Label>
-      <Label layoutX="103.0" layoutY="272.0" prefHeight="40.0" prefWidth="349.0" text="Código:" textFill="#327966">
-         <font>
-            <Font name="Lucida Console" size="29.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="imagenArticulo" fitHeight="199.0" fitWidth="238.0" layoutX="359.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="103.0" layoutY="360.0" prefHeight="40.0" prefWidth="180.0" text="Material:" textFill="#327966">
-         <font>
-            <Font name="Lucida Console" size="29.0" />
-         </font>
-      </Label>
-      <Label layoutX="345.0" layoutY="360.0" prefHeight="40.0" prefWidth="260.0" text="Materia Prima:" textFill="#327966">
-         <font>
-            <Font name="Lucida Console" size="29.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblNombre" layoutX="103.0" layoutY="144.0" prefHeight="30.0" prefWidth="300.0" text="Label" />
-      <Label fx:id="lblPrecio" layoutX="103.0" layoutY="226.0" prefHeight="30.0" prefWidth="300.0" text="Label" />
-      <Label fx:id="lblCodigo" layoutX="103.0" layoutY="312.0" prefHeight="30.0" prefWidth="300.0" text="Label" />
-      <Label fx:id="lblMaterial" layoutX="103.0" layoutY="400.0" prefHeight="30.0" prefWidth="180.0" text="Label" />
-      <Label fx:id="lblMatPrima" layoutX="345.0" layoutY="400.0" prefHeight="30.0" prefWidth="180.0" text="Label" />
-      <ListView fx:id="lstEnvases" layoutX="103.0" layoutY="490.0" prefHeight="100.0" prefWidth="300.0" />
-      <Label layoutX="103.0" layoutY="629.0" text="Cantidad:" textFill="#327966">
-         <font>
-            <Font name="Lucida Console" size="29.0" />
-         </font>
-      </Label>
-      <ComboBox fx:id="boxCantidad" layoutX="278.0" layoutY="629.0" prefHeight="31.0" prefWidth="90.0" />
+      <Label fx:id="lblNombre" layoutX="114.0" layoutY="428.0" prefHeight="32.0" prefWidth="299.0" text="label" />
+      <Label fx:id="lblTarjeta" layoutX="114.0" layoutY="558.0" prefHeight="32.0" prefWidth="299.0" text="label" />
+      <DatePicker fx:id="datePicker" layoutX="220.0" layoutY="126.0" prefHeight="25.0" prefWidth="267.0" />
    </children>
 </AnchorPane>

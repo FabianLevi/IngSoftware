@@ -34,14 +34,6 @@ public class VentanaMenuUsuarioController implements Initializable {
     @FXML
     private ImageView btnAtras;
     @FXML
-    private Button btnVenta;
-    @FXML
-    private Button btnPreventa;
-    @FXML
-    private Button btnLocales;
-    @FXML
-    private Button btnDonar;
-    @FXML
     private ImageView imgVenta;
     @FXML
     private ImageView imgPreventa;
@@ -49,8 +41,14 @@ public class VentanaMenuUsuarioController implements Initializable {
     private ImageView imgLocales;
     @FXML
     private ImageView imgDonar;
-     @FXML
-    private ImageView imagen1;
+    @FXML
+    private Button btnVenta;
+    @FXML
+    private Button btnPreventa;
+    @FXML
+    private Button btnLocales;
+    @FXML
+    private Button btnDonar;
 
     /**
      * Initializes the controller class.
@@ -146,7 +144,7 @@ public class VentanaMenuUsuarioController implements Initializable {
 
     @FXML
     private void handleButtonDonar(ActionEvent event) {
-        
     }
+
     
 }
