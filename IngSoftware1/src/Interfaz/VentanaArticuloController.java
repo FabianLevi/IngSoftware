@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import Dominio.Articulo;
 import Dominio.Envase;
 import Dominio.NodoArticulo;
 import Dominio.Venta;
@@ -171,28 +172,71 @@ public class VentanaArticuloController implements Initializable {
 //    }
 
     @FXML
-    private void handleButtonAgregarAlCarrito(ActionEvent event) {
+    private void handleButtonAgregarAlCarrito(ActionEvent event) throws IOException {
         if (lstEnvases.getSelectionModel().isEmpty()) {
             //MESNAJE DE ERROR: Seleccione un elemento de la lista de envases
         }
         else {
+           
             Venta v = Main.sistema.getVentaActual();
             if (v == null) {        //CHEQUEAR ESTO!!
                 Venta nuevaVenta = new Venta();
                 ArrayList<NodoArticulo> articulos = new ArrayList<>();
                 NodoArticulo nodo = new NodoArticulo();
                 nodo.setArticulo(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()));
+                nodo.getArticulo().setEnvaseElegido(lstEnvases.getSelectionModel().getSelectedItem());
                 nodo.setCantVendidas(Integer.parseInt(boxCantidad.getSelectionModel().getSelectedItem()));
                 articulos.add(nodo);
+                nuevaVenta.setArticulos(articulos);
                 Main.sistema.setVentaActual(nuevaVenta);
+                Parent root = FXMLLoader.load(getClass().getResource("VentanaPreCompra.fxml"));
+                Scene scene = new Scene(root);
+                Main.ventana.setScene(scene);
+                
             }
             else {
-                actualizarVenta();
+                NodoArticulo nodo2 = new NodoArticulo();
+                nodo2.setArticulo(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()));
+                if(v.getArticulos().contains(nodo2)){
+                    boolean esta = false;
+                    for (int i = 0; i < v.getArticulos().size(); i++) {
+                        NodoArticulo a = v.getArticulos().get(i);
+                        if(a.getArticulo().equals(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()))){
+                            if(a.getArticulo().getEnvaseElegido().getTipo().equals(lstEnvases.getSelectionModel().getSelectedItem().getTipo())){
+                                a.setCantVendidas(a.getCantVendidas() + Integer.parseInt(boxCantidad.getSelectionModel().getSelectedItem()));
+                                esta = true;
+                                Parent root = FXMLLoader.load(getClass().getResource("VentanaPreCompra.fxml"));
+                                Scene scene = new Scene(root);
+                                Main.ventana.setScene(scene);
+                            }
+                        }
+                    }
+                    if (!esta) {
+                        NodoArticulo nodo = new NodoArticulo();
+                        Articulo art = new Articulo(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()));
+                        Envase env = lstEnvases.getSelectionModel().getSelectedItem();
+                        art.setEnvaseElegido(env);
+                        nodo.setArticulo(art);
+                        nodo.setCantVendidas(Integer.parseInt(boxCantidad.getSelectionModel().getSelectedItem()));
+                        Main.sistema.getVentaActual().getArticulos().add(nodo);
+                        Parent root = FXMLLoader.load(getClass().getResource("VentanaPreCompra.fxml"));
+                        Scene scene = new Scene(root);
+                        Main.ventana.setScene(scene);
+                    }
+                }else{
+                    NodoArticulo nodo = new NodoArticulo();
+                    nodo.setArticulo(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()));
+                    nodo.getArticulo().setEnvaseElegido(lstEnvases.getSelectionModel().getSelectedItem());
+                    nodo.setCantVendidas(Integer.parseInt(boxCantidad.getSelectionModel().getSelectedItem()));
+                    Main.sistema.getVentaActual().getArticulos().add(nodo);
+                    Parent root = FXMLLoader.load(getClass().getResource("VentanaPreCompra.fxml"));
+                    Scene scene = new Scene(root);
+                    Main.ventana.setScene(scene);
+                }
+                    
             }
         }
     }
 
-    private void actualizarVenta() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  
 }

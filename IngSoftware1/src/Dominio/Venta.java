@@ -43,7 +43,7 @@ public class Venta {
         articulos = null;
         puntoDeVenta = null;
         usuario = null;
-        fecha=null;
+        this.setFecha(new Date());
     }
     //Setters
     public void setArticulos(ArrayList<NodoArticulo> articulos) {

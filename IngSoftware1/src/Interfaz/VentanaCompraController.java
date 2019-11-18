@@ -9,6 +9,7 @@ import Dominio.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -67,13 +68,14 @@ public class VentanaCompraController implements Initializable {
         Main.ventana.setScene(scene);
     }
     @FXML
-    private void handleButtonFinalizarCompra(MouseEvent event) throws IOException {
+    private void handleButtonFinalizarCompra(ActionEvent event) throws IOException {
         Venta v = Main.sistema.getVentaActual();
         if(v!=null){
             Main.sistema.agregarVenta(v);
             Main.sistema.setVentaActual(null);
-        }else{
-            JOptionPane.showMessageDialog(null, "El carrito esta vacio", "Error", JOptionPane.ERROR_MESSAGE);
+            Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
+            Scene scene = new Scene(root);
+            Main.ventana.setScene(scene);
         }
 
     }

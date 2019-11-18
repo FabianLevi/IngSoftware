@@ -113,8 +113,8 @@ public class Sistema {
         this.listaArticulosMasVendidos = new ArrayList<NodoArticulo>();
         this.listaEnvasesReutilizables = new ArrayList<NodoEnvase>();
         this.setArticulo(0);
-        this.setVentaActual(null);
-        
+        //this.setVentaActual(null);
+        this.ventaActual=null;
     }
 
     //Getters & Setters
@@ -212,24 +212,19 @@ public class Sistema {
         this.getListaVentas().add(v);
         ArrayList<NodoArticulo> articulos = v.getArticulos();
         for (int i = 0; i < articulos.size(); i++) {
-            //ArrayList<NodoArticulo>lista = this.getListaArticulosVendidos();
-            //NodoArticulo esta = new NodoArticulo();
-            //esta.articulo=articulos.get(i);
-            //int pos = this.getListaArticulosVendidos().indexOf(esta);
             int pos =0;
             while(!(this.getListaArticulosVendidos().get(pos).articulo.getNombre().equals(articulos.get(i).getArticulo().getNombre()))){
                 pos++;
             }
             NodoArticulo nodo = this.getListaArticulosVendidos().get(pos);
-            nodo.cantVendidas++;
+            nodo.setCantVendidas(nodo.getCantVendidas()+ v.getArticulos().get(i).getCantVendidas());
             //int posEnvase  = this.getListaEnvasesReutilizables().indexOf(articulos.get(i).getEnvaseElegido());
             int posEnvase=0;
             while(!(this.getListaEnvasesReutilizables().get(posEnvase).envase.getTipo().equals(articulos.get(i).getArticulo().getEnvaseElegido().getTipo()))){
                 posEnvase++;
             }
             NodoEnvase nodoEnvase = this.getListaEnvasesReutilizables().get(posEnvase);
-            nodoEnvase.cantVendidas++;
-            // esta mal la segunda condicon del if si modifico directamente la posicion 0 siempre va a ser igual y me va a agregar el nodo aunque sea mas 
+            nodoEnvase.setCantVendidas(nodoEnvase.getCantVendidas()+ v.getArticulos().get(i).getCantVendidas());
             if (this.getListaArticulosMasVendidos().isEmpty()) {
                 this.getListaArticulosMasVendidos().add(nodo);
             }

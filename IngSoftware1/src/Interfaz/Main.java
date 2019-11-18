@@ -36,10 +36,10 @@ public class Main extends Application {
         Envase e3 = new Envase("carton", "/Imagenes/carton.jpg");
         Envase e4 = new Envase("vidrio", "/Imagenes/vidrio.jpg");
         
-        sistema.getListaEnvases().add(e1);
-        sistema.getListaEnvases().add(e2);
-        sistema.getListaEnvases().add(e3);
-        sistema.getListaEnvases().add(e4);
+        sistema.agregarEnvase(e1);
+        sistema.agregarEnvase(e2);
+        sistema.agregarEnvase(e3);
+        sistema.agregarEnvase(e4);
         
         ArrayList<Envase> listaEnvases = new ArrayList<>();
         listaEnvases.add(e1);
@@ -50,10 +50,10 @@ public class Main extends Application {
         Articulo art3 = new Articulo("peras", "campo", 12, "orgánico", "´peras123", listaEnvases, e1, "/Imagenes/peras.jpg");
         Articulo art4 = new Articulo("naranjas", "campo", 15, "organico", "naranjas123", listaEnvases, e2, "/Imagenes/naranjas.jpg");
         
-        sistema.getListaArticulo().add(art1);
-        sistema.getListaArticulo().add(art2);
-        sistema.getListaArticulo().add(art3);
-        sistema.getListaArticulo().add(art4);
+        sistema.agregarArticulo(art1);
+        sistema.agregarArticulo(art2);
+        sistema.agregarArticulo(art3);
+        sistema.agregarArticulo(art4);
         
         ventana = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
@@ -66,5 +66,6 @@ public class Main extends Application {
     
     public static void main(String[] args) {
         launch(args);
+        
     }
 }

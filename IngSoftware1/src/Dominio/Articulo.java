@@ -40,6 +40,17 @@ public class Articulo {
         this.setPrecio(0);
     }
     
+    public Articulo(Articulo a) {
+        nombre = a.nombre;
+        origenMatPrima = a.origenMatPrima;
+        precio = a.precio;
+        material = a.material;
+        codigo = a.codigo;
+        envasesPosibles = a.envasesPosibles;
+        envaseElegido = a.envaseElegido;
+        rutaImagen = a.rutaImagen;
+    }
+    
     //Setters
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -105,4 +116,9 @@ public class Articulo {
     public String getRutaImagen() {
         return rutaImagen;
     }
+    @Override
+    public boolean equals(Object obj){
+        return this.getNombre().equals(((Articulo) obj).getNombre());
+    }
+
 }
