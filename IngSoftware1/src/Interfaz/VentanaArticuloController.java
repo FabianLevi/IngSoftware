@@ -70,7 +70,24 @@ public class VentanaArticuloController implements Initializable {
         this.posListaEnvases++;
         setearImagen2();
         this.posListaEnvases++;
+        lblNombre.setText("");
+        lblPrecio.setText("");
+        lblCodigo.setText("");
+        lblMaterial.setText("");
+        lblMatPrima.setText("");
+        inizialiarLabel();
     }    
+    
+    
+    public void inizialiarLabel(){
+        lblNombre.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getNombre());
+        lblPrecio.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getPrecio() + "");
+        lblCodigo.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getCodigo());
+        lblMaterial.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getMaterial());
+        lblMatPrima.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getOrigenMatPrima());
+ 
+    }
+    
 
     @FXML
     private void handleButtonSalir(MouseEvent event) {
@@ -128,18 +145,26 @@ public class VentanaArticuloController implements Initializable {
     }
     
     public void setearImagen1() {
-        ArrayList<Envase> listaEnvases = Main.sistema.getListaEnvases();
-        this.imagen1.setVisible(true);
-        String rutaImg1 = listaEnvases.get(posListaEnvases).getRutaImagen();
-        Image img1 = new Image(rutaImg1);
-        this.imagen1.setImage(img1);
+//        ArrayList<Envase> listaEnvases = Main.sistema.getListaEnvases();
+//        this.imagen1.setVisible(true);
+//        String rutaImg1 = listaEnvases.get(posListaEnvases).getRutaImagen();
+//        Image img1 = new Image(rutaImg1);
+//        this.imagen1.setImage(img1);
+//          ArrayList<Envase> listaEnvases = Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getEnvasesPosibles();
+//          String rutaImg1 = listaEnvases.get(posListaEnvases).getRutaImagen();
+//          Image img1 = new Image(rutaImg1);
+//          this.imagen1.setImage(img1);
     }
     
     public void setearImagen2() {
-        ArrayList<Envase> listaEnvases = Main.sistema.getListaEnvases();
-        this.imagen2.setVisible(true);
-        String rutaImg2 = listaEnvases.get(posListaEnvases).getRutaImagen();
-        Image img2 = new Image(rutaImg2);
-        this.imagen2.setImage(img2);
+//        ArrayList<Envase> listaEnvases = Main.sistema.getListaEnvases();
+//        this.imagen2.setVisible(true);
+//        String rutaImg2 = listaEnvases.get(posListaEnvases).getRutaImagen();
+//        Image img2 = new Image(rutaImg2);
+//        this.imagen2.setImage(img2);
+//          ArrayList<Envase> listaEnvases = Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getEnvasesPosibles();
+//          String rutaImg2 = listaEnvases.get(posListaEnvases).getRutaImagen();
+//          Image img2 = new Image(rutaImg2);
+//          this.imagen2.setImage(img2);  
     }
 }

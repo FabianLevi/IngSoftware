@@ -46,6 +46,25 @@ public class Sistema {
     private ArrayList<NodoArticulo> listaArticulosVendidos;
     private ArrayList<NodoArticulo> listaArticulosMasVendidos;
     private ArrayList<NodoEnvase>listaEnvasesReutilizables;
+
+    public int getArticulo() {
+        return articulo;
+    }
+
+    public void setArticulo(int articulo) {
+        this.articulo = articulo;
+    }
+
+    public ArrayList<Pair> getListaParesArticulos() {
+        return listaParesArticulos;
+    }
+
+    public void setListaParesArticulos(ArrayList<Pair> listaParesArticulos) {
+        this.listaParesArticulos = listaParesArticulos;
+    }
+    
+    
+    private int articulo;
    
     
     private ArrayList<Pair>listaParesArticulos;
@@ -61,7 +80,7 @@ public class Sistema {
     //Constructores
     public Sistema(ArrayList<Envase> unaListaEnvases, ArrayList<Articulo> unaListaArticulo, ArrayList<PuntoDeVenta> unaListaPuntoDeVenta, 
             ArrayList<Venta> unaListaVentas, ArrayList<PreVenta> unaListaPreVenta, ArrayList<Usuario> unaListaUsuario, 
-            ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos,ArrayList<NodoEnvase>unaListaEnvasesReutilizables) {
+            ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos,ArrayList<NodoEnvase>unaListaEnvasesReutilizables,int num) {
         this.listaEnvases = unaListaEnvases;
         this.listaArticulo = unaListaArticulo;
         this.listaPuntoDeVenta = unaListaPuntoDeVenta;
@@ -71,6 +90,7 @@ public class Sistema {
         this.listaArticulosVendidos = unaListaArticulosVendidos;
         this.listaArticulosMasVendidos = unaListaArticulosMasVendidos;
         this.listaEnvasesReutilizables=unaListaEnvasesReutilizables;
+        this.articulo=num;
     }
     
     public Sistema(){
@@ -83,6 +103,7 @@ public class Sistema {
         this.listaArticulosVendidos = new ArrayList<NodoArticulo>();
         this.listaArticulosMasVendidos = new ArrayList<NodoArticulo>();
         this.listaEnvasesReutilizables = new ArrayList<NodoEnvase>();
+        this.setArticulo(0);
     }
 
     //Getters & Setters

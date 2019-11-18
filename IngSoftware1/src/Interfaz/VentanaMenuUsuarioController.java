@@ -49,6 +49,8 @@ public class VentanaMenuUsuarioController implements Initializable {
     private ImageView imgLocales;
     @FXML
     private ImageView imgDonar;
+     @FXML
+    private ImageView imagen1;
 
     /**
      * Initializes the controller class.
@@ -56,11 +58,14 @@ public class VentanaMenuUsuarioController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //TODO
+        
+        
     }    
 
     @FXML
     private void handleButtonSalir(MouseEvent event) {
         Main.ventana.close();
+        
     }
 
     @FXML

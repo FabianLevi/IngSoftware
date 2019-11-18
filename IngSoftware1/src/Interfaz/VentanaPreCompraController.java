@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import Dominio.Articulo;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -68,6 +70,56 @@ public class VentanaPreCompraController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        for (int i = 0; i <= 12; i++) {
+            if(i<Main.sistema.getListaArticulo().size()){
+                Articulo a = Main.sistema.getListaArticulo().get(i);
+                Image img = new Image(a.getRutaImagen());
+                switch (i){
+                    case 0:
+                        imagen1.setImage(img);
+                        break;
+                    case 1:
+                        imagen2.setImage(img);
+                        break;
+                    case 2:
+                        imagen3.setImage(img);
+                        break;    
+                    case 3:
+                        imagen4.setImage(img);
+                        break;
+                    case 4:
+                        imagen5.setImage(img);
+                        break;
+                    case 5:
+                        imagen6.setImage(img);
+                        break;
+                    case 6:
+                        imagen7.setImage(img);
+                        break;
+                    case 7:
+                        imagen8.setImage(img);
+                        break;
+                    case 8:
+                        imagen9.setImage(img);
+                        break;
+                    case 9:
+                        imagen10.setImage(img);
+                        break;
+                    case 10:
+                        imagen11.setImage(img);
+                        break;
+                    case 11:
+                        imagen12.setImage(img);
+                        break;
+                       
+                }
+            }
+        }
+        
+//        Articulo a1 = Main.sistema.getListaArticulo().get(0);
+//        Image img1 = new Image(a1.getRutaImagen());
+//        imagen1.setImage(img1);
     }    
 
     @FXML
@@ -81,7 +133,10 @@ public class VentanaPreCompraController implements Initializable {
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
-
+    
+    
+    
+    
     @FXML
     private void handleButtonComprar(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
@@ -94,6 +149,25 @@ public class VentanaPreCompraController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
+    }
+    
+    @FXML
+    private void handleImagen1(MouseEvent event) throws IOException {
+        Main.sistema.setArticulo(0);
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+        //Main.sistema.setArticulo(0);
+    }
+    
+    @FXML
+    private void handleImagen2(MouseEvent event) throws IOException {
+        Main.sistema.setArticulo(1);
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        //Main.sistema.setArticulo(1);
+        Main.ventana.setScene(scene);
+        //Main.sistema.setArticulo(1);
     }
     
 }
