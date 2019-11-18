@@ -15,10 +15,12 @@ import java.util.Date;
 public class Venta {
     
     //Atributos
-    public ArrayList<Articulo> articulos;
-    public PuntoDeVenta puntoDeVenta;
-    public Usuario usuario;
-    public Date fecha;
+    private ArrayList<NodoArticulo> articulos;
+    private PuntoDeVenta puntoDeVenta;
+    private Usuario usuario;
+    private Date fecha;
+
+    
 
     public Date getFecha() {
         return fecha;
@@ -28,16 +30,23 @@ public class Venta {
         this.fecha = fecha;
     }
     
+    
     //Constructores
-    public Venta(ArrayList<Articulo> listaArticulos, PuntoDeVenta unPuntoDeVenta, Usuario unUsuario,Date unaFecha) {
+    public Venta(ArrayList<NodoArticulo> listaArticulos, PuntoDeVenta unPuntoDeVenta, Usuario unUsuario,Date unaFecha) {
         articulos = listaArticulos;
         puntoDeVenta = unPuntoDeVenta;
         usuario = unUsuario;
         fecha=unaFecha;
     }
 
+    public Venta(){
+        articulos = null;
+        puntoDeVenta = null;
+        usuario = null;
+        fecha=null;
+    }
     //Setters
-    public void setArticulos(ArrayList<Articulo> articulos) {
+    public void setArticulos(ArrayList<NodoArticulo> articulos) {
         this.articulos = articulos;
     }
 
@@ -50,7 +59,7 @@ public class Venta {
     }
 
     //Getters
-    public ArrayList<Articulo> getArticulos() {
+    public ArrayList<NodoArticulo> getArticulos() {
         return articulos;
     }
 

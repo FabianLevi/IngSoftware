@@ -77,9 +77,9 @@
             <Image url="@../Imagenes/home-transparent-white-12.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnComprar" layoutX="488.0" layoutY="619.0" mnemonicParsing="false" onAction="#handleButtonComprar" prefHeight="61.0" prefWidth="123.0" style="-fx-background-color: white;" text="Comprar">
+      <Button fx:id="btnComprar" layoutX="476.0" layoutY="626.0" mnemonicParsing="false" onAction="#handleButtonComprar" prefHeight="54.0" prefWidth="132.0" style="-fx-background-color: white;" text="Finalizar Carrito">
          <font>
-            <Font name="Rockwell" size="22.0" />
+            <Font name="Rockwell" size="14.0" />
          </font>
          <effect>
             <InnerShadow />
@@ -87,16 +87,16 @@
       </Button>
       <ImageView fx:id="imagen1" fitHeight="120.0" fitWidth="103.0" layoutX="114.0" layoutY="132.0" onMousePressed="#handleImagen1" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagen2" fitHeight="120.0" fitWidth="103.0" layoutX="242.0" layoutY="132.0" onMousePressed="#handleImagen2" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen3" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen4" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen5" fitHeight="120.0" fitWidth="103.0" layoutX="114.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen9" fitHeight="120.0" fitWidth="103.0" layoutX="114.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen6" fitHeight="120.0" fitWidth="103.0" layoutX="242.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen7" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen8" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen10" fitHeight="120.0" fitWidth="103.0" layoutX="242.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen11" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen12" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen3" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="132.0" onMousePressed="#handleImagen3" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen4" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="132.0" onMousePressed="#handleImagen4" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen5" fitHeight="120.0" fitWidth="103.0" layoutX="114.0" layoutY="280.0" onMousePressed="#handleImagen5" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen9" fitHeight="120.0" fitWidth="103.0" layoutX="114.0" layoutY="428.0" onMousePressed="#handleImagen9" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen6" fitHeight="120.0" fitWidth="103.0" layoutX="242.0" layoutY="280.0" onMousePressed="#handleImagen6" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen7" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="280.0" onMousePressed="#handleImagen7" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen8" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="280.0" onMousePressed="#handleImagen8" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen10" fitHeight="120.0" fitWidth="103.0" layoutX="242.0" layoutY="428.0" onMousePressed="#handleImagen10" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen11" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="428.0" onMousePressed="#handleImagen11" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen12" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="428.0" onMousePressed="#handleImagen12" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="btnSiguiente" fitHeight="67.0" fitWidth="61.0" layoutX="354.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/avance.png" />

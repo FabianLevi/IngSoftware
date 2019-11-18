@@ -65,7 +65,15 @@ public class Sistema {
     
     
     private int articulo;
-   
+
+    public Venta getVentaActual() {
+        return ventaActual;
+    }
+
+    public void setVentaActual(Venta ventaActual) {
+        this.ventaActual = ventaActual;
+    }
+   private Venta ventaActual;
     
     private ArrayList<Pair>listaParesArticulos;
     public ArrayList<NodoEnvase> getListaEnvasesReutilizables() {
@@ -80,7 +88,7 @@ public class Sistema {
     //Constructores
     public Sistema(ArrayList<Envase> unaListaEnvases, ArrayList<Articulo> unaListaArticulo, ArrayList<PuntoDeVenta> unaListaPuntoDeVenta, 
             ArrayList<Venta> unaListaVentas, ArrayList<PreVenta> unaListaPreVenta, ArrayList<Usuario> unaListaUsuario, 
-            ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos,ArrayList<NodoEnvase>unaListaEnvasesReutilizables,int num) {
+            ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos,ArrayList<NodoEnvase>unaListaEnvasesReutilizables,int num, Venta unaVenta) {
         this.listaEnvases = unaListaEnvases;
         this.listaArticulo = unaListaArticulo;
         this.listaPuntoDeVenta = unaListaPuntoDeVenta;
@@ -91,6 +99,7 @@ public class Sistema {
         this.listaArticulosMasVendidos = unaListaArticulosMasVendidos;
         this.listaEnvasesReutilizables=unaListaEnvasesReutilizables;
         this.articulo=num;
+        this.ventaActual = unaVenta;
     }
     
     public Sistema(){
@@ -104,6 +113,8 @@ public class Sistema {
         this.listaArticulosMasVendidos = new ArrayList<NodoArticulo>();
         this.listaEnvasesReutilizables = new ArrayList<NodoEnvase>();
         this.setArticulo(0);
+        this.setVentaActual(null);
+        
     }
 
     //Getters & Setters
@@ -199,21 +210,21 @@ public class Sistema {
     
     public void agregarVenta(Venta v){
         this.getListaVentas().add(v);
-        ArrayList<Articulo> articulos = v.getArticulos();
+        ArrayList<NodoArticulo> articulos = v.getArticulos();
         for (int i = 0; i < articulos.size(); i++) {
             //ArrayList<NodoArticulo>lista = this.getListaArticulosVendidos();
             //NodoArticulo esta = new NodoArticulo();
             //esta.articulo=articulos.get(i);
             //int pos = this.getListaArticulosVendidos().indexOf(esta);
             int pos =0;
-            while(!(this.getListaArticulosVendidos().get(pos).articulo.getNombre().equals(articulos.get(i).getNombre()))){
+            while(!(this.getListaArticulosVendidos().get(pos).articulo.getNombre().equals(articulos.get(i).getArticulo().getNombre()))){
                 pos++;
             }
             NodoArticulo nodo = this.getListaArticulosVendidos().get(pos);
             nodo.cantVendidas++;
             //int posEnvase  = this.getListaEnvasesReutilizables().indexOf(articulos.get(i).getEnvaseElegido());
             int posEnvase=0;
-            while(!(this.getListaEnvasesReutilizables().get(posEnvase).envase.getTipo().equals(articulos.get(i).getEnvaseElegido().getTipo()))){
+            while(!(this.getListaEnvasesReutilizables().get(posEnvase).envase.getTipo().equals(articulos.get(i).getArticulo().getEnvaseElegido().getTipo()))){
                 posEnvase++;
             }
             NodoEnvase nodoEnvase = this.getListaEnvasesReutilizables().get(posEnvase);

@@ -139,7 +139,7 @@ public class VentanaPreCompraController implements Initializable {
     
     @FXML
     private void handleButtonComprar(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaCompra.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
@@ -165,9 +165,76 @@ public class VentanaPreCompraController implements Initializable {
         Main.sistema.setArticulo(1);
         Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
         Scene scene = new Scene(root);
-        //Main.sistema.setArticulo(1);
         Main.ventana.setScene(scene);
-        //Main.sistema.setArticulo(1);
     }
-    
+    @FXML
+    private void handleImagen3(MouseEvent event) throws IOException {
+        Main.sistema.setArticulo(2);
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    @FXML
+    private void handleImagen4(MouseEvent event) throws IOException {
+        Main.sistema.setArticulo(3);
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    @FXML
+    private void handleImagen5(MouseEvent event) throws IOException {
+        Main.sistema.setArticulo(4);
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    @FXML
+    private void handleImagen6(MouseEvent event) throws IOException {
+        Main.sistema.setArticulo(5);
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    @FXML
+    private void handleImagen7(MouseEvent event) throws IOException {
+        Main.sistema.setArticulo(6);
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    @FXML
+    private void handleImagen8(MouseEvent event) throws IOException {
+        Main.sistema.setArticulo(7);
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    @FXML
+    private void handleImagen9(MouseEvent event) throws IOException {
+        Main.sistema.setArticulo(8);
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    @FXML
+    private void handleImagen10(MouseEvent event) throws IOException {
+        Main.sistema.setArticulo(9);
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    @FXML
+    private void handleImagen11(MouseEvent event) throws IOException {
+        Main.sistema.setArticulo(10);
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    @FXML
+    private void handleImagen12(MouseEvent event) throws IOException {
+        Main.sistema.setArticulo(11);
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
 }

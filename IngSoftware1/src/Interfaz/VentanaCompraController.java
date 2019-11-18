@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import Dominio.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -63,6 +65,17 @@ public class VentanaCompraController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
+    }
+    @FXML
+    private void handleButtonFinalizarCompra(MouseEvent event) throws IOException {
+        Venta v = Main.sistema.getVentaActual();
+        if(v!=null){
+            Main.sistema.agregarVenta(v);
+            Main.sistema.setVentaActual(null);
+        }else{
+            JOptionPane.showMessageDialog(null, "El carrito esta vacio", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
     }
     
 }
