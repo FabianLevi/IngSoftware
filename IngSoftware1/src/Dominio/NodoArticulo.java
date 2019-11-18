@@ -27,10 +27,16 @@ public class NodoArticulo {
         this.cantVendidas = cantVendidas;
     }
 
+    public NodoArticulo() {
+        this.articulo = null;
+        this.cantVendidas = 0;
+    }
+    
     public NodoArticulo(Articulo articulo, int cantVendidas) {
         this.articulo = articulo;
         this.cantVendidas = cantVendidas;
     }
+    
     Articulo articulo;
     int cantVendidas;
     

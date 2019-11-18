@@ -27,16 +27,6 @@
             <Rectangle2D width="625.0" />
          </viewport>
       </ImageView>
-      <ImageView fitHeight="66.0" fitWidth="80.0" layoutX="14.0" layoutY="597.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagenes/home-transparent-white-12.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="61.0" fitWidth="32.0" layoutX="-2.0" layoutY="608.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagenes/ios-back-icon-10.jpg" />
-         </image>
-      </ImageView>
       <ImageView fx:id="btnSalir" fitHeight="42.0" fitWidth="40.0" layoutX="585.0" onMouseClicked="#handleButtonSalir" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/close-icon.png" />
@@ -62,11 +52,6 @@
             <Font name="System Italic" size="19.0" />
          </font>
       </Label>
-      <ImageView fx:id="btnAtras" fitHeight="32.0" fitWidth="67.0" layoutX="-2.0" layoutY="668.0" onMouseClicked="#handleButtonAtras" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagenes/ios-back-icon-10.jpg" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="602.0" fitWidth="470.0" layoutX="-376.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/6b478ea52b0c100101185cce00cea872%20(1).jpg" />
@@ -85,7 +70,7 @@
             <Image url="@../Imagenes/home-transparent-white-12.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnComprar" layoutX="473.0" layoutY="627.0" mnemonicParsing="false" onAction="#handleButtonComprar" prefHeight="54.0" prefWidth="131.0" style="-fx-background-color: white;" text="Comprar">
+      <Button fx:id="btnComprar" layoutX="473.0" layoutY="607.0" mnemonicParsing="false" onAction="#handleButtonAgregarAlCarrito" prefHeight="74.0" prefWidth="131.0" style="-fx-background-color: white;" text="Agergar al Carrito" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Rockwell" size="22.0" />
          </font>
@@ -113,18 +98,6 @@
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <ImageView fx:id="imagen1" fitHeight="114.0" fitWidth="121.0" layoutX="114.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen2" fitHeight="114.0" fitWidth="121.0" layoutX="259.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="btnSiguiente" fitHeight="47.0" fitWidth="57.0" layoutX="282.0" layoutY="645.0" onMouseClicked="#handleButtonSiguiente" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagenes/avance.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="btnAnterior" fitHeight="47.0" fitWidth="57.0" layoutX="188.0" layoutY="645.0" onMouseClicked="#handleButtonAnterior" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
-         <image>
-            <Image url="@../Imagenes/avance.png" />
-         </image>
-      </ImageView>
       <ImageView fx:id="imagenArticulo" fitHeight="199.0" fitWidth="238.0" layoutX="359.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="103.0" layoutY="360.0" prefHeight="40.0" prefWidth="180.0" text="Material:" textFill="#5ac3a8">
          <font>
@@ -141,5 +114,12 @@
       <Label fx:id="lblCodigo" layoutX="103.0" layoutY="312.0" prefHeight="30.0" prefWidth="300.0" text="Label" />
       <Label fx:id="lblMaterial" layoutX="103.0" layoutY="400.0" prefHeight="30.0" prefWidth="180.0" text="Label" />
       <Label fx:id="lblMatPrima" layoutX="345.0" layoutY="400.0" prefHeight="30.0" prefWidth="180.0" text="Label" />
+      <ListView fx:id="lstEnvases" layoutX="103.0" layoutY="490.0" prefHeight="100.0" prefWidth="300.0" />
+      <Label layoutX="103.0" layoutY="629.0" text="Cantidad:" textFill="#5ac3a8">
+         <font>
+            <Font name="Lucida Console" size="29.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="boxCantidad" layoutX="278.0" layoutY="629.0" prefHeight="31.0" prefWidth="90.0" />
    </children>
 </AnchorPane>

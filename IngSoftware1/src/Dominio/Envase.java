@@ -38,4 +38,9 @@ public class Envase {
     public String getRutaImagen() {
         return rutaImagen;
     }
+    
+    @Override
+    public String toString() {
+        return this.getTipo();
+    }
 }

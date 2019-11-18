@@ -16,7 +16,7 @@ public class Venta {
     
     //Atributos
     private ArrayList<NodoArticulo> articulos;
-    private PuntoDeVenta puntoDeVenta;
+    private PuntoDeVenta puntoDeVenta;      //VER QUE TAN NECESARIO ES!!
     private Usuario usuario;
     private Date fecha;
 
