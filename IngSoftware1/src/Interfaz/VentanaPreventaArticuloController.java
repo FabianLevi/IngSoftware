@@ -5,9 +5,16 @@
  */
 package Interfaz;
 
+import Dominio.Articulo;
+import Dominio.Envase;
+import Dominio.NodoArticulo;
+import Dominio.Venta;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +27,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -51,18 +59,38 @@ public class VentanaPreventaArticuloController implements Initializable {
     @FXML
     private Label lblMatPrima;
     @FXML
-    private ListView<?> lstEnvases;
+    private ListView<Envase> lstEnvases;
     @FXML
-    private ComboBox<?> boxCantidad;
+    private ComboBox<String> boxCantidad;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        lblNombre.setText("");
+        lblPrecio.setText("");
+        lblCodigo.setText("");
+        lblMaterial.setText("");
+        lblMatPrima.setText("");
+        inicializarLabel();
     }    
-
+    
+    public void inicializarLabel(){
+        lblNombre.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getNombre());
+        lblPrecio.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getPrecio() + "");
+        lblCodigo.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getCodigo());
+        lblMaterial.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getMaterial());
+        lblMatPrima.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getOrigenMatPrima());
+        Image img = new Image(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getRutaImagen());
+        imagenArticulo.setImage(img);
+        ObservableList<Envase> lstEnvasesPosibles = FXCollections.observableArrayList(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getEnvasesPosibles());
+        lstEnvases.setItems(lstEnvasesPosibles);
+        ObservableList<String> cantidades = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
+        boxCantidad.setItems(cantidades);
+        boxCantidad.getSelectionModel().selectFirst();
+    }
+    
     @FXML
     private void handleButtonSalir(MouseEvent event) {
         Main.ventana.close();
@@ -89,7 +117,69 @@ public class VentanaPreventaArticuloController implements Initializable {
     }
 
     @FXML
-    private void handleButtonAgregarAlCarrito(ActionEvent event) {
+    private void handleButtonAgregarAlCarrito(ActionEvent event) throws IOException {
+         if (lstEnvases.getSelectionModel().isEmpty()) {
+            //MESNAJE DE ERROR: Seleccione un elemento de la lista de envases
+        }
+        else {
+            Venta v = Main.sistema.getVentaActual();
+            if (v == null) {        
+                Venta nuevaVenta = new Venta();
+                ArrayList<NodoArticulo> articulos = new ArrayList<>();
+                NodoArticulo nodo = new NodoArticulo();
+                nodo.setArticulo(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()));
+                nodo.getArticulo().setEnvaseElegido(lstEnvases.getSelectionModel().getSelectedItem());
+                nodo.setCantVendidas(Integer.parseInt(boxCantidad.getSelectionModel().getSelectedItem()));
+                articulos.add(nodo);
+                nuevaVenta.setArticulos(articulos);
+                Main.sistema.setVentaActual(nuevaVenta);
+                Parent root = FXMLLoader.load(getClass().getResource("VentanaPreventa.fxml"));
+                Scene scene = new Scene(root);
+                Main.ventana.setScene(scene);
+                
+            }
+            else {
+                NodoArticulo nodo2 = new NodoArticulo();
+                nodo2.setArticulo(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()));
+                if(v.getArticulos().contains(nodo2)){
+                    boolean esta = false;
+                    for (int i = 0; i < v.getArticulos().size(); i++) {
+                        NodoArticulo a = v.getArticulos().get(i);
+                        if(a.getArticulo().equals(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()))){
+                            if(a.getArticulo().getEnvaseElegido().getTipo().equals(lstEnvases.getSelectionModel().getSelectedItem().getTipo())){
+                                a.setCantVendidas(a.getCantVendidas() + Integer.parseInt(boxCantidad.getSelectionModel().getSelectedItem()));
+                                esta = true;
+                                Parent root = FXMLLoader.load(getClass().getResource("VentanaPreventa.fxml"));
+                                Scene scene = new Scene(root);
+                                Main.ventana.setScene(scene);
+                            }
+                        }
+                    }
+                    if (!esta) {
+                        NodoArticulo nodo = new NodoArticulo();
+                        Articulo art = new Articulo(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()));
+                        Envase env = lstEnvases.getSelectionModel().getSelectedItem();
+                        art.setEnvaseElegido(env);
+                        nodo.setArticulo(art);
+                        nodo.setCantVendidas(Integer.parseInt(boxCantidad.getSelectionModel().getSelectedItem()));
+                        Main.sistema.getVentaActual().getArticulos().add(nodo);
+                        Parent root = FXMLLoader.load(getClass().getResource("VentanaPreventa.fxml"));
+                        Scene scene = new Scene(root);
+                        Main.ventana.setScene(scene);
+                    }
+                }else{
+                    NodoArticulo nodo = new NodoArticulo();
+                    nodo.setArticulo(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()));
+                    nodo.getArticulo().setEnvaseElegido(lstEnvases.getSelectionModel().getSelectedItem());
+                    nodo.setCantVendidas(Integer.parseInt(boxCantidad.getSelectionModel().getSelectedItem()));
+                    Main.sistema.getVentaActual().getArticulos().add(nodo);
+                    Parent root = FXMLLoader.load(getClass().getResource("VentanaPreventa.fxml"));
+                    Scene scene = new Scene(root);
+                    Main.ventana.setScene(scene);
+                }
+                    
+            }
+        }
     }
     
 }

@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -16,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaPreventaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaPreventaController">
    <children>
       <ImageView fitWidth="625.0" layoutY="-129.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -92,18 +85,18 @@
             <InnerShadow />
          </effect>
       </Button>
-      <ImageView fx:id="imagen1" fitHeight="120.0" fitWidth="103.0" layoutX="114.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen2" fitHeight="120.0" fitWidth="103.0" layoutX="242.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen3" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen4" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen5" fitHeight="120.0" fitWidth="103.0" layoutX="114.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen9" fitHeight="120.0" fitWidth="103.0" layoutX="114.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen6" fitHeight="120.0" fitWidth="103.0" layoutX="242.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen7" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen8" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen10" fitHeight="120.0" fitWidth="103.0" layoutX="242.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen11" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagen12" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen1" fitHeight="120.0" fitWidth="103.0" layoutX="114.0" layoutY="132.0" onMousePressed="#handleImagen1" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen2" fitHeight="120.0" fitWidth="103.0" layoutX="242.0" layoutY="132.0" onMousePressed="#handleImagen2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen3" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="132.0" onMousePressed="#handleImagen3" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen4" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="132.0" onMousePressed="#handleImagen4" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen5" fitHeight="120.0" fitWidth="103.0" layoutX="114.0" layoutY="280.0" onMousePressed="#handleImagen5" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen9" fitHeight="120.0" fitWidth="103.0" layoutX="114.0" layoutY="428.0" onMousePressed="#handleImagen9" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen6" fitHeight="120.0" fitWidth="103.0" layoutX="242.0" layoutY="280.0" onMousePressed="#handleImagen6" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen7" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="280.0" onMousePressed="#handleImagen7" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen8" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="280.0" onMousePressed="#handleImagen8" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen10" fitHeight="120.0" fitWidth="103.0" layoutX="242.0" layoutY="428.0" onMousePressed="#handleImagen10" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen11" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="428.0" onMousePressed="#handleImagen11" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagen12" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="428.0" onMousePressed="#handleImagen12" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="btnSiguiente" fitHeight="67.0" fitWidth="61.0" layoutX="286.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/avance-rapido.png" />

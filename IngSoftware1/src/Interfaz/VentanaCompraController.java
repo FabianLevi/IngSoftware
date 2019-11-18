@@ -82,8 +82,6 @@ public class VentanaCompraController implements Initializable {
 
     }
 
-    @FXML
-    private void handleButtonFinalizarCompra(ActionEvent event) {
-    }
+    
     
 }

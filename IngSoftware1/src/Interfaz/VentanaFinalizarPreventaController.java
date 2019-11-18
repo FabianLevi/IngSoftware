@@ -5,11 +5,18 @@
  */
 package Interfaz;
 
+import Dominio.PreVenta;
+import Dominio.Venta;
+import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -47,19 +54,47 @@ public class VentanaFinalizarPreventaController implements Initializable {
     }    
 
     @FXML
-    private void handleButtonSalir(MouseEvent event) {
+    private void handleButtonSalir(MouseEvent event)  {
+        Main.ventana.close();
     }
 
     @FXML
-    private void handleButtonAtras(MouseEvent event) {
+    private void handleButtonAtras(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaPreventa.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
     }
 
     @FXML
-    private void handleButtonMenu(MouseEvent event) {
+    private void handleButtonMenu(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
     }
 
     @FXML
-    private void handleButtonFinalizarCompra(ActionEvent event) {
+    private void handleButtonFinalizarCompra(ActionEvent event) throws IOException {
+        
+        if(datePicker.getValue().getYear()!= 0){
+        int dia = datePicker.getValue().getDayOfMonth();
+        int mes = datePicker.getValue().getMonthValue();
+        int ano = datePicker.getValue().getYear();
+        Date fechaPreVenta = new Date();
+        fechaPreVenta.setDate(dia);
+        fechaPreVenta.setMonth(mes);
+        fechaPreVenta.setYear(ano);
+        Venta v = Main.sistema.getVentaActual();
+            if(v!=null){
+                PreVenta pv = new PreVenta();
+                pv.setVentaRealizar(v);
+                pv.setFecha(fechaPreVenta);
+                Main.sistema.agregarPreVenta(pv);
+                Main.sistema.setVentaActual(null);
+                Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
+                Scene scene = new Scene(root);
+                Main.ventana.setScene(scene);
+            }
+        }
     }
     
 }

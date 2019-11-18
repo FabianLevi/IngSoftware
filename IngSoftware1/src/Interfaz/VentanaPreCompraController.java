@@ -136,8 +136,7 @@ public class VentanaPreCompraController implements Initializable {
         Main.ventana.setScene(scene);
     }
     
-    
-    
+  
     
     @FXML
     private void handleButtonComprar(ActionEvent event) throws IOException {

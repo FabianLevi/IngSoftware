@@ -177,9 +177,8 @@ public class VentanaArticuloController implements Initializable {
             //MESNAJE DE ERROR: Seleccione un elemento de la lista de envases
         }
         else {
-           
             Venta v = Main.sistema.getVentaActual();
-            if (v == null) {        //CHEQUEAR ESTO!!
+            if (v == null) {        
                 Venta nuevaVenta = new Venta();
                 ArrayList<NodoArticulo> articulos = new ArrayList<>();
                 NodoArticulo nodo = new NodoArticulo();

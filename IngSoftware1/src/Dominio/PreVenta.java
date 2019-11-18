@@ -19,6 +19,12 @@ public class PreVenta {
         this.codigo = codigo;
     }
 
+    public PreVenta() {
+        this.fecha = null;
+        this.ventaRealizar = null;
+        this.codigo="";
+    }
+
     public Date getFecha() {
         return fecha;
     }
