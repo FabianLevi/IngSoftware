@@ -15,10 +15,20 @@ public class Envase {
     private String tipo;
     private String rutaImagen;
 
+    public int getDanoAmbiental() {
+        return danoAmbiental;
+    }
+
+    public void setDanoAmbiental(int danoAmbiental) {
+        this.danoAmbiental = danoAmbiental;
+    }
+    private int danoAmbiental;
+
     //Constructores
-    public Envase(String unTipo, String unaRutaImagen) {
+    public Envase(String unTipo, String unaRutaImagen,int unDanoAmbiental) {
         tipo = unTipo;
         rutaImagen = unaRutaImagen;
+        danoAmbiental=unDanoAmbiental;
     }
 
     //Setters

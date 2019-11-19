@@ -31,10 +31,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         sistema = new Sistema();
         
-        Envase e1 = new Envase("plastico", "/Imagenes/plastico.jpg");
-        Envase e2 = new Envase("espuma plast", "/Imagenes/espuma plast.jpg");
-        Envase e3 = new Envase("carton", "/Imagenes/carton.jpg");
-        Envase e4 = new Envase("vidrio", "/Imagenes/vidrio.jpg");
+        Envase e1 = new Envase("plastico", "/Imagenes/plastico.jpg",10);
+        Envase e2 = new Envase("espuma plast", "/Imagenes/espuma plast.jpg",20);
+        Envase e3 = new Envase("carton", "/Imagenes/carton.jpg",30);
+        Envase e4 = new Envase("vidrio", "/Imagenes/vidrio.jpg",40);
         
         sistema.agregarEnvase(e1);
         sistema.agregarEnvase(e2);

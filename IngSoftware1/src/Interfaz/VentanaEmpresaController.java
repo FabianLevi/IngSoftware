@@ -5,10 +5,15 @@
  */
 package Interfaz;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -41,10 +46,33 @@ public class VentanaEmpresaController implements Initializable {
 
     @FXML
     private void handleButtonSalir(MouseEvent event) {
+        Main.ventana.close();
     }
 
     @FXML
-    private void handleButtonAtras(MouseEvent event) {
+    private void handleButtonAtras(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+
+    @FXML
+    private void handleButtonAgregarArticulo(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleButtonEstadistica(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaEstadisticas.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+        
+    }
+
+    @FXML
+    private void handleButtonAtras2(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
     }
     
 }

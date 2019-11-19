@@ -23,6 +23,7 @@ public class Articulo {
     private Envase envaseElegido;
     private String rutaImagen;
     
+    
 
     //Constructores
     public Articulo(String unNombre, String unOrigenMatPrima, int unPrecio, String unMaterial, String unCodigo, 

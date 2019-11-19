@@ -285,7 +285,8 @@ public class Sistema {
         int cantVentas = 0;
         for (int i = 0; i < this.getListaVentas().size(); i++) {
             Venta v = this.getListaVentas().get(i);
-            if (v.getFecha().getMonth() == mes) {
+            int mesVenta = v.getFecha().getMonth();
+            if (mesVenta == mes) {
                 cantVentas++;
 
             }
@@ -328,6 +329,8 @@ public class Sistema {
         }
         return aux;
     }
+    
+    
 
     public void realizarVenta(PreVenta p) {
         this.getListaVentas().add(p.getVentaRealizar());
