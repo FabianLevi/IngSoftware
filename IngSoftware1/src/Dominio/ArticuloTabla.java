@@ -52,4 +52,9 @@ public class ArticuloTabla {
     public void setCantVendidas(int cantVendidas) {
         this.cantVendidas = cantVendidas;
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+        return this.getNombre().equals(((ArticuloTabla) obj).getNombre());    
+    }
 }

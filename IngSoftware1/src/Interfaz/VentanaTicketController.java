@@ -80,7 +80,6 @@ public class VentanaTicketController implements Initializable {
     }
     
     public void setearLista(Venta v) {
-        
         ArrayList<ArticuloTabla> articulos = new ArrayList<>();
         for (int i = 0; i < v.getArticulos().size(); i++) {
             Articulo a = v.getArticulos().get(i).getArticulo();
@@ -88,7 +87,14 @@ public class VentanaTicketController implements Initializable {
             int precio = a.getPrecio();
             int cantVendidas = v.getArticulos().get(i).getCantVendidas();
             ArticuloTabla artTab = new ArticuloTabla(nombre, precio, cantVendidas);
-            articulos.add(artTab);
+            if (articulos.contains(artTab)) {
+                int pos = articulos.indexOf(artTab);
+                ArticuloTabla aux = articulos.get(pos);
+                aux.setCantVendidas(aux.getCantVendidas() + artTab.getCantVendidas());
+            }
+            else {
+                articulos.add(artTab);
+            }
         }
         ObservableList<ArticuloTabla> listaArticulos = FXCollections.observableArrayList(articulos);
         
