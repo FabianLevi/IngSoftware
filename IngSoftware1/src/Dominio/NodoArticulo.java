@@ -11,6 +11,9 @@ package Dominio;
  */
 public class NodoArticulo {
 
+    Articulo articulo;
+    int cantVendidas;
+    
     public Articulo getArticulo() {
         return articulo;
     }
@@ -36,9 +39,6 @@ public class NodoArticulo {
         this.articulo = articulo;
         this.cantVendidas = cantVendidas;
     }
-    
-    Articulo articulo;
-    int cantVendidas;
     
     @Override
     public boolean equals(Object obj){
