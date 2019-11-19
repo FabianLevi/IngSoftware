@@ -137,7 +137,7 @@ public class VentanaMenuUsuarioController implements Initializable {
 
     @FXML
     private void handleButtonLocales(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaLocales.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaLocal.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }

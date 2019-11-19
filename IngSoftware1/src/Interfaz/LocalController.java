@@ -15,63 +15,51 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-
-import javafx.application.Application;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
-import javafx.stage.Stage;
-
 
 /**
  * FXML Controller class
  *
- * @author Darío
+ * @author Sabrina
  */
-public class VentanaLocalesController implements Initializable {
+public class LocalController implements Initializable {
 
     @FXML
     private ImageView btnSalir;
     @FXML
     private ImageView btnAtras;
     @FXML
+    private ImageView btnAtras2;
+    @FXML
     private ImageView btnMenu;
     @FXML
-    private ImageView btnAtras2;
-    
+    private WebView webView;
 
-    
-
-    
     /**
      * Initializes the controller class.
      */
-    
-      @Override
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
-    
-     /* public void start(Stage stage) {
-        // create web engine and view
-        final WebEngine webEngine = new WebEngine(getClass().getResource("googlemap.html").toString());
-        final WebView webView = new WebView(webEngine);
-        // create scene
-        stage.setTitle("Web Map");
-        Scene scene = new Scene(webView,1000,700, Color.web("#666970"));
-        stage.setScene(scene);
-        // show stage
-        stage.setVisible(true);
+
+        /*WebEngine webEngine = webView.getEngine();
+       webEngine.load("mapaaa.html");
+
+        StackPane root = new StackPane();
+        root.getChildren().add(webView);
+
+        Scene scene = new Scene(root, 300, 250);
+        
+        Main.ventana.setScene(scene);*/
+        
+        //webView.getEngine().load(this.getClass().getResource("mapaaa.html").toExternalForm());
+        //webView.loadRequest(NSURLRequest(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mapa", ofType: "html")!)};
     }
- 
-    static { // use system proxy settings when standalone application
-        System.setProperty("java.net.useSystemProxies", "true");
-    }*/
 
     @FXML
     private void handleButtonSalir(MouseEvent event) {
-        Main.ventana.close();
+         Main.ventana.close();
     }
 
     @FXML
@@ -87,11 +75,5 @@ public class VentanaLocalesController implements Initializable {
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
-    
-
-    
-    
-   
- 
     
 }
