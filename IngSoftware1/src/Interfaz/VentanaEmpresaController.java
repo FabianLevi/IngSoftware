@@ -62,6 +62,12 @@ public class VentanaEmpresaController implements Initializable {
         Main.ventana.setScene(scene);
     }
 
+    @FXML
+    private void handleButtonAgregarArticulo(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaAgregarArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
 
     private void handleButtonEstadistica(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaEstadisticas.fxml"));

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaAgregarArticuloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaAgregarArticuloController">
    <children>
       <ImageView fitWidth="625.0" layoutY="-129.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -137,7 +137,7 @@
             <Font name="Lucida Console" size="19.0" />
          </font>
       </CheckBox>
-      <Button layoutX="426.0" layoutY="312.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: white;" text="Elegir Imagen">
+      <Button fx:id="elegirImagen" layoutX="426.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleButtonElegirImahen" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: white;" text="Elegir Imagen">
          <font>
             <Font name="Rockwell" size="12.0" />
          </font>
