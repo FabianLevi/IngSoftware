@@ -92,9 +92,9 @@
             <Font name="Lucida Console" size="35.0" />
          </font>
       </Label>
-      <Button fx:id="btnAgregarArticulo" layoutX="-4.0" layoutY="176.0" mnemonicParsing="false" prefHeight="174.0" prefWidth="631.0" style="-fx-background-color: transpatent;" />
-      <Button fx:id="btnEjecutarPreventa" layoutX="-2.0" layoutY="348.0" mnemonicParsing="false" prefHeight="174.0" prefWidth="625.0" style="-fx-background-color: transpatent;" />
-      <Button fx:id="btnEstadisticas" layoutY="519.0" mnemonicParsing="false" prefHeight="174.0" prefWidth="625.0" style="-fx-background-color: transpatent;" />
+      <Button fx:id="btnAgregarArticulo" layoutX="-4.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleButtonAgregarArticulo" prefHeight="174.0" prefWidth="631.0" style="-fx-background-color: transpatent;" />
+      <Button fx:id="btnEjecutarPreventa" layoutX="-2.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleButtonEjecutarPreventa" prefHeight="174.0" prefWidth="625.0" style="-fx-background-color: transpatent;" />
+      <Button fx:id="btnEstadisticas" layoutY="519.0" mnemonicParsing="false" onAction="#handleButtonEstadistica" prefHeight="174.0" prefWidth="625.0" style="-fx-background-color: transpatent;" />
       <ImageView fx:id="btnAtras" fitHeight="32.0" fitWidth="67.0" layoutX="7.0" layoutY="4.0" onMouseClicked="#handleButtonAtras" onMousePressed="#handleButtonAtras2" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/ios-back-icon-10.jpg" />
