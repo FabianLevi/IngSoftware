@@ -46,9 +46,9 @@
             <Font name="System Italic" size="19.0" />
          </font>
       </Label>
-      <ImageView fitHeight="607.0" fitWidth="605.0" layoutX="-511.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="602.0" fitWidth="470.0" layoutX="-376.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Imagenes/78291390-fondo-liso-verde-oscuro-para-el-sitio-web-patrón-fondo-de-pantalla-borroso%20(1).jpg" />
+            <Image url="@../Imagenes/6b478ea52b0c100101185cce00cea872%20(1).jpg" />
          </image>
          <viewport>
             <Rectangle2D width="625.0" />
@@ -72,32 +72,32 @@
             <InnerShadow />
          </effect>
       </Button>
-      <Label layoutX="103.0" layoutY="104.0" prefHeight="40.0" prefWidth="349.0" text="Nombre:" textFill="#327966">
+      <Label layoutX="103.0" layoutY="104.0" prefHeight="40.0" prefWidth="349.0" text="Nombre:" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="450.0" prefHeight="40.0" prefWidth="349.0" text="Envases Posibles:" textFill="#327966">
+      <Label layoutX="103.0" layoutY="450.0" prefHeight="40.0" prefWidth="349.0" text="Envases Posibles:" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="186.0" prefHeight="40.0" prefWidth="349.0" text="Precio:" textFill="#327966">
+      <Label layoutX="103.0" layoutY="186.0" prefHeight="40.0" prefWidth="349.0" text="Precio:" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="272.0" prefHeight="40.0" prefWidth="349.0" text="Código:" textFill="#327966">
+      <Label layoutX="103.0" layoutY="272.0" prefHeight="40.0" prefWidth="349.0" text="Código:" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="360.0" prefHeight="40.0" prefWidth="180.0" text="Material:" textFill="#327966">
+      <Label layoutX="103.0" layoutY="360.0" prefHeight="40.0" prefWidth="180.0" text="Material:" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="345.0" layoutY="360.0" prefHeight="40.0" prefWidth="260.0" text="Materia Prima:" textFill="#327966">
+      <Label layoutX="345.0" layoutY="360.0" prefHeight="40.0" prefWidth="260.0" text="Materia Prima:" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
