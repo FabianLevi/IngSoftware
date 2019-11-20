@@ -56,14 +56,11 @@ public class VentanaMenuUsuarioController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //TODO
-        
-        
     }    
 
     @FXML
     private void handleButtonSalir(MouseEvent event) {
         Main.ventana.close();
-        
     }
 
     @FXML
@@ -143,7 +140,10 @@ public class VentanaMenuUsuarioController implements Initializable {
     }
 
     @FXML
-    private void handleButtonDonar(ActionEvent event) {
+    private void handleButtonDonar(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaDonacion.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
     }
 
     

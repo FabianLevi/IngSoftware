@@ -45,8 +45,6 @@ public class VentanaArticuloController implements Initializable {
     @FXML
     private ImageView btnMenu;
     @FXML
-    private Button btnComprar;
-    @FXML
     private ImageView imagenArticulo;
     @FXML
     private Label lblNombre;
@@ -62,6 +60,10 @@ public class VentanaArticuloController implements Initializable {
     private ListView<Envase> lstEnvases;
     @FXML
     private ComboBox<String> boxCantidad;
+    @FXML
+    private Button btnComprar;
+    @FXML
+    private Label lblDonado;
 
     /**
      * Initializes the controller class.
@@ -78,18 +80,21 @@ public class VentanaArticuloController implements Initializable {
     
     
     public void inicializarLabel(){
-        lblNombre.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getNombre());
-        lblPrecio.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getPrecio() + "");
-        lblCodigo.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getCodigo());
-        lblMaterial.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getMaterial());
-        lblMatPrima.setText(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getOrigenMatPrima());
-        Image img = new Image(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getRutaImagen());
+        Articulo a = Main.sistema.getListaArticulo().get(Main.sistema.getArticulo());
+        lblNombre.setText(a.getNombre());
+        lblPrecio.setText(a.getPrecio() + "");
+        lblCodigo.setText(a.getCodigo());
+        lblMaterial.setText(a.getMaterial());
+        lblMatPrima.setText(a.getOrigenMatPrima());
+        Image img = new Image(a.getRutaImagen());
         imagenArticulo.setImage(img);
-        ObservableList<Envase> lstEnvasesPosibles = FXCollections.observableArrayList(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()).getEnvasesPosibles());
+        centerImage(imagenArticulo);
+        ObservableList<Envase> lstEnvasesPosibles = FXCollections.observableArrayList(a.getEnvasesPosibles());
         lstEnvases.setItems(lstEnvasesPosibles);
         ObservableList<String> cantidades = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
         boxCantidad.setItems(cantidades);
         boxCantidad.getSelectionModel().selectFirst();
+        mostrarOcultarEtiquetaDonado(a);
     }
     
 
@@ -234,6 +239,45 @@ public class VentanaArticuloController implements Initializable {
                 }
                     
             }
+        }
+    }
+    
+    public void mostrarOcultarEtiquetaDonado(Articulo a) {
+        ArrayList<NodoArticulo> listaArtVendidos = Main.sistema.getListaArticulosVendidos();
+        NodoArticulo aux = new NodoArticulo();
+        aux.setArticulo(a);
+        int pos = listaArtVendidos.indexOf(aux);
+        NodoArticulo nodo = listaArtVendidos.get(pos);
+        if (nodo.getCantDonados() > 0) {
+            lblDonado.setVisible(true);
+        }
+        else {
+            lblDonado.setVisible(false);
+        }
+    }
+    
+    public void centerImage(ImageView imv) {
+        Image img = imv.getImage();
+        if (img != null) {
+            double w = 0;
+            double h = 0;
+
+            double ratioX = imv.getFitWidth() / img.getWidth();
+            double ratioY = imv.getFitHeight() / img.getHeight();
+
+            double reducCoeff = 0;
+            if(ratioX >= ratioY) {
+                reducCoeff = ratioY;
+            } else {
+                reducCoeff = ratioX;
+            }
+
+            w = img.getWidth() * reducCoeff;
+            h = img.getHeight() * reducCoeff;
+
+            imv.setX((imv.getFitWidth() - w) / 2);
+            imv.setY((imv.getFitHeight() - h) / 2);
+
         }
     }
 

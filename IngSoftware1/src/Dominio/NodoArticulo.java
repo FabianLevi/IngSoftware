@@ -11,9 +11,27 @@ package Dominio;
  */
 public class NodoArticulo {
 
+    //Atributos
     Articulo articulo;
     int cantVendidas;
+    int cantDonados;
     
+    
+    //Constructores
+    public NodoArticulo() {
+        this.articulo = null;
+        this.cantVendidas = 0;
+        this.cantDonados = 0;
+    }
+    
+    public NodoArticulo(Articulo unArticulo, int unaCantVendidas, int unaCantDonados) {
+        this.articulo = unArticulo;
+        this.cantVendidas = unaCantVendidas;
+        this.cantDonados = unaCantDonados;
+    }
+    
+    
+    //Getters & Setters
     public Articulo getArticulo() {
         return articulo;
     }
@@ -29,17 +47,17 @@ public class NodoArticulo {
     public void setCantVendidas(int cantVendidas) {
         this.cantVendidas = cantVendidas;
     }
+    
+    public int getCantDonados() {
+        return cantDonados;
+    }
 
-    public NodoArticulo() {
-        this.articulo = null;
-        this.cantVendidas = 0;
+    public void setCantDonados(int cantDonados) {
+        this.cantDonados = cantDonados;
     }
     
-    public NodoArticulo(Articulo articulo, int cantVendidas) {
-        this.articulo = articulo;
-        this.cantVendidas = cantVendidas;
-    }
     
+    //Métodos sobreescritos
     @Override
     public boolean equals(Object obj){
         return this.getArticulo().getNombre().equals(((NodoArticulo) obj).getArticulo().getNombre());

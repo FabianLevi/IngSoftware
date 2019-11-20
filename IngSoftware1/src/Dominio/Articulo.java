@@ -23,7 +23,6 @@ public class Articulo {
     private Envase envaseElegido;
     private String rutaImagen;
     
-    
 
     //Constructores
     public Articulo(String unNombre, String unOrigenMatPrima, int unPrecio, String unMaterial, String unCodigo, 
@@ -51,6 +50,7 @@ public class Articulo {
         envaseElegido = a.envaseElegido;
         rutaImagen = a.rutaImagen;
     }
+    
     
     //Setters
     public void setNombre(String nombre) {
@@ -85,6 +85,7 @@ public class Articulo {
         this.rutaImagen = rutaImagen;
     }
     
+    
     //Getters
     public String getNombre() {
         return nombre;
@@ -117,6 +118,9 @@ public class Articulo {
     public String getRutaImagen() {
         return rutaImagen;
     }
+    
+    
+    //Métodos sobreescritos
     @Override
     public boolean equals(Object obj){
         return this.getNombre().equals(((Articulo) obj).getNombre());

@@ -6,8 +6,10 @@
 package Interfaz;
 
 import Dominio.Articulo;
+import Dominio.NodoArticulo;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,7 +27,7 @@ import javafx.scene.input.MouseEvent;
  *
  * @author Darío
  */
-public class VentanaPreCompraController implements Initializable {
+public class VentanaDonacionController implements Initializable {
 
     @FXML
     private ImageView btnSalir;
@@ -34,7 +36,7 @@ public class VentanaPreCompraController implements Initializable {
     @FXML
     private ImageView btnMenu;
     @FXML
-    private Button btnComprar;
+    private Button btnDonar;
     @FXML
     private ImageView imagen1;
     @FXML
@@ -63,16 +65,12 @@ public class VentanaPreCompraController implements Initializable {
     private ImageView btnSiguiente;
     @FXML
     private ImageView btnAnterior;
-    @FXML
-    private ImageView btnAtras2;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        
         for (int i = 0; i <= 12; i++) {
             if(i<Main.sistema.getListaArticulo().size()){
                 Articulo a = Main.sistema.getListaArticulo().get(i);
@@ -130,10 +128,6 @@ public class VentanaPreCompraController implements Initializable {
                 }
             }
         }
-        
-//        Articulo a1 = Main.sistema.getListaArticulo().get(0);
-//        Image img1 = new Image(a1.getRutaImagen());
-//        imagen1.setImage(img1);
     }    
 
     @FXML
@@ -141,22 +135,15 @@ public class VentanaPreCompraController implements Initializable {
         Main.ventana.close();
     }
 
+    
     @FXML
     private void handleButtonAtras(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
-    
-  
-    
-    @FXML
-    private void handleButtonComprar(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaCompra.fxml"));
-        Scene scene = new Scene(root);
-        Main.ventana.setScene(scene);
-    }
 
+    
     @FXML
     private void handleButtonMenu(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
@@ -164,89 +151,125 @@ public class VentanaPreCompraController implements Initializable {
         Main.ventana.setScene(scene);
     }
     
+    
+    @FXML
+    private void handleButtonDonar(ActionEvent event) throws IOException {
+        ArrayList<NodoArticulo> donActual = Main.sistema.getDonacionActual();
+        for (int i = 0; i < donActual.size(); i++) {
+            ArrayList<NodoArticulo> listaArtVendidos = Main.sistema.getListaArticulosVendidos();
+            NodoArticulo nodo = donActual.get(i);
+            int pos = listaArtVendidos.indexOf(nodo);
+            listaArtVendidos.get(pos).setCantDonados(listaArtVendidos.get(pos).getCantDonados() + nodo.getCantDonados());
+        }
+        donActual.clear();
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    
+    
     @FXML
     private void handleImagen1(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(0);
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
-        //Main.sistema.setArticulo(0);
     }
+
     
     @FXML
     private void handleImagen2(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(1);
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
+
+
     @FXML
     private void handleImagen3(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(2);
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
+
+
     @FXML
     private void handleImagen4(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(3);
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
+
+
     @FXML
     private void handleImagen5(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(4);
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
+    
     @FXML
     private void handleImagen6(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(5);
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
+
+
     @FXML
     private void handleImagen7(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(6);
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
+
+
     @FXML
     private void handleImagen8(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(7);
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
+
+
     @FXML
     private void handleImagen9(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(8);
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
+
+
     @FXML
     private void handleImagen10(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(9);
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
+
+
     @FXML
     private void handleImagen11(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(10);
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
+
+
     @FXML
     private void handleImagen12(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(11);
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
@@ -275,4 +298,5 @@ public class VentanaPreCompraController implements Initializable {
 
         }
     }
+    
 }

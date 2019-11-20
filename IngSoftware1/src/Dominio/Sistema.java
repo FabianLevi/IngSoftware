@@ -50,11 +50,13 @@ public class Sistema {
     private Venta ventaActual;
     private ArrayList<Pair> listaParesArticulos;
     private int cantVentas;
+    private ArrayList<NodoArticulo> donacionActual;
 
     //Constructores
     public Sistema(ArrayList<Envase> unaListaEnvases, ArrayList<Articulo> unaListaArticulo, ArrayList<PuntoDeVenta> unaListaPuntoDeVenta,
             ArrayList<Venta> unaListaVentas, ArrayList<PreVenta> unaListaPreVenta, ArrayList<Usuario> unaListaUsuario,
-            ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos, ArrayList<NodoEnvase> unaListaEnvasesReutilizables, int num, Venta unaVenta) {
+            ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos, 
+            ArrayList<NodoEnvase> unaListaEnvasesReutilizables, int num, Venta unaVenta, ArrayList<NodoArticulo> unaDonacionActual) {
         this.listaEnvases = unaListaEnvases;
         this.listaArticulo = unaListaArticulo;
         this.listaPuntoDeVenta = unaListaPuntoDeVenta;
@@ -67,6 +69,7 @@ public class Sistema {
         this.articulo = num;
         this.ventaActual = unaVenta;
         this.cantVentas = 0;
+        this.donacionActual = unaDonacionActual;
     }
 
     public Sistema() {
@@ -83,6 +86,7 @@ public class Sistema {
         //this.setVentaActual(null);
         this.ventaActual = null;
         this.cantVentas = 0;
+        this.donacionActual = new ArrayList<NodoArticulo>();
     }
 
     //Getters & Setters
@@ -189,6 +193,14 @@ public class Sistema {
     public void setListaEnvasesReutilizables(ArrayList<NodoEnvase> listaEnvasesReutilizables) {
         this.listaEnvasesReutilizables = listaEnvasesReutilizables;
     }
+    
+    public ArrayList<NodoArticulo> getDonacionActual() {
+        return donacionActual;
+    }
+
+    public void setDonacionActual(ArrayList<NodoArticulo> donacionActual) {
+        this.donacionActual = donacionActual;
+    }
 
     //Funciones
     public boolean existeAlias(String alias) {
@@ -228,6 +240,12 @@ public class Sistema {
             }
             NodoArticulo nodo = this.getListaArticulosVendidos().get(pos);
             nodo.setCantVendidas(nodo.getCantVendidas() + v.getArticulos().get(i).getCantVendidas());
+            //REVISAR desde acá...
+            nodo.setCantDonados(nodo.getCantDonados() - v.getArticulos().get(i).getCantVendidas());
+            if (nodo.getCantDonados() < 0) {
+                nodo.setCantDonados(0);
+            }
+            //... hasta acá
             //int posEnvase  = this.getListaEnvasesReutilizables().indexOf(articulos.get(i).getEnvaseElegido());
             int posEnvase = 0;
             while (!(this.getListaEnvasesReutilizables().get(posEnvase).envase.getTipo().equals(articulos.get(i).getArticulo().getEnvaseElegido().getTipo()))) {
@@ -339,7 +357,7 @@ public class Sistema {
 
     public void agregarArticulo(Articulo a) {
         this.getListaArticulo().add(a);
-        NodoArticulo nodo = new NodoArticulo(a, 0);
+        NodoArticulo nodo = new NodoArticulo(a, 0, 0);
         nodo.articulo = a;
         nodo.cantVendidas = 0;
         this.getListaArticulosVendidos().add(nodo);
