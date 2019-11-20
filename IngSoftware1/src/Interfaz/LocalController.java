@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
@@ -35,26 +36,16 @@ public class LocalController implements Initializable {
     @FXML
     private ImageView btnMenu;
     @FXML
-    private WebView webView;
+    private VBox boxMapa;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-        /*WebEngine webEngine = webView.getEngine();
-       webEngine.load("mapaaa.html");
-
-        StackPane root = new StackPane();
-        root.getChildren().add(webView);
-
-        Scene scene = new Scene(root, 300, 250);
-        
-        Main.ventana.setScene(scene);*/
-        
-        //webView.getEngine().load(this.getClass().getResource("mapaaa.html").toExternalForm());
-        //webView.loadRequest(NSURLRequest(URL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("mapa", ofType: "html")!)};
+        WebView webView = new WebView();
+        webView.getEngine().loadContent("<html><iframe src=\"https://www.google.com/maps/d/embed?mid=1_bdINzcV9oyxX1uHsmwWeLNCG6nLOMUh\" width=\"640\" height=\"480\"></iframe></html>");
+        boxMapa.getChildren().add(webView);
     }
 
     @FXML
