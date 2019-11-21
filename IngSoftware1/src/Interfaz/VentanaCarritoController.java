@@ -7,7 +7,6 @@ package Interfaz;
 
 import Dominio.Articulo;
 import Dominio.ArticuloTabla;
-import Dominio.NodoArticulo;
 import Dominio.Venta;
 import java.io.IOException;
 import java.net.URL;
@@ -15,16 +14,16 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -33,20 +32,16 @@ import javafx.scene.input.MouseEvent;
  *
  * @author Darío
  */
-public class VentanaTicketController implements Initializable {
+public class VentanaCarritoController implements Initializable {
 
     @FXML
-    private Label lblFecha;
+    private ImageView btnSalir;
     @FXML
-    private Label lblCodigoTicket;
+    private ImageView btnAtras;
     @FXML
-    private Label lblHora;
+    private ImageView btnMenu;
     @FXML
-    private Label lblTotal;
-    @FXML
-    private ImageView imgCodigoQR;
-    @FXML
-    private ImageView imgEcoShop;
+    private TableView<ArticuloTabla> tablaCarrito;
     @FXML
     private TableColumn<ArticuloTabla, String> colArticulo;
     @FXML
@@ -54,9 +49,7 @@ public class VentanaTicketController implements Initializable {
     @FXML
     private TableColumn<ArticuloTabla, String> colPrecio;
     @FXML
-    private ImageView btnAtras;
-    @FXML
-    private TableView<ArticuloTabla> tablaArticulos;
+    private Button btnBorrarVenta;
 
     /**
      * Initializes the controller class.
@@ -65,19 +58,37 @@ public class VentanaTicketController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         Venta v = Main.sistema.getVentaActual();
         setearLista(v);
-        calcularTotal(v);
-        Main.sistema.setVentaActual(null);
     }    
 
     @FXML
+    private void handleButtonSalir(MouseEvent event) {
+        Main.ventana.close();
+    }
+
+    @FXML
     private void handleButtonAtras(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaPreCompra.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+
+    @FXML
+    private void handleButtonMenu(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    
+    @FXML
+    private void handleButtonBorrarVenta(ActionEvent event) throws IOException {
+        Main.sistema.setVentaActual(null);
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaPreCompra.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
     
     public void setearLista(Venta v) {
-        if (v != null) {    
+        if (v != null) {
             ArrayList<ArticuloTabla> articulos = new ArrayList<>();
             for (int i = 0; i < v.getArticulos().size(); i++) {
                 Articulo a = v.getArticulos().get(i).getArticulo();
@@ -97,23 +108,13 @@ public class VentanaTicketController implements Initializable {
             ObservableList<ArticuloTabla> listaArticulos = FXCollections.observableArrayList(articulos);
 
             colArticulo.setCellValueFactory(new PropertyValueFactory<ArticuloTabla, String>("nombre"));
-            colCantidad.setCellValueFactory(new PropertyValueFactory<ArticuloTabla, Integer>("cantVendidas"));
-            colPrecio.setCellValueFactory(new PropertyValueFactory<ArticuloTabla, String>("precio"));
+            colPrecio.setCellValueFactory(new PropertyValueFactory<ArticuloTabla, String>("cantVendidas"));
+            colCantidad.setCellValueFactory(new PropertyValueFactory<ArticuloTabla, Integer>("precio"));
 
             colCantidad.setStyle("-fx-alignment: CENTER-RIGHT;");
             colPrecio.setStyle("-fx-alignment: CENTER-RIGHT;");
 
-            tablaArticulos.setItems(listaArticulos);
+            tablaCarrito.setItems(listaArticulos);
         }
-    }
-    
-    public void calcularTotal(Venta v) {
-        int total = 0;
-        for (int i = 0; i < v.getArticulos().size(); i++) {
-            int cant = v.getArticulos().get(i).getCantVendidas();
-            int precio = v.getArticulos().get(i).getArticulo().getPrecio();
-            total += (cant * precio);
-        }
-        lblTotal.setText("" + total);
     }
 }

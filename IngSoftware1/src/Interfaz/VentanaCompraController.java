@@ -58,7 +58,7 @@ public class VentanaCompraController implements Initializable {
 
     @FXML
     private void handleButtonAtras(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaArticulo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaPreCompra.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }

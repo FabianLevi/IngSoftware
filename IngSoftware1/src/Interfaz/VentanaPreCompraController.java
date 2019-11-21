@@ -65,6 +65,8 @@ public class VentanaPreCompraController implements Initializable {
     private ImageView btnAnterior;
     @FXML
     private ImageView btnAtras2;
+    @FXML
+    private Button btnVerCarrito;
 
     /**
      * Initializes the controller class.
@@ -148,8 +150,6 @@ public class VentanaPreCompraController implements Initializable {
         Main.ventana.setScene(scene);
     }
     
-  
-    
     @FXML
     private void handleButtonComprar(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaCompra.fxml"));
@@ -160,6 +160,13 @@ public class VentanaPreCompraController implements Initializable {
     @FXML
     private void handleButtonMenu(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    
+    @FXML
+    private void handleButtonVerCarrito(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaCarrito.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
