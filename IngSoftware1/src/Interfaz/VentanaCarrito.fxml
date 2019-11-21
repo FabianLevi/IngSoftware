@@ -76,7 +76,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Button fx:id="btnBorrarVenta" layoutX="440.0" layoutY="627.0" mnemonicParsing="false" onAction="#handleButtonBorrarVenta" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: white;" text="Borrar Venta">
+      <Button fx:id="btnBorrarVenta" layoutX="138.0" layoutY="629.0" mnemonicParsing="false" onAction="#handleButtonBorrarVenta" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: white;" text="Borrar Venta">
          <font>
             <Font name="Rockwell" size="18.0" />
          </font>

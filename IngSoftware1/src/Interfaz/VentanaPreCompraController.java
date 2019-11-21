@@ -6,6 +6,7 @@
 package Interfaz;
 
 import Dominio.Articulo;
+import Dominio.Venta;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -67,6 +69,8 @@ public class VentanaPreCompraController implements Initializable {
     private ImageView btnAtras2;
     @FXML
     private Button btnVerCarrito;
+    @FXML
+    private Label lblCantidadCarrito;
 
     /**
      * Initializes the controller class.
@@ -133,9 +137,14 @@ public class VentanaPreCompraController implements Initializable {
             }
         }
         
-//        Articulo a1 = Main.sistema.getListaArticulo().get(0);
-//        Image img1 = new Image(a1.getRutaImagen());
-//        imagen1.setImage(img1);
+        int cant = 0;
+        Venta v = Main.sistema.getVentaActual();
+        if (v != null) {
+            for (int i = 0; i < v.getArticulos().size(); i++) {
+                cant += v.getArticulos().get(i).getCantVendidas();
+            }
+        }
+        lblCantidadCarrito.setText("" + cant);
     }    
 
     @FXML

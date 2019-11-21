@@ -64,6 +64,8 @@ public class VentanaArticuloController implements Initializable {
     private Button btnComprar;
     @FXML
     private Label lblDonado;
+    @FXML
+    private Label lblCantidadCarrito;
 
     /**
      * Initializes the controller class.
@@ -76,6 +78,15 @@ public class VentanaArticuloController implements Initializable {
         lblMaterial.setText("");
         lblMatPrima.setText("");
         inicializarLabel();
+        
+        int cant = 0;
+        Venta v = Main.sistema.getVentaActual();
+        if (v != null) {
+            for (int i = 0; i < v.getArticulos().size(); i++) {
+                cant += v.getArticulos().get(i).getCantVendidas();
+            }
+        }
+        lblCantidadCarrito.setText("" + cant);
     }    
     
     

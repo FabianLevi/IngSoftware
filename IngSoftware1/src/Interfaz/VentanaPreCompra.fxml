@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -122,5 +123,10 @@
             <InnerShadow />
          </effect>
       </Button>
+      <Label fx:id="lblCantidadCarrito" layoutX="390.0" layoutY="37.0" text="0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
