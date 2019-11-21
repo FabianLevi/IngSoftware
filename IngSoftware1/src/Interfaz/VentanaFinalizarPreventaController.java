@@ -8,6 +8,8 @@ package Interfaz;
 import Dominio.PreVenta;
 import Dominio.Venta;
 import java.io.IOException;
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -22,6 +24,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * FXML Controller class
@@ -88,6 +91,8 @@ public class VentanaFinalizarPreventaController implements Initializable {
                 PreVenta pv = new PreVenta();
                 pv.setVentaRealizar(v);
                 pv.setFecha(fechaPreVenta);
+                int numero = ThreadLocalRandom.current().nextInt(10000, 50000 + 1);
+                pv.setCodigo(numero + "");
                 Main.sistema.agregarPreVenta(pv);
                 Main.sistema.setVentaActual(null);
                 Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));

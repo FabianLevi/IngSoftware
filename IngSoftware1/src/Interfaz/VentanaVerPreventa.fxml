@@ -3,14 +3,15 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaVerPreventaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaVerPreventaController">
    <children>
       <ImageView fitWidth="625.0" layoutY="-129.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -78,8 +79,6 @@
             <Image url="@../Imagenes/home-transparent-white-12.png" />
          </image>
       </ImageView>
-      <ListView fx:id="listAntesFecha" layoutX="145.0" layoutY="167.0" prefHeight="464.0" prefWidth="200.0" />
-      <ListView fx:id="listDespuesFecha" layoutX="372.0" layoutY="167.0" prefHeight="464.0" prefWidth="200.0" />
       <Label layoutX="362.0" layoutY="131.0" text="Preventas despues de fecha" textFill="#327966">
          <font>
             <Font name="Lucida Console" size="15.0" />
@@ -90,7 +89,7 @@
             <Font name="Lucida Console" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="btnEjecutarPreventa" layoutX="281.0" layoutY="648.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="162.0" style="-fx-background-color: white;" text="Ejecutar Preventa">
+      <Button fx:id="btnEjecutarPreVentas" layoutX="271.0" layoutY="620.0" mnemonicParsing="false" onAction="#handleBotonEjecutar" prefHeight="40.0" prefWidth="162.0" style="-fx-background-color: white;" text="Ejecutar Preventa">
          <effect>
             <InnerShadow />
          </effect>
@@ -98,5 +97,17 @@
             <Font name="Rockwell" size="16.0" />
          </font>
       </Button>
+      <TableView fx:id="tablaAntesDeFecha" layoutX="128.0" layoutY="163.0" prefHeight="424.0" prefWidth="198.0">
+        <columns>
+          <TableColumn fx:id="colCodigo" prefWidth="94.79998779296875" text="Codigo" />
+          <TableColumn fx:id="colFecha" prefWidth="109.20001220703125" text="Fecha" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tablaDespuesFecha" layoutX="381.0" layoutY="163.0" prefHeight="424.0" prefWidth="206.0">
+         <columns>
+            <TableColumn fx:id="colCodigo2" prefWidth="101.5999755859375" text="Codigo" />
+            <TableColumn fx:id="colFecha2" prefWidth="103.20001220703125" text="Fecha" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

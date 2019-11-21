@@ -325,11 +325,17 @@ public class Sistema {
     public ArrayList<PreVenta> preVentasAntesDeFecha() {
         ArrayList<PreVenta> aux = new ArrayList<PreVenta>();
         Date fechaActual = new Date();
-        fechaActual.setMonth(11);
+        fechaActual.setMonth(9);
         for (int i = 0; i < this.getListaPreVenta().size(); i++) {
             PreVenta p = this.getListaPreVenta().get(i);
-            if (p.getFecha().before(fechaActual) || p.getFecha().compareTo(fechaActual) == 0) {
-                aux.add(p);
+            if (( p.getFecha().getMonth()==fechaActual.getMonth())) {
+                if(p.getFecha().getDay()<=fechaActual.getDay()){
+                    aux.add(p);
+                }
+            }else{
+                if(p.getFecha().getMonth()<fechaActual.getMonth()){
+                    aux.add(p);
+                }
             }
         }
         return aux;
@@ -338,11 +344,17 @@ public class Sistema {
     public ArrayList<PreVenta> preVentasDespuesDeFecha() {
         ArrayList<PreVenta> aux = new ArrayList<PreVenta>();
         Date fechaActual = new Date();
-        fechaActual.setMonth(11);
+        fechaActual.setMonth(9);
         for (int i = 0; i < this.getListaPreVenta().size(); i++) {
             PreVenta p = this.getListaPreVenta().get(i);
-            if (p.getFecha().after(fechaActual)) {
-                aux.add(p);
+            if (( p.getFecha().getMonth()==fechaActual.getMonth())) {
+                if(p.getFecha().getDay()>fechaActual.getDay()){
+                    aux.add(p);
+                }
+            }else{
+                if(p.getFecha().getMonth()>fechaActual.getMonth()){
+                    aux.add(p);
+                }
             }
         }
         return aux;
@@ -351,7 +363,8 @@ public class Sistema {
     
 
     public void realizarVenta(PreVenta p) {
-        this.getListaVentas().add(p.getVentaRealizar());
+        //this.getListaVentas().add(p.getVentaRealizar());
+        this.agregarVenta(p.getVentaRealizar());
         this.getListaPreVenta().remove(p);
     }
 
