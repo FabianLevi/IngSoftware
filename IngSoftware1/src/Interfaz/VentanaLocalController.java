@@ -25,7 +25,7 @@ import javafx.scene.web.WebView;
  *
  * @author Sabrina
  */
-public class LocalController implements Initializable {
+public class VentanaLocalController implements Initializable {
 
     @FXML
     private ImageView btnSalir;

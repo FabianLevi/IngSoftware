@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,7 +16,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaPreventaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaPreventaController">
    <children>
       <ImageView fitWidth="625.0" layoutY="-129.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -77,7 +84,7 @@
             <Image url="@../Imagenes/home-transparent-white-12.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnRegistrarPreventa" layoutX="378.0" layoutY="619.0" mnemonicParsing="false" onAction="#handleButtonRegistrarPreventa" prefHeight="61.0" prefWidth="233.0" style="-fx-background-color: white;" text="Registrar Preventa">
+      <Button fx:id="btnRegistrarPreventa" layoutX="461.0" layoutY="604.0" mnemonicParsing="false" onAction="#handleButtonRegistrarPreventa" prefHeight="71.0" prefWidth="134.0" style="-fx-background-color: white;" text="Registrar Preventa" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Rockwell" size="22.0" />
          </font>
@@ -97,7 +104,7 @@
       <ImageView fx:id="imagen10" fitHeight="120.0" fitWidth="103.0" layoutX="242.0" layoutY="428.0" onMousePressed="#handleImagen10" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagen11" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="428.0" onMousePressed="#handleImagen11" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagen12" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="428.0" onMousePressed="#handleImagen12" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="btnSiguiente" fitHeight="67.0" fitWidth="61.0" layoutX="286.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnSiguiente" fitHeight="67.0" fitWidth="61.0" layoutX="212.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/avance-rapido.png" />
          </image>
@@ -107,5 +114,13 @@
             <Image url="@../Imagenes/avance-rapido.png" />
          </image>
       </ImageView>
+      <Button layoutX="310.0" layoutY="604.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="120.0" style="-fx-background-color: white;" text="Ver Carrito" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Rockwell" size="22.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
    </children>
 </AnchorPane>
