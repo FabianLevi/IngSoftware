@@ -22,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -69,6 +70,8 @@ public class VentanaAgregarArticuloController implements Initializable {
     private ImageView imagenArticulo;
     @FXML
     private Button elegirImagen;
+    @FXML
+    private Label vacio;
 
     /**
      * Initializes the controller class.
@@ -101,14 +104,10 @@ public class VentanaAgregarArticuloController implements Initializable {
     private void handleButtonAgregarAlCarrito(ActionEvent event) throws IOException {
         String nombre = textNombre.getText();
         String precio = textPrecio.getText();
-       
-                
-                
-                
-                
-                
-                
-        int precioN = Integer.parseInt(precio);
+        int precioN=0;
+        if(!precio.equals("")){
+            precioN = Integer.parseInt(precio);
+        }
         String codigo = textCodigo.getText();
         String material = textMaterial.getText();
         String materiaPrima = textMateriaPrima.getText();
@@ -125,11 +124,14 @@ public class VentanaAgregarArticuloController implements Initializable {
         this.agregarEnvaseALista(lista, nylon, "nylon");
         this.agregarEnvaseALista(lista, papel, "papel");
         this.agregarEnvaseALista(lista, espumaplast, "espuma plast");
-        
-        Articulo a = new Articulo(nombre,materiaPrima,precioN,material,codigo,lista,null,"/Imagenes/imagen.jpg");
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
-        Scene scene = new Scene(root);
-        Main.ventana.setScene(scene);   
+        if(!nombre.equals("") || !precio.equals("") || !codigo.equals("") || !material.equals("")||!materiaPrima.equals("")){
+            Articulo a = new Articulo(nombre,materiaPrima,precioN,material,codigo,lista,null,"/Imagenes/imagen.jpg");
+            Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
+            Scene scene = new Scene(root);
+            Main.ventana.setScene(scene);   
+        }else{
+            vacio.setText("Hay algun campo vacio");
+        }
     }
     
     private void agregarEnvaseALista(ArrayList<Envase> lista,boolean material, String nombreMaterial){

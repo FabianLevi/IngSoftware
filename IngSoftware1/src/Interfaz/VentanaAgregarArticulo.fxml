@@ -137,14 +137,18 @@
             <Font name="Lucida Console" size="19.0" />
          </font>
       </CheckBox>
-      <Button fx:id="elegirImagen" layoutX="426.0" layoutY="312.0" mnemonicParsing="false" onAction="#handleButtonElegirImahen" prefHeight="40.0" prefWidth="95.0" style="-fx-background-color: white;" text="Elegir Imagen">
+      <Button fx:id="elegirImagen" layoutX="404.0" layoutY="284.0" mnemonicParsing="false" onAction="#handleButtonElegirImahen" prefHeight="47.0" prefWidth="120.0" style="-fx-background-color: white;" text="Elegir Imagen">
          <font>
-            <Font name="Rockwell" size="12.0" />
+            <Font name="Rockwell" size="14.0" />
          </font>
          <effect>
             <InnerShadow />
          </effect>
       </Button>
       <ImageView fx:id="imagenArticulo" fitHeight="185.0" fitWidth="273.0" layoutX="338.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="vacio" layoutX="120.0" layoutY="658.0" prefHeight="28.0" prefWidth="315.0" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
    </children>
 </AnchorPane>

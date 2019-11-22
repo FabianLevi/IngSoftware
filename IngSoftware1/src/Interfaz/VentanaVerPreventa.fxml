@@ -89,7 +89,7 @@
             <Font name="Lucida Console" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="btnEjecutarPreVentas" layoutX="271.0" layoutY="620.0" mnemonicParsing="false" onAction="#handleBotonEjecutar" prefHeight="40.0" prefWidth="162.0" style="-fx-background-color: white;" text="Ejecutar Preventa">
+      <Button fx:id="btnEjecutarPreVentas" layoutX="271.0" layoutY="604.0" mnemonicParsing="false" onAction="#handleBotonEjecutar" prefHeight="40.0" prefWidth="162.0" style="-fx-background-color: white;" text="Ejecutar Preventa">
          <effect>
             <InnerShadow />
          </effect>
@@ -109,5 +109,10 @@
             <TableColumn fx:id="colFecha2" prefWidth="103.20001220703125" text="Fecha" />
          </columns>
       </TableView>
+      <Label fx:id="vacio" layoutX="223.0" layoutY="654.0" prefHeight="17.0" prefWidth="278.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

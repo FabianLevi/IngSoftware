@@ -22,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -56,6 +57,8 @@ public class VentanaVerPreventaController implements Initializable {
     private TableColumn<PreVenta, String> colFecha2;
     @FXML
     private Button btnEjecutarPreVentas;
+    @FXML
+    private Label vacio;
 
     /**
      * Initializes the controller class.
@@ -85,7 +88,8 @@ public class VentanaVerPreventaController implements Initializable {
         colFecha2.setStyle("-fx-alignment: CENTER;");
         
         tablaDespuesFecha.setItems(listaArticulos2);
-        // TODO
+        tablaAntesDeFecha.getSelectionModel().selectFirst();
+        
     }    
 
     @FXML
@@ -110,11 +114,15 @@ public class VentanaVerPreventaController implements Initializable {
 
     @FXML
     private void handleBotonEjecutar(ActionEvent event) throws IOException {
-        PreVenta pv = tablaAntesDeFecha.getSelectionModel().getSelectedItem();
-        Main.sistema.realizarVenta(pv);
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaEmpresa.fxml"));
-        Scene scene = new Scene(root);
-        Main.ventana.setScene(scene);
+        if(!tablaAntesDeFecha.getSelectionModel().isEmpty()){
+            PreVenta pv = tablaAntesDeFecha.getSelectionModel().getSelectedItem();
+            Main.sistema.realizarVenta(pv);
+            Parent root = FXMLLoader.load(getClass().getResource("VentanaEmpresa.fxml"));
+            Scene scene = new Scene(root);
+            Main.ventana.setScene(scene);
+        }else{
+            vacio.setText("No se selecciona una preventa");
+        }
     }
     
 }
