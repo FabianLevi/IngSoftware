@@ -89,7 +89,7 @@ public class VentanaVerPreventaController implements Initializable {
         
         tablaDespuesFecha.setItems(listaArticulos2);
         tablaAntesDeFecha.getSelectionModel().selectFirst();
-        
+        tablaDespuesFecha.setSelectionModel(null);
     }    
 
     @FXML
