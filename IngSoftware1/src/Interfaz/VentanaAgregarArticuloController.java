@@ -101,6 +101,13 @@ public class VentanaAgregarArticuloController implements Initializable {
     private void handleButtonAgregarAlCarrito(ActionEvent event) throws IOException {
         String nombre = textNombre.getText();
         String precio = textPrecio.getText();
+       
+                
+                
+                
+                
+                
+                
         int precioN = Integer.parseInt(precio);
         String codigo = textCodigo.getText();
         String material = textMaterial.getText();
@@ -118,6 +125,7 @@ public class VentanaAgregarArticuloController implements Initializable {
         this.agregarEnvaseALista(lista, nylon, "nylon");
         this.agregarEnvaseALista(lista, papel, "papel");
         this.agregarEnvaseALista(lista, espumaplast, "espuma plast");
+        
         Articulo a = new Articulo(nombre,materiaPrima,precioN,material,codigo,lista,null,"/Imagenes/imagen.jpg");
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
         Scene scene = new Scene(root);

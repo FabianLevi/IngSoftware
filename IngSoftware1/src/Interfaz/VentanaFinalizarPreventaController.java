@@ -11,6 +11,7 @@ import java.io.IOException;
 import static java.lang.Integer.max;
 import static java.lang.Integer.min;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -25,6 +26,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import java.util.concurrent.ThreadLocalRandom;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -42,18 +44,20 @@ public class VentanaFinalizarPreventaController implements Initializable {
     @FXML
     private Button btnFinalizarPreventa;
     @FXML
-    private Label lblNombre;
+    private TextField lblNombre;
     @FXML
-    private Label lblTarjeta;
+    private TextField lblTarjeta;
     @FXML
     private DatePicker datePicker;
+    @FXML
+    private Label vacio;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        datePicker.setValue(LocalDate.now());
     }    
 
     @FXML
@@ -98,7 +102,10 @@ public class VentanaFinalizarPreventaController implements Initializable {
                 Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
                 Scene scene = new Scene(root);
                 Main.ventana.setScene(scene);
+            }else{
+                vacio.setText("El carrito esta vacio");
             }
+                
         }
     }
     

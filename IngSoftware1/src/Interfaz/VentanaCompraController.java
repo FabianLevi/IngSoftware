@@ -37,11 +37,13 @@ public class VentanaCompraController implements Initializable {
     @FXML
     private ImageView btnMenu;
     @FXML
-    private Label lblNombre;
+    private TextField lblNombre;
     @FXML
-    private Label lblTarjeta;
+    private TextField lblTarjeta;
     @FXML
     private Button btnFinalizarCompra;
+    @FXML
+    private Label vacio;
 
     /**
      * Initializes the controller class.
@@ -78,6 +80,8 @@ public class VentanaCompraController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("VentanaTicket.fxml"));
             Scene scene = new Scene(root);
             Main.ventana.setScene(scene);
+        }else{
+            vacio.setText("El carrito esta vacio");
         }
     }
 }
