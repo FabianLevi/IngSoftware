@@ -50,6 +50,8 @@ public class VentanaCarritoController implements Initializable {
     private TableColumn<ArticuloTabla, String> colPrecio;
     @FXML
     private Button btnBorrarVenta;
+    @FXML
+    private Button btnComprar;
 
     /**
      * Initializes the controller class.
@@ -83,6 +85,13 @@ public class VentanaCarritoController implements Initializable {
     private void handleButtonBorrarVenta(ActionEvent event) throws IOException {
         Main.sistema.setVentaActual(null);
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPreCompra.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    
+    @FXML
+    private void handleButtonComprar(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaCompra.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }

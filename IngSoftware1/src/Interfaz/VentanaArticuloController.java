@@ -102,6 +102,7 @@ public class VentanaArticuloController implements Initializable {
         centerImage(imagenArticulo);
         ObservableList<Envase> lstEnvasesPosibles = FXCollections.observableArrayList(a.getEnvasesPosibles());
         lstEnvases.setItems(lstEnvasesPosibles);
+        lstEnvases.getSelectionModel().selectFirst();
         ObservableList<String> cantidades = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10");
         boxCantidad.setItems(cantidades);
         boxCantidad.getSelectionModel().selectFirst();

@@ -121,11 +121,7 @@ public class VentanaAgregarArticuloController implements Initializable {
         Articulo a = new Articulo(nombre,materiaPrima,precioN,material,codigo,lista,null,"/Imagenes/imagen.jpg");
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
         Scene scene = new Scene(root);
-        Main.ventana.setScene(scene);
-        
-        
-        
-        
+        Main.ventana.setScene(scene);   
     }
     
     private void agregarEnvaseALista(ArrayList<Envase> lista,boolean material, String nombreMaterial){
