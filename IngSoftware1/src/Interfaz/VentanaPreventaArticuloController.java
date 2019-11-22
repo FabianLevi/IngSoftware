@@ -123,7 +123,7 @@ public class VentanaPreventaArticuloController implements Initializable {
             //MESNAJE DE ERROR: Seleccione un elemento de la lista de envases
         }
         else {
-            Venta v = Main.sistema.getVentaActual();
+            Venta v = Main.sistema.getPreventaActual();
             if (v == null) {        
                 Venta nuevaVenta = new Venta();
                 ArrayList<NodoArticulo> articulos = new ArrayList<>();
@@ -133,7 +133,7 @@ public class VentanaPreventaArticuloController implements Initializable {
                 nodo.setCantVendidas(Integer.parseInt(boxCantidad.getSelectionModel().getSelectedItem()));
                 articulos.add(nodo);
                 nuevaVenta.setArticulos(articulos);
-                Main.sistema.setVentaActual(nuevaVenta);
+                Main.sistema.setPreventaActual(nuevaVenta);
                 Parent root = FXMLLoader.load(getClass().getResource("VentanaPreventa.fxml"));
                 Scene scene = new Scene(root);
                 Main.ventana.setScene(scene);

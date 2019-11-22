@@ -65,6 +65,8 @@ public class VentanaPreventaController implements Initializable {
     private ImageView btnAnterior;
     @FXML
     private ImageView btnAtras2;
+    @FXML
+    private Button btnVerCarrito;
 
     /**
      * Initializes the controller class.
@@ -226,6 +228,13 @@ public class VentanaPreventaController implements Initializable {
     private void handleImagen12(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(11);
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPreventaArticulo.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+
+    @FXML
+    private void handleButtonVerCarrito(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaCarritoPreventa.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }

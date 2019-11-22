@@ -36,8 +36,6 @@ public class VentanaDonacionController implements Initializable {
     @FXML
     private ImageView btnMenu;
     @FXML
-    private Button btnDonar;
-    @FXML
     private ImageView imagen1;
     @FXML
     private ImageView imagen2;
@@ -65,6 +63,8 @@ public class VentanaDonacionController implements Initializable {
     private ImageView btnSiguiente;
     @FXML
     private ImageView btnAnterior;
+    @FXML
+    private Button btnDonar;
 
     /**
      * Initializes the controller class.

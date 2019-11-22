@@ -84,7 +84,7 @@
             <Font name="Rockwell" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="btnComprar" layoutX="440.0" layoutY="629.0" mnemonicParsing="false" onAction="#handleButtonComprar" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: white;" text="Comprar">
+      <Button fx:id="btnRealizarPreventa" layoutX="409.0" layoutY="629.0" mnemonicParsing="false" onAction="#handleButtonRealizarPreventa" prefHeight="50.0" prefWidth="171.0" style="-fx-background-color: white;" text="Realizar Preventa">
          <effect>
             <InnerShadow />
          </effect>

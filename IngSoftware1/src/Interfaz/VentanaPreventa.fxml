@@ -114,7 +114,7 @@
             <Image url="@../Imagenes/avance-rapido.png" />
          </image>
       </ImageView>
-      <Button layoutX="310.0" layoutY="604.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="120.0" style="-fx-background-color: white;" text="Ver Carrito" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="btnVerCarrito" layoutX="310.0" layoutY="604.0" mnemonicParsing="false" onAction="#handleButtonVerCarrito" prefHeight="71.0" prefWidth="120.0" style="-fx-background-color: white;" text="Ver Carrito" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Rockwell" size="22.0" />
          </font>

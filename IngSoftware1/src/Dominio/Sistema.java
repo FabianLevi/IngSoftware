@@ -48,6 +48,7 @@ public class Sistema {
     private ArrayList<NodoEnvase> listaEnvasesReutilizables;
     private int articulo;
     private Venta ventaActual;
+    private Venta preventaActual;
     private ArrayList<Pair> listaParesArticulos;
     private int cantVentas;
     private ArrayList<NodoArticulo> donacionActual;
@@ -56,7 +57,7 @@ public class Sistema {
     public Sistema(ArrayList<Envase> unaListaEnvases, ArrayList<Articulo> unaListaArticulo, ArrayList<PuntoDeVenta> unaListaPuntoDeVenta,
             ArrayList<Venta> unaListaVentas, ArrayList<PreVenta> unaListaPreVenta, ArrayList<Usuario> unaListaUsuario,
             ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos, 
-            ArrayList<NodoEnvase> unaListaEnvasesReutilizables, int num, Venta unaVenta, ArrayList<NodoArticulo> unaDonacionActual) {
+            ArrayList<NodoEnvase> unaListaEnvasesReutilizables, int num, Venta unaVenta, Venta unaPreventa, ArrayList<NodoArticulo> unaDonacionActual) {
         this.listaEnvases = unaListaEnvases;
         this.listaArticulo = unaListaArticulo;
         this.listaPuntoDeVenta = unaListaPuntoDeVenta;
@@ -68,6 +69,7 @@ public class Sistema {
         this.listaEnvasesReutilizables = unaListaEnvasesReutilizables;
         this.articulo = num;
         this.ventaActual = unaVenta;
+        this.preventaActual = unaPreventa;
         this.cantVentas = 0;
         this.donacionActual = unaDonacionActual;
     }
@@ -85,6 +87,7 @@ public class Sistema {
         this.setArticulo(0);
         //this.setVentaActual(null);
         this.ventaActual = null;
+        this.preventaActual = null;
         this.cantVentas = 0;
         this.donacionActual = new ArrayList<NodoArticulo>();
     }
@@ -200,6 +203,14 @@ public class Sistema {
 
     public void setDonacionActual(ArrayList<NodoArticulo> donacionActual) {
         this.donacionActual = donacionActual;
+    }
+    
+    public Venta getPreventaActual() {
+        return preventaActual;
+    }
+
+    public void setPreventaActual(Venta preventaActual) {
+        this.preventaActual = preventaActual;
     }
 
     //Funciones
