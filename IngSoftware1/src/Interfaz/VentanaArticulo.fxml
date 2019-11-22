@@ -79,49 +79,64 @@
             <InnerShadow />
          </effect>
       </Button>
-      <Label layoutX="103.0" layoutY="104.0" prefHeight="40.0" prefWidth="349.0" text="Nombre:" textFill="#5ac3a8">
+      <Label fx:id="lblNombre" layoutX="103.0" layoutY="136.0" prefHeight="40.0" prefWidth="349.0" text="Nombre" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="450.0" prefHeight="40.0" prefWidth="349.0" text="Envases Posibles:" textFill="#5ac3a8">
+      <Label layoutX="103.0" layoutY="458.0" prefHeight="30.0" prefWidth="191.0" text="Envases Posibles:">
+         <font>
+            <Font name="Lucida Console" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPrecio" layoutX="103.0" layoutY="218.0" prefHeight="40.0" prefWidth="349.0" text="Precio" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="103.0" layoutY="186.0" prefHeight="40.0" prefWidth="349.0" text="Precio:" textFill="#5ac3a8">
-         <font>
-            <Font name="Lucida Console" size="29.0" />
-         </font>
-      </Label>
-      <Label layoutX="103.0" layoutY="272.0" prefHeight="40.0" prefWidth="349.0" text="Código:" textFill="#5ac3a8">
+      <Label fx:id="lblCodigo" layoutX="103.0" layoutY="304.0" prefHeight="40.0" prefWidth="349.0" text="Código" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
       <ImageView fx:id="imagenArticulo" fitHeight="180.0" fitWidth="218.0" layoutX="359.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="103.0" layoutY="360.0" prefHeight="40.0" prefWidth="180.0" text="Material:" textFill="#5ac3a8">
+      <Label fx:id="lblMaterial" layoutX="103.0" layoutY="392.0" prefHeight="40.0" prefWidth="180.0" text="Material" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <Label layoutX="345.0" layoutY="360.0" prefHeight="40.0" prefWidth="260.0" text="Materia Prima:" textFill="#5ac3a8">
+      <Label fx:id="lblMatPrima" layoutX="338.0" layoutY="392.0" prefHeight="40.0" prefWidth="260.0" text="Materia Prima" textFill="#5ac3a8">
          <font>
             <Font name="Lucida Console" size="29.0" />
          </font>
       </Label>
-      <Label fx:id="lblNombre" layoutX="103.0" layoutY="144.0" prefHeight="30.0" prefWidth="300.0" text="Label" />
-      <Label fx:id="lblPrecio" layoutX="103.0" layoutY="226.0" prefHeight="30.0" prefWidth="300.0" text="Label" />
-      <Label fx:id="lblCodigo" layoutX="103.0" layoutY="312.0" prefHeight="30.0" prefWidth="300.0" text="Label" />
-      <Label fx:id="lblMaterial" layoutX="103.0" layoutY="400.0" prefHeight="30.0" prefWidth="180.0" text="Label" />
-      <Label fx:id="lblMatPrima" layoutX="345.0" layoutY="400.0" prefHeight="30.0" prefWidth="180.0" text="Label" />
+      <Label layoutX="103.0" layoutY="110.0" prefHeight="30.0" prefWidth="300.0" text="Nombre:">
+         <font>
+            <Font name="Lucida Console" size="15.0" />
+         </font></Label>
+      <Label layoutX="103.0" layoutY="192.0" prefHeight="30.0" prefWidth="300.0" text="Precio:">
+         <font>
+            <Font name="Lucida Console" size="15.0" />
+         </font></Label>
+      <Label layoutX="103.0" layoutY="278.0" prefHeight="30.0" prefWidth="300.0" text="Código:">
+         <font>
+            <Font name="Lucida Console" size="15.0" />
+         </font></Label>
+      <Label layoutX="103.0" layoutY="366.0" prefHeight="30.0" prefWidth="180.0" text="Material:">
+         <font>
+            <Font name="Lucida Console" size="15.0" />
+         </font></Label>
+      <Label layoutX="338.0" layoutY="366.0" prefHeight="30.0" prefWidth="180.0" text="Materia Prima:">
+         <font>
+            <Font name="Lucida Console" size="15.0" />
+         </font></Label>
       <ListView fx:id="lstEnvases" layoutX="103.0" layoutY="490.0" prefHeight="100.0" prefWidth="300.0" />
-      <Label layoutX="103.0" layoutY="629.0" text="Cantidad:" textFill="#5ac3a8">
+      <Label layoutX="103.0" layoutY="635.0" text="Cantidad:">
          <font>
-            <Font name="Lucida Console" size="29.0" />
+            <Font name="Lucida Console" size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="boxCantidad" layoutX="278.0" layoutY="629.0" prefHeight="31.0" prefWidth="90.0" />
+      <ComboBox fx:id="boxCantidad" layoutX="214.0" layoutY="629.0" prefHeight="31.0" prefWidth="90.0" />
       <Label fx:id="lblDonado" alignment="CENTER" layoutX="411.0" layoutY="110.0" prefHeight="28.0" prefWidth="114.0" style="-fx-background-color: #5ac3a8;" text="DONADO" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Lucida Console" size="24.0" />

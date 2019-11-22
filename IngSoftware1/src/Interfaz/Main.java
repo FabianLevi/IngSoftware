@@ -47,7 +47,7 @@ public class Main extends Application {
         
         Articulo art1 = new Articulo("bananas", "campo", 12, "orgánico", "bananas123", listaEnvases, e1, "/Imagenes/bananas.jpg");
         Articulo art2 = new Articulo("manzanas", "campo", 15, "organico", "manzanas123", listaEnvases, e2, "/Imagenes/manzana.png");
-        Articulo art3 = new Articulo("peras", "campo", 12, "orgánico", "´peras123", listaEnvases, e1, "/Imagenes/peras.jpg");
+        Articulo art3 = new Articulo("peras", "campo", 12, "orgánico", "peras123", listaEnvases, e1, "/Imagenes/peras.jpg");
         Articulo art4 = new Articulo("naranjas", "campo", 15, "organico", "naranjas123", listaEnvases, e2, "/Imagenes/naranjas.jpg");
         
         sistema.agregarArticulo(art1);
