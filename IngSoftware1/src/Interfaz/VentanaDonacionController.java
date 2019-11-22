@@ -65,6 +65,8 @@ public class VentanaDonacionController implements Initializable {
     private ImageView btnAnterior;
     @FXML
     private Button btnDonar;
+    @FXML
+    private Button btnVerDonacion;
 
     /**
      * Initializes the controller class.
@@ -270,6 +272,13 @@ public class VentanaDonacionController implements Initializable {
     private void handleImagen12(MouseEvent event) throws IOException {
         Main.sistema.setArticulo(11);
         Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
+        Scene scene = new Scene(root);
+        Main.ventana.setScene(scene);
+    }
+    
+    @FXML
+    private void handleButtonVerDonacion(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaVerDonacion.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }

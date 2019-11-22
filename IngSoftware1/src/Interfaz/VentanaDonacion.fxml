@@ -83,17 +83,25 @@
       <ImageView fx:id="imagen10" fitHeight="120.0" fitWidth="103.0" layoutX="242.0" layoutY="428.0" onMousePressed="#handleImagen10" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagen11" fitHeight="120.0" fitWidth="103.0" layoutX="370.0" layoutY="428.0" onMousePressed="#handleImagen11" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imagen12" fitHeight="120.0" fitWidth="103.0" layoutX="498.0" layoutY="428.0" onMousePressed="#handleImagen12" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="btnSiguiente" fitHeight="67.0" fitWidth="61.0" layoutX="308.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="btnSiguiente" fitHeight="67.0" fitWidth="61.0" layoutX="212.0" layoutY="622.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/avance.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="btnAnterior" fitHeight="61.0" fitWidth="67.0" layoutX="166.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
+      <ImageView fx:id="btnAnterior" fitHeight="61.0" fitWidth="67.0" layoutX="114.0" layoutY="620.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 180;">
          <image>
             <Image url="@../Imagenes/avance.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnDonar" layoutX="458.0" layoutY="620.0" mnemonicParsing="false" onAction="#handleButtonDonar" prefHeight="54.0" prefWidth="130.0" style="-fx-background-color: white;" text="Donar">
+      <Button fx:id="btnDonar" layoutX="473.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonDonar" prefHeight="82.0" prefWidth="130.0" style="-fx-background-color: white;" text="Donar">
+         <font>
+            <Font name="Rockwell" size="24.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Button>
+      <Button fx:id="btnVerDonacion" layoutX="303.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonVerDonacion" prefHeight="82.0" prefWidth="138.0" style="-fx-background-color: white;" text="Ver Donación" textAlignment="CENTER" wrapText="true">
          <font>
             <Font name="Rockwell" size="24.0" />
          </font>
