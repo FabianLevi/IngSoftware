@@ -58,10 +58,10 @@ public class VentanaFinalizarPreventaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         datePicker.setValue(LocalDate.now());
-    }    
+    }
 
     @FXML
-    private void handleButtonSalir(MouseEvent event)  {
+    private void handleButtonSalir(MouseEvent event) {
         Main.ventana.close();
     }
 
@@ -81,32 +81,32 @@ public class VentanaFinalizarPreventaController implements Initializable {
 
     @FXML
     private void handleButtonFinalizarCompra(ActionEvent event) throws IOException {
-        
-        if(datePicker.getValue().getYear()!= 0){
+
+        if (datePicker.getValue().getYear() != 0) {
             int dia = datePicker.getValue().getDayOfMonth();
             int mes = datePicker.getValue().getMonthValue();
-            int ano = datePicker.getValue().getYear();
+            int ano = datePicker.getValue().getYear();            
             Date fechaPreVenta = new Date();
             fechaPreVenta.setDate(dia);
-            fechaPreVenta.setMonth(mes);
-            fechaPreVenta.setYear(ano);
-            Venta v = Main.sistema.getVentaActual();
-            if(v!=null){
+            fechaPreVenta.setMonth(mes - 1);
+            fechaPreVenta.setYear(ano - 1900);
+            Venta v = Main.sistema.getPreventaActual();
+            if (v != null) {
                 PreVenta pv = new PreVenta();
                 pv.setVentaRealizar(v);
                 pv.setFecha(fechaPreVenta);
                 int numero = ThreadLocalRandom.current().nextInt(10000, 50000 + 1);
                 pv.setCodigo(numero + "");
                 Main.sistema.agregarPreVenta(pv);
-                Main.sistema.setVentaActual(null);
+                Main.sistema.setPreventaActual(null);
                 Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
                 Scene scene = new Scene(root);
                 Main.ventana.setScene(scene);
-            }else{
+            } else {
                 vacio.setText("El carrito esta vacio");
             }
-                
+
         }
     }
-    
+
 }

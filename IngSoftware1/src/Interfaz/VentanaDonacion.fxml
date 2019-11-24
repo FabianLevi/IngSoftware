@@ -95,7 +95,7 @@
       </ImageView>
       <Button fx:id="btnDonar" layoutX="473.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonDonar" prefHeight="82.0" prefWidth="130.0" style="-fx-background-color: white;" text="Donar">
          <font>
-            <Font name="Rockwell" size="24.0" />
+            <Font name="Rockwell" size="30.0" />
          </font>
          <effect>
             <InnerShadow />
@@ -103,7 +103,7 @@
       </Button>
       <Button fx:id="btnVerDonacion" layoutX="303.0" layoutY="600.0" mnemonicParsing="false" onAction="#handleButtonVerDonacion" prefHeight="82.0" prefWidth="138.0" style="-fx-background-color: white;" text="Ver Donación" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font name="Rockwell" size="24.0" />
+            <Font name="Rockwell" size="20.0" />
          </font>
          <effect>
             <InnerShadow />

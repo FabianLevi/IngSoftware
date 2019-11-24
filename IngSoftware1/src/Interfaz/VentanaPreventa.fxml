@@ -84,9 +84,9 @@
             <Image url="@../Imagenes/home-transparent-white-12.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnRegistrarPreventa" layoutX="461.0" layoutY="604.0" mnemonicParsing="false" onAction="#handleButtonRegistrarPreventa" prefHeight="71.0" prefWidth="134.0" style="-fx-background-color: white;" text="Registrar Preventa" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="btnRegistrarPreventa" layoutX="454.0" layoutY="604.0" mnemonicParsing="false" onAction="#handleButtonRegistrarPreventa" prefHeight="77.0" prefWidth="148.0" style="-fx-background-color: white;" text="Registrar Preventa" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font name="Rockwell" size="22.0" />
+            <Font name="Rockwell" size="24.0" />
          </font>
          <effect>
             <InnerShadow />
@@ -114,9 +114,9 @@
             <Image url="@../Imagenes/avance-rapido.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnVerCarrito" layoutX="310.0" layoutY="604.0" mnemonicParsing="false" onAction="#handleButtonVerCarrito" prefHeight="71.0" prefWidth="120.0" style="-fx-background-color: white;" text="Ver Carrito" textAlignment="CENTER" wrapText="true">
+      <Button fx:id="btnVerCarrito" layoutX="305.0" layoutY="604.0" mnemonicParsing="false" onAction="#handleButtonVerCarrito" prefHeight="77.0" prefWidth="120.0" style="-fx-background-color: white;" text="Ver Carrito" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font name="Rockwell" size="22.0" />
+            <Font name="Rockwell" size="18.0" />
          </font>
          <effect>
             <InnerShadow />

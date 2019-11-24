@@ -336,15 +336,14 @@ public class Sistema {
     public ArrayList<PreVenta> preVentasAntesDeFecha() {
         ArrayList<PreVenta> aux = new ArrayList<PreVenta>();
         Date fechaActual = new Date();
-        fechaActual.setMonth(9);
         for (int i = 0; i < this.getListaPreVenta().size(); i++) {
             PreVenta p = this.getListaPreVenta().get(i);
-            if (( p.getFecha().getMonth()==fechaActual.getMonth())) {
-                if(p.getFecha().getDay()<=fechaActual.getDay()){
+            if ((p.getFecha().getMonth() == fechaActual.getMonth())) {
+                if(p.getFecha().getDate() <= fechaActual.getDate()){
                     aux.add(p);
                 }
             }else{
-                if(p.getFecha().getMonth()<fechaActual.getMonth()){
+                if(p.getFecha().getMonth() < fechaActual.getMonth()){
                     aux.add(p);
                 }
             }
@@ -355,11 +354,10 @@ public class Sistema {
     public ArrayList<PreVenta> preVentasDespuesDeFecha() {
         ArrayList<PreVenta> aux = new ArrayList<PreVenta>();
         Date fechaActual = new Date();
-        fechaActual.setMonth(9);
         for (int i = 0; i < this.getListaPreVenta().size(); i++) {
             PreVenta p = this.getListaPreVenta().get(i);
-            if (( p.getFecha().getMonth()==fechaActual.getMonth())) {
-                if(p.getFecha().getDay()>fechaActual.getDay()){
+            if ((p.getFecha().getMonth()==fechaActual.getMonth())) {
+                if(p.getFecha().getDate()>fechaActual.getDate()){
                     aux.add(p);
                 }
             }else{
