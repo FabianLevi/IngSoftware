@@ -23,11 +23,6 @@
             <Image url="@../Imagenes/close-icon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="114.0" fitWidth="138.0" layoutX="345.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Imagenes/cart-icon-16.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="65.0" fitWidth="57.0" layoutX="288.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/icon-daun-png-1.png" />
@@ -92,5 +87,10 @@
             <Font name="Rockwell" size="18.0" />
          </font>
       </Button>
+      <ImageView fitHeight="95.0" fitWidth="110.0" layoutX="355.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/5d39f86131745cb8040d08e5_calendar.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

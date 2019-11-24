@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -52,6 +53,8 @@ public class VentanaCarritoController implements Initializable {
     private Button btnBorrarVenta;
     @FXML
     private Button btnComprar;
+    @FXML
+    private Label lblCantidadCarrito;
 
     /**
      * Initializes the controller class.
@@ -60,6 +63,14 @@ public class VentanaCarritoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         Venta v = Main.sistema.getVentaActual();
         setearLista(v);
+        
+        int cant = 0;
+        if (v != null) {
+            for (int i = 0; i < v.getArticulos().size(); i++) {
+                cant += v.getArticulos().get(i).getCantVendidas();
+            }
+        }
+        lblCantidadCarrito.setText("" + cant);
     }    
 
     @FXML

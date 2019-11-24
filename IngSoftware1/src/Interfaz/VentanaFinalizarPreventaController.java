@@ -58,6 +58,8 @@ public class VentanaFinalizarPreventaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         datePicker.setValue(LocalDate.now());
+        lblNombre.setText("Alejandro Adorjan");
+        lblTarjeta.setText("4485 7158 6086 8875");
     }
 
     @FXML

@@ -44,13 +44,25 @@ public class VentanaCompraController implements Initializable {
     private Button btnFinalizarCompra;
     @FXML
     private Label vacio;
+    @FXML
+    private Label lblCantidadCarrito;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        lblNombre.setText("Alejandro Adorjan");
+        lblTarjeta.setText("4485 7158 6086 8875");
+        
+        int cant = 0;
+        Venta v = Main.sistema.getVentaActual();
+        if (v != null) {
+            for (int i = 0; i < v.getArticulos().size(); i++) {
+                cant += v.getArticulos().get(i).getCantVendidas();
+            }
+        }
+        lblCantidadCarrito.setText("" + cant);
     }    
 
     @FXML
