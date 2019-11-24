@@ -16,8 +16,6 @@ public class Venta {
     
     //Atributos
     private ArrayList<NodoArticulo> articulos;
-    private PuntoDeVenta puntoDeVenta;      //VER QUE TAN NECESARIO ES!!
-    private Usuario usuario;
     private Date fecha;
 
     
@@ -32,17 +30,13 @@ public class Venta {
     
     
     //Constructores
-    public Venta(ArrayList<NodoArticulo> listaArticulos, PuntoDeVenta unPuntoDeVenta, Usuario unUsuario,Date unaFecha) {
+    public Venta(ArrayList<NodoArticulo> listaArticulos,Date unaFecha) {
         articulos = listaArticulos;
-        puntoDeVenta = unPuntoDeVenta;
-        usuario = unUsuario;
         fecha=unaFecha;
     }
 
     public Venta(){
         articulos = null;
-        puntoDeVenta = null;
-        usuario = null;
         this.setFecha(new Date());
     }
     //Setters
@@ -50,26 +44,18 @@ public class Venta {
         this.articulos = articulos;
     }
 
-    public void setPuntoDeVenta(PuntoDeVenta puntoDeVenta) {
-        this.puntoDeVenta = puntoDeVenta;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
     //Getters
     public ArrayList<NodoArticulo> getArticulos() {
         return articulos;
     }
 
-    public PuntoDeVenta getPuntoDeVenta() {
-        return puntoDeVenta;
+     //Métodos sobreescritos
+    @Override
+    public boolean equals(Object obj){
+        return this.articulos.equals(((Venta) obj).articulos);
     }
 
-    public Usuario getUsuario() {
-        return usuario;
-    }
+    
     
     
 }

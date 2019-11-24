@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Articulo.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;IngSoftware1&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Dominio</a> &gt; <span class="el_source">Articulo.java</span></div><h1>Articulo.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Dominio;
+
+/**
+ *
+ * @author Darío
+ */
+import java.util.ArrayList;
+
+public class Articulo {
+    
+    //Atributos
+    private String nombre;
+    private String origenMatPrima;
+    private int precio;
+    private String material;
+    private String codigo;
+    private ArrayList&lt;Envase&gt; envasesPosibles;
+    private Envase envaseElegido;
+    private String rutaImagen;
+    
+
+    //Constructores
+    public Articulo(String unNombre, String unOrigenMatPrima, int unPrecio, String unMaterial, String unCodigo, 
+<span class="fc" id="L29">            ArrayList&lt;Envase&gt; listaEnvasesPosibles, Envase unEnvaseElegido, String unaRutaImagen) {</span>
+<span class="fc" id="L30">        nombre = unNombre;</span>
+<span class="fc" id="L31">        origenMatPrima = unOrigenMatPrima;</span>
+<span class="fc" id="L32">        this.setPrecio(unPrecio);</span>
+<span class="fc" id="L33">        material = unMaterial;</span>
+<span class="fc" id="L34">        codigo = unCodigo;</span>
+<span class="fc" id="L35">        envasesPosibles = listaEnvasesPosibles;</span>
+<span class="fc" id="L36">        envaseElegido = unEnvaseElegido;</span>
+<span class="fc" id="L37">        rutaImagen = unaRutaImagen;</span>
+<span class="fc" id="L38">    }</span>
+<span class="fc" id="L39">    public Articulo(){</span>
+<span class="fc" id="L40">        this.setPrecio(0);</span>
+        //this.envasesPosibles = null;
+<span class="fc" id="L42">    }</span>
+    
+<span class="fc" id="L44">    public Articulo(Articulo a) {</span>
+<span class="fc" id="L45">        nombre = a.nombre;</span>
+<span class="fc" id="L46">        origenMatPrima = a.origenMatPrima;</span>
+<span class="fc" id="L47">        precio = a.precio;</span>
+<span class="fc" id="L48">        material = a.material;</span>
+<span class="fc" id="L49">        codigo = a.codigo;</span>
+<span class="fc" id="L50">        envasesPosibles = a.envasesPosibles;</span>
+<span class="fc" id="L51">        envaseElegido = a.envaseElegido;</span>
+<span class="fc" id="L52">        rutaImagen = a.rutaImagen;</span>
+<span class="fc" id="L53">    }</span>
+    
+    
+    //Setters
+    public void setNombre(String nombre) {
+<span class="fc" id="L58">        this.nombre = nombre;</span>
+<span class="fc" id="L59">    }</span>
+    
+    public void setOrigenMatPrima(String origenMatPrima) {
+<span class="fc" id="L62">        this.origenMatPrima = origenMatPrima;</span>
+<span class="fc" id="L63">    }</span>
+
+    public void setPrecio(int precio) {
+<span class="fc" id="L66">        this.precio = precio;</span>
+<span class="fc" id="L67">    }</span>
+
+    public void setMaterial(String material) {
+<span class="fc" id="L70">        this.material = material;</span>
+<span class="fc" id="L71">    }</span>
+
+    public void setCodigo(String codigo) {
+<span class="fc" id="L74">        this.codigo = codigo;</span>
+<span class="fc" id="L75">    }</span>
+
+    public void setEnvasesPosibles(ArrayList&lt;Envase&gt; envasesPosibles) {
+<span class="fc" id="L78">        this.envasesPosibles = envasesPosibles;</span>
+<span class="fc" id="L79">    }</span>
+
+    public void setEnvaseElegido(Envase envaseElegido) {
+<span class="fc" id="L82">        this.envaseElegido = envaseElegido;</span>
+<span class="fc" id="L83">    }</span>
+    
+    public void setRutaImagen(String rutaImagen) {
+<span class="fc" id="L86">        this.rutaImagen = rutaImagen;</span>
+<span class="fc" id="L87">    }</span>
+    
+    
+    //Getters
+    public String getNombre() {
+<span class="fc" id="L92">        return nombre;</span>
+    }
+    
+    public String getOrigenMatPrima() {
+<span class="fc" id="L96">        return origenMatPrima;</span>
+    }
+
+    public int getPrecio() {
+<span class="fc" id="L100">        return precio;</span>
+    }
+
+    public String getMaterial() {
+<span class="fc" id="L104">        return material;</span>
+    }
+
+    public String getCodigo() {
+<span class="fc" id="L108">        return codigo;</span>
+    }
+
+    public ArrayList&lt;Envase&gt; getEnvasesPosibles() {
+<span class="fc" id="L112">        return envasesPosibles;</span>
+    }
+
+    public Envase getEnvaseElegido() {
+<span class="fc" id="L116">        return envaseElegido;</span>
+    }
+    
+    public String getRutaImagen() {
+<span class="fc" id="L120">        return rutaImagen;</span>
+    }
+    
+    
+    //Métodos sobreescritos
+    @Override
+    public boolean equals(Object obj){
+<span class="fc" id="L127">        return this.getNombre().equals(((Articulo) obj).getNombre());</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

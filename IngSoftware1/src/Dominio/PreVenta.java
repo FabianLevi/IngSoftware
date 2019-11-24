@@ -51,4 +51,11 @@ public class PreVenta {
     private Date fecha;
     private Venta ventaRealizar;
     private String codigo;
+    
+      //Métodos sobreescritos
+    @Override
+    public boolean equals(Object obj){
+        return this.codigo.equals(((PreVenta) obj).codigo);
+    }
+
 }

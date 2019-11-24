@@ -38,10 +38,8 @@ public class Sistema {
     //Atributos
     private ArrayList<Envase> listaEnvases;
     private ArrayList<Articulo> listaArticulo;
-    private ArrayList<PuntoDeVenta> listaPuntoDeVenta;
     private ArrayList<Venta> listaVentas;
     private ArrayList<PreVenta> listaPreVenta;
-    private ArrayList<Usuario> listaUsuario;
     //Atributos Auxiliares
     private ArrayList<NodoArticulo> listaArticulosVendidos;
     private ArrayList<NodoArticulo> listaArticulosMasVendidos;
@@ -49,21 +47,18 @@ public class Sistema {
     private int articulo;
     private Venta ventaActual;
     private Venta preventaActual;
-    private ArrayList<Pair> listaParesArticulos;
     private int cantVentas;
     private ArrayList<NodoArticulo> donacionActual;
 
     //Constructores
-    public Sistema(ArrayList<Envase> unaListaEnvases, ArrayList<Articulo> unaListaArticulo, ArrayList<PuntoDeVenta> unaListaPuntoDeVenta,
-            ArrayList<Venta> unaListaVentas, ArrayList<PreVenta> unaListaPreVenta, ArrayList<Usuario> unaListaUsuario,
+    public Sistema(ArrayList<Envase> unaListaEnvases, ArrayList<Articulo> unaListaArticulo,
+            ArrayList<Venta> unaListaVentas, ArrayList<PreVenta> unaListaPreVenta,
             ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos, 
             ArrayList<NodoEnvase> unaListaEnvasesReutilizables, int num, Venta unaVenta, Venta unaPreventa, ArrayList<NodoArticulo> unaDonacionActual) {
         this.listaEnvases = unaListaEnvases;
         this.listaArticulo = unaListaArticulo;
-        this.listaPuntoDeVenta = unaListaPuntoDeVenta;
         this.listaVentas = unaListaVentas;
         this.listaPreVenta = unaListaPreVenta;
-        this.listaUsuario = unaListaUsuario;
         this.listaArticulosVendidos = unaListaArticulosVendidos;
         this.listaArticulosMasVendidos = unaListaArticulosMasVendidos;
         this.listaEnvasesReutilizables = unaListaEnvasesReutilizables;
@@ -78,8 +73,6 @@ public class Sistema {
         this.listaArticulo = new ArrayList<Articulo>();
         this.listaEnvases = new ArrayList<Envase>();
         this.listaPreVenta = new ArrayList<PreVenta>();
-        this.listaPuntoDeVenta = new ArrayList<PuntoDeVenta>();
-        this.listaUsuario = new ArrayList<Usuario>();
         this.listaVentas = new ArrayList<Venta>();
         this.listaArticulosVendidos = new ArrayList<NodoArticulo>();
         this.listaArticulosMasVendidos = new ArrayList<NodoArticulo>();
@@ -109,13 +102,7 @@ public class Sistema {
         this.listaArticulo = listaArticulo;
     }
 
-    public ArrayList<PuntoDeVenta> getListaPuntoDeVenta() {
-        return listaPuntoDeVenta;
-    }
-
-    public void setListaPuntoDeVenta(ArrayList<PuntoDeVenta> listaPuntoDeVenta) {
-        this.listaPuntoDeVenta = listaPuntoDeVenta;
-    }
+   
 
     public ArrayList<Venta> getListaVentas() {
         return listaVentas;
@@ -133,14 +120,7 @@ public class Sistema {
         this.listaPreVenta = listaPreVenta;
     }
 
-    public ArrayList<Usuario> getListaUsuario() {
-        return listaUsuario;
-    }
-
-    public void setListaUsuario(ArrayList<Usuario> listaUsuario) {
-        this.listaUsuario = listaUsuario;
-    }
-
+   
     public ArrayList<NodoArticulo> getListaArticulosVendidos() {
         return listaArticulosVendidos;
     }
@@ -173,13 +153,7 @@ public class Sistema {
         this.articulo = articulo;
     }
 
-    public ArrayList<Pair> getListaParesArticulos() {
-        return listaParesArticulos;
-    }
-
-    public void setListaParesArticulos(ArrayList<Pair> listaParesArticulos) {
-        this.listaParesArticulos = listaParesArticulos;
-    }
+    
 
     public Venta getVentaActual() {
         return ventaActual;
@@ -214,31 +188,9 @@ public class Sistema {
     }
 
     //Funciones
-    public boolean existeAlias(String alias) {
-        //Método que recibe un alias (String) y devuelve true si el alias ya existe en otro jugador y false en el caso contrario
-        boolean esta = false;
-        if (!this.getListaUsuario().isEmpty()) {
-            for (int i = 0; i < this.getListaUsuario().size() && !esta; i++) {
-                Usuario u = this.getListaUsuario().get(i);
-                if (u.getAlias().equals(alias)) {
-                    esta = true;
-                }
-            }
-        }
-        return esta;
-    }
+    
 
-    public boolean agregarUsuario(String nombre, int edad, String mail, String alias) {
-        //Método que recibe un nombre (String), un alias (String) y una edad (int) y devuelve true si pudo crear al jugador y agregaro a la lista 
-        //o false si no pudo hacerlo. Esto depende de si existe o no el alias recibido en otro jugador
-        boolean ok = false;
-        if (!existeAlias(alias)) {
-            Usuario u = new Usuario(nombre, edad, mail, alias);
-            this.getListaUsuario().add(u);
-            ok = true;
-        }
-        return ok;
-    }
+    
 
     public void agregarVenta(Venta v) {
         this.getListaVentas().add(v);
@@ -385,9 +337,7 @@ public class Sistema {
         this.getListaArticulosVendidos().add(nodo);
     }
 
-    public void agregarPuntoVenta(PuntoDeVenta p) {
-        this.getListaPuntoDeVenta().add(p);
-    }
+    
 
     public void agregarPreVenta(PreVenta pv) {
         this.getListaPreVenta().add(pv);

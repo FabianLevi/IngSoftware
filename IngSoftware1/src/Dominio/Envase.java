@@ -14,6 +14,9 @@ public class Envase {
     //Atributos
     private String tipo;
     private String rutaImagen;
+    private int danoAmbiental;
+
+    
 
     public int getDanoAmbiental() {
         return danoAmbiental;
@@ -22,7 +25,7 @@ public class Envase {
     public void setDanoAmbiental(int danoAmbiental) {
         this.danoAmbiental = danoAmbiental;
     }
-    private int danoAmbiental;
+
 
     //Constructores
     public Envase(String unTipo, String unaRutaImagen,int unDanoAmbiental) {
@@ -30,7 +33,13 @@ public class Envase {
         rutaImagen = unaRutaImagen;
         danoAmbiental=unDanoAmbiental;
     }
-
+    
+    public Envase(){
+        tipo = "";
+        rutaImagen = "";
+        danoAmbiental = 0;
+    }
+    
     //Setters
     public void setTipo(String tipo) {
         this.tipo = tipo;
@@ -53,5 +62,12 @@ public class Envase {
     public String toString() {
         return this.getTipo();
     }
+ 
+     //Métodos sobreescritos
+    @Override
+    public boolean equals(Object obj){
+        return this.getTipo().equals(((Envase) obj).getTipo());
+    }
+
     
 }

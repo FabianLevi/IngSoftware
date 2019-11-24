@@ -38,6 +38,7 @@ public class Articulo {
     }
     public Articulo(){
         this.setPrecio(0);
+        //this.envasesPosibles = null;
     }
     
     public Articulo(Articulo a) {

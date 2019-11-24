@@ -31,7 +31,20 @@ public class NodoEnvase {
         this.envase = envase;
         this.cantVendidas = cantVendidas;
     }
+    
+    public NodoEnvase(){
+        this.envase = null;
+        this.cantVendidas = 0;
+    }
+    
     Envase envase;
     int cantVendidas;
+    
+      //Métodos sobreescritos
+    @Override
+    public boolean equals(Object obj){
+        return this.envase.equals(((NodoEnvase) obj).envase);
+    }
+
     
 }
