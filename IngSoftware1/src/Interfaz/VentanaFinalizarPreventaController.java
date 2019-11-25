@@ -51,6 +51,8 @@ public class VentanaFinalizarPreventaController implements Initializable {
     private DatePicker datePicker;
     @FXML
     private Label vacio;
+    @FXML
+    private Label lblCantidadCarrito;
 
     /**
      * Initializes the controller class.
@@ -60,6 +62,15 @@ public class VentanaFinalizarPreventaController implements Initializable {
         datePicker.setValue(LocalDate.now());
         lblNombre.setText("Alejandro Adorjan");
         lblTarjeta.setText("4485 7158 6086 8875");
+        
+        int cant = 0;
+        Venta pv = Main.sistema.getPreventaActual();
+        if (pv != null) {
+            for (int i = 0; i < pv.getArticulos().size(); i++) {
+                cant += pv.getArticulos().get(i).getCantVendidas();
+            }
+        }
+        lblCantidadCarrito.setText("" + cant);
     }
 
     @FXML

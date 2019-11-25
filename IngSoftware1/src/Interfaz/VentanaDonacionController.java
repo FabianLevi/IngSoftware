@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -67,6 +68,8 @@ public class VentanaDonacionController implements Initializable {
     private Button btnDonar;
     @FXML
     private Button btnVerDonacion;
+    @FXML
+    private Label lblCantidadCarrito;
 
     /**
      * Initializes the controller class.
@@ -130,6 +133,15 @@ public class VentanaDonacionController implements Initializable {
                 }
             }
         }
+        
+        int cant = 0;
+        ArrayList<NodoArticulo> d = Main.sistema.getDonacionActual();
+        if (d != null) {
+            for (int i = 0; i < d.size(); i++) {
+                cant += d.get(i).getCantDonados();
+            }
+        }
+        lblCantidadCarrito.setText("" + cant);
     }    
 
     @FXML

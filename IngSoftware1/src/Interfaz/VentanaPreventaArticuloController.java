@@ -62,6 +62,8 @@ public class VentanaPreventaArticuloController implements Initializable {
     private ListView<Envase> lstEnvases;
     @FXML
     private ComboBox<String> boxCantidad;
+    @FXML
+    private Label lblCantidadCarrito;
 
     /**
      * Initializes the controller class.
@@ -74,6 +76,15 @@ public class VentanaPreventaArticuloController implements Initializable {
         lblMaterial.setText("");
         lblMatPrima.setText("");
         inicializarLabel();
+        
+        int cant = 0;
+        Venta pv = Main.sistema.getPreventaActual();
+        if (pv != null) {
+            for (int i = 0; i < pv.getArticulos().size(); i++) {
+                cant += pv.getArticulos().get(i).getCantVendidas();
+            }
+        }
+        lblCantidadCarrito.setText("" + cant);
     }    
     
     public void inicializarLabel(){

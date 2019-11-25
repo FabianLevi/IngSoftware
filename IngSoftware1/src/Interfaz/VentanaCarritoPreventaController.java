@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -52,6 +53,8 @@ public class VentanaCarritoPreventaController implements Initializable {
     private Button btnBorrarVenta;
     @FXML
     private Button btnRealizarPreventa;
+    @FXML
+    private Label lblCantidadCarrito;
 
     /**
      * Initializes the controller class.
@@ -60,6 +63,15 @@ public class VentanaCarritoPreventaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         Venta v = Main.sistema.getPreventaActual();
         setearLista(v);
+        
+        int cant = 0;
+        Venta pv = Main.sistema.getPreventaActual();
+        if (pv != null) {
+            for (int i = 0; i < pv.getArticulos().size(); i++) {
+                cant += pv.getArticulos().get(i).getCantVendidas();
+            }
+        }
+        lblCantidadCarrito.setText("" + cant);
     }    
 
     @FXML
@@ -83,7 +95,7 @@ public class VentanaCarritoPreventaController implements Initializable {
     
     @FXML
     private void handleButtonBorrarVenta(ActionEvent event) throws IOException {
-        Main.sistema.setVentaActual(null);
+        Main.sistema.setPreventaActual(null);
         Parent root = FXMLLoader.load(getClass().getResource("VentanaPreventa.fxml"));
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);

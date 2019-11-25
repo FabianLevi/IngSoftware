@@ -9,6 +9,7 @@ import Dominio.Articulo;
 import Dominio.NodoArticulo;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -46,6 +47,8 @@ public class VentanaConfirmarDonacionController implements Initializable {
     private ComboBox<Integer> boxCantidad;
     @FXML
     private Button btnDonar;
+    @FXML
+    private Label lblCantidadCarrito;
 
     /**
      * Initializes the controller class.
@@ -60,6 +63,15 @@ public class VentanaConfirmarDonacionController implements Initializable {
         ObservableList<Integer> cantidades = FXCollections.observableArrayList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         boxCantidad.setItems(cantidades);
         boxCantidad.getSelectionModel().selectFirst();
+        
+        int cant = 0;
+        ArrayList<NodoArticulo> d = Main.sistema.getDonacionActual();
+        if (d != null) {
+            for (int i = 0; i < d.size(); i++) {
+                cant += d.get(i).getCantDonados();
+            }
+        }
+        lblCantidadCarrito.setText("" + cant);
     }    
 
     @FXML
