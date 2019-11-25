@@ -12,6 +12,7 @@ import Dominio.Venta;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -57,6 +58,10 @@ public class VentanaTicketController implements Initializable {
     private ImageView btnAtras;
     @FXML
     private TableView<ArticuloTabla> tablaArticulos;
+    @FXML
+    private Label lblNombre;
+    @FXML
+    private Label lblTarjeta;
 
     /**
      * Initializes the controller class.
@@ -66,6 +71,7 @@ public class VentanaTicketController implements Initializable {
         Venta v = Main.sistema.getVentaActual();
         setearLista(v);
         calcularTotal(v);
+        setearDatosDeLaVenta(v);
         Main.sistema.setVentaActual(null);
     }    
 
@@ -115,5 +121,20 @@ public class VentanaTicketController implements Initializable {
             total += (cant * precio);
         }
         lblTotal.setText("" + total);
+    }
+    
+    public void setearDatosDeLaVenta(Venta v) {
+        lblNombre.setText(Main.sistema.getNombreUsuarioVenta());
+        lblTarjeta.setText(Main.sistema.getNumeroTarjetaUsuarioVenta());
+        Date fechaActual = new Date();
+        int dia = fechaActual.getDate();
+        int mes = fechaActual.getMonth() + 1;
+        int anio = fechaActual.getYear() + 1900;
+        String fecha = dia + "/" + mes + "/" + anio;
+        lblFecha.setText(fecha);
+        int hora = fechaActual.getHours();
+        int minutos = fechaActual.getMinutes();
+        String horaVenta = hora + ":" + minutos;
+        lblHora.setText(horaVenta);
     }
 }

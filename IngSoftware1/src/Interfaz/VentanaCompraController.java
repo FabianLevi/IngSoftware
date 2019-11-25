@@ -89,6 +89,8 @@ public class VentanaCompraController implements Initializable {
         if(v!=null){
             Main.sistema.agregarVenta(v);
             //Main.sistema.setVentaActual(null);
+            Main.sistema.setNombreUsuarioVenta(lblNombre.getText());
+            Main.sistema.setNumeroTarjetaUsuarioVenta(lblTarjeta.getText());
             Parent root = FXMLLoader.load(getClass().getResource("VentanaTicket.fxml"));
             Scene scene = new Scene(root);
             Main.ventana.setScene(scene);

@@ -34,16 +34,19 @@
          </font>
       </Label>
       <Label layoutX="170.0" layoutY="215.0" text="CONTADO" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="45.0" layoutX="29.0" layoutY="254.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="4.0" width="230.0" />
-      <Label layoutX="78.0" layoutY="264.0" text="Consumo Final">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffffff00" height="45.0" layoutX="29.0" layoutY="240.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="4.0" width="230.0" />
+      <Label layoutX="78.0" layoutY="250.0" text="Consumo Final">
          <font>
             <Font name="Calibri Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="52.0" layoutY="320.0" text="Fecha" />
-      <Label fx:id="lblFecha" layoutX="118.0" layoutY="320.0" text="18/11/2019" />
-      <Label fx:id="lblHora" layoutX="200.0" layoutY="320.0" text="18:37" />
-      <TableView fx:id="tablaArticulos" layoutX="21.0" layoutY="358.0" prefHeight="150.0" prefWidth="250.0">
+      <Label layoutX="52.0" layoutY="340.0" text="Fecha:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="lblFecha" layoutX="120.0" layoutY="340.0" text="18/11/2019" />
+      <Label fx:id="lblHora" layoutX="202.0" layoutY="340.0" text="18:37" />
+      <TableView fx:id="tablaArticulos" layoutX="21.0" layoutY="368.0" prefHeight="150.0" prefWidth="250.0">
         <columns>
           <TableColumn fx:id="colArticulo" prefWidth="75.0" text="Artículo" />
             <TableColumn fx:id="colPrecio" prefWidth="66.0" text="Precio" />
@@ -53,13 +56,13 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <Line endX="149.0" fill="BLACK" layoutX="122.0" layoutY="531.0" startX="-100.0" />
-      <Label layoutX="34.0" layoutY="548.0" text="TOTAL">
+      <Line endX="149.0" fill="BLACK" layoutX="122.0" layoutY="540.0" startX="-100.0" />
+      <Label layoutX="34.0" layoutY="553.0" text="TOTAL">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lblTotal" layoutX="214.0" layoutY="548.0" text="261,27">
+      <Label fx:id="lblTotal" layoutX="214.0" layoutY="553.0" text="261,27">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -80,11 +83,26 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgEcoShop" fitHeight="70.0" fitWidth="80.0" layoutX="170.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgEcoShop" fitHeight="70.0" fitWidth="80.0" layoutX="170.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/treeleaf_83777%20(1).png" />
+         </image></ImageView>
       <ImageView fx:id="btnAtras" fitHeight="30.0" fitWidth="30.0" layoutX="6.0" layoutY="716.0" onMouseClicked="#handleButtonAtras" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/back_button_black.png" />
          </image>
       </ImageView>
+      <Label layoutX="52.0" layoutY="316.0" text="Tarjeta:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="52.0" layoutY="293.0" text="Nombre:">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNombre" layoutX="120.0" layoutY="293.0" text="Nombre" />
+      <Label fx:id="lblTarjeta" layoutX="120.0" layoutY="316.0" text="Tarjeta" />
    </children>
 </AnchorPane>

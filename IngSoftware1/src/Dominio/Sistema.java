@@ -49,12 +49,15 @@ public class Sistema {
     private Venta preventaActual;
     private int cantVentas;
     private ArrayList<NodoArticulo> donacionActual;
+    private String nombreUsuarioVenta;
+    private String numeroTarjetaUsuarioVenta;
 
     //Constructores
     public Sistema(ArrayList<Envase> unaListaEnvases, ArrayList<Articulo> unaListaArticulo,
             ArrayList<Venta> unaListaVentas, ArrayList<PreVenta> unaListaPreVenta,
             ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos, 
-            ArrayList<NodoEnvase> unaListaEnvasesReutilizables, int num, Venta unaVenta, Venta unaPreventa, ArrayList<NodoArticulo> unaDonacionActual) {
+            ArrayList<NodoEnvase> unaListaEnvasesReutilizables, int num, Venta unaVenta, Venta unaPreventa, ArrayList<NodoArticulo> unaDonacionActual,
+            String unNombreUsuarioVenta, String unNumeroTarjetaUsuarioVenta) {
         this.listaEnvases = unaListaEnvases;
         this.listaArticulo = unaListaArticulo;
         this.listaVentas = unaListaVentas;
@@ -67,6 +70,8 @@ public class Sistema {
         this.preventaActual = unaPreventa;
         this.cantVentas = 0;
         this.donacionActual = unaDonacionActual;
+        this.nombreUsuarioVenta = unNombreUsuarioVenta;
+        this.numeroTarjetaUsuarioVenta = unNumeroTarjetaUsuarioVenta;
     }
 
     public Sistema() {
@@ -83,6 +88,8 @@ public class Sistema {
         this.preventaActual = null;
         this.cantVentas = 0;
         this.donacionActual = new ArrayList<NodoArticulo>();
+        this.nombreUsuarioVenta = "";
+        this.numeroTarjetaUsuarioVenta = "";
     }
 
     //Getters & Setters
@@ -102,8 +109,6 @@ public class Sistema {
         this.listaArticulo = listaArticulo;
     }
 
-   
-
     public ArrayList<Venta> getListaVentas() {
         return listaVentas;
     }
@@ -119,7 +124,6 @@ public class Sistema {
     public void setListaPreVenta(ArrayList<PreVenta> listaPreVenta) {
         this.listaPreVenta = listaPreVenta;
     }
-
    
     public ArrayList<NodoArticulo> getListaArticulosVendidos() {
         return listaArticulosVendidos;
@@ -153,8 +157,6 @@ public class Sistema {
         this.articulo = articulo;
     }
 
-    
-
     public Venta getVentaActual() {
         return ventaActual;
     }
@@ -186,12 +188,25 @@ public class Sistema {
     public void setPreventaActual(Venta preventaActual) {
         this.preventaActual = preventaActual;
     }
+    
+    public String getNombreUsuarioVenta() {
+        return nombreUsuarioVenta;
+    }
 
+    public void setNombreUsuarioVenta(String nombreUsuarioVenta) {
+        this.nombreUsuarioVenta = nombreUsuarioVenta;
+    }
+
+    public String getNumeroTarjetaUsuarioVenta() {
+        return numeroTarjetaUsuarioVenta;
+    }
+
+    public void setNumeroTarjetaUsuarioVenta(String numeroTarjetaUsuarioVenta) {
+        this.numeroTarjetaUsuarioVenta = numeroTarjetaUsuarioVenta;
+    }
+
+    
     //Funciones
-    
-
-    
-
     public void agregarVenta(Venta v) {
         this.getListaVentas().add(v);
         this.setCantVentas(this.getCantVentas() + 1);
