@@ -63,7 +63,7 @@ public class Envase {
         return this.getTipo();
     }
  
-     //Métodos sobreescritos
+    //Métodos sobreescritos
     @Override
     public boolean equals(Object obj){
         return this.getTipo().equals(((Envase) obj).getTipo());
