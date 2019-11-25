@@ -16,25 +16,7 @@ import javafx.util.Pair;
  */
 public class Sistema {
 
-//    class NodoArticulo {
-//        Articulo articulo;
-//        int cantVendidas;
-//        
-//        @Override
-//        public boolean equals(Object o){
-//            return articulo.getNombre().equals(((Articulo) o).getNombre());
-//        }
-//    }
-//    class NodoEnvase {
-//        Envase envase;
-//        int cantVendidas;
-//        
-//        
-//        @Override
-//        public boolean equals(Object o){
-//            return envase.getTipo().equals(((Envase) o).getTipo());
-//        }
-//    }
+
     //Atributos
     private ArrayList<Envase> listaEnvases;
     private ArrayList<Articulo> listaArticulo;
@@ -58,38 +40,37 @@ public class Sistema {
             ArrayList<NodoArticulo> unaListaArticulosVendidos, ArrayList<NodoArticulo> unaListaArticulosMasVendidos, 
             ArrayList<NodoEnvase> unaListaEnvasesReutilizables, int num, Venta unaVenta, Venta unaPreventa, ArrayList<NodoArticulo> unaDonacionActual,
             String unNombreUsuarioVenta, String unNumeroTarjetaUsuarioVenta) {
-        this.listaEnvases = unaListaEnvases;
-        this.listaArticulo = unaListaArticulo;
-        this.listaVentas = unaListaVentas;
-        this.listaPreVenta = unaListaPreVenta;
-        this.listaArticulosVendidos = unaListaArticulosVendidos;
-        this.listaArticulosMasVendidos = unaListaArticulosMasVendidos;
-        this.listaEnvasesReutilizables = unaListaEnvasesReutilizables;
-        this.articulo = num;
-        this.ventaActual = unaVenta;
-        this.preventaActual = unaPreventa;
-        this.cantVentas = 0;
-        this.donacionActual = unaDonacionActual;
-        this.nombreUsuarioVenta = unNombreUsuarioVenta;
-        this.numeroTarjetaUsuarioVenta = unNumeroTarjetaUsuarioVenta;
+        this.setArticulo(num);
+        this.setListaEnvases(unaListaEnvases);
+        this.setListaArticulo(unaListaArticulo);
+        this.setListaVentas(unaListaVentas);
+        this.setListaPreVenta(unaListaPreVenta);
+        this.setListaArticulosVendidos(unaListaArticulosVendidos);
+        this.setListaArticulosMasVendidos(unaListaArticulosMasVendidos);
+        this.setListaEnvasesReutilizables(unaListaEnvasesReutilizables);
+        this.setVentaActual(unaVenta);
+        this.setPreventaActual(unaPreventa);
+        this.setCantVentas(0);
+        this.setDonacionActual(unaDonacionActual);
+        this.setNombreUsuarioVenta(unNombreUsuarioVenta);
+        this.setNumeroTarjetaUsuarioVenta(unNumeroTarjetaUsuarioVenta);
     }
 
     public Sistema() {
-        this.listaArticulo = new ArrayList<Articulo>();
-        this.listaEnvases = new ArrayList<Envase>();
-        this.listaPreVenta = new ArrayList<PreVenta>();
-        this.listaVentas = new ArrayList<Venta>();
-        this.listaArticulosVendidos = new ArrayList<NodoArticulo>();
-        this.listaArticulosMasVendidos = new ArrayList<NodoArticulo>();
-        this.listaEnvasesReutilizables = new ArrayList<NodoEnvase>();
+        this.setListaArticulo(new ArrayList<Articulo>());
+        this.setListaEnvases(new ArrayList<Envase>());
+        this.setListaPreVenta(new ArrayList<PreVenta>());
+        this.setListaVentas(new ArrayList<Venta>());
+        this.setListaArticulosVendidos(new ArrayList<NodoArticulo>());
+        this.setListaArticulosMasVendidos(new ArrayList<NodoArticulo>());
+        this.setListaEnvasesReutilizables( new ArrayList<NodoEnvase>());
         this.setArticulo(0);
-        //this.setVentaActual(null);
-        this.ventaActual = null;
-        this.preventaActual = null;
-        this.cantVentas = 0;
-        this.donacionActual = new ArrayList<NodoArticulo>();
-        this.nombreUsuarioVenta = "";
-        this.numeroTarjetaUsuarioVenta = "";
+        this.setVentaActual(null);
+        this.setPreventaActual(null);
+        this.setCantVentas(0);
+        this.setDonacionActual(new ArrayList<NodoArticulo>());
+        this.setNombreUsuarioVenta("");
+        this.setNumeroTarjetaUsuarioVenta("");
     }
 
     //Getters & Setters
@@ -207,6 +188,7 @@ public class Sistema {
 
     
     //Funciones
+    //Agrega una venta a la lista y guarda los articulos vendidos y los envases reutilizados
     public void agregarVenta(Venta v) {
         this.getListaVentas().add(v);
         this.setCantVentas(this.getCantVentas() + 1);
@@ -218,13 +200,10 @@ public class Sistema {
             }
             NodoArticulo nodo = this.getListaArticulosVendidos().get(pos);
             nodo.setCantVendidas(nodo.getCantVendidas() + v.getArticulos().get(i).getCantVendidas());
-            //REVISAR desde acá...
             nodo.setCantDonados(nodo.getCantDonados() - v.getArticulos().get(i).getCantVendidas());
             if (nodo.getCantDonados() < 0) {
                 nodo.setCantDonados(0);
             }
-            //... hasta acá
-            //int posEnvase  = this.getListaEnvasesReutilizables().indexOf(articulos.get(i).getEnvaseElegido());
             int posEnvase = 0;
             while (!(this.getListaEnvasesReutilizables().get(posEnvase).envase.getTipo().equals(articulos.get(i).getArticulo().getEnvaseElegido().getTipo()))) {
                 posEnvase++;
@@ -233,7 +212,7 @@ public class Sistema {
             nodoEnvase.setCantVendidas(nodoEnvase.getCantVendidas() + v.getArticulos().get(i).getCantVendidas());
             if (this.getListaArticulosMasVendidos().isEmpty()) {
                 this.getListaArticulosMasVendidos().add(nodo);
-            } //|| this.getListaArticulosMasVendidos().get(0).cantVendidas == nodo.cantVendidas 
+            }
             else {
                 if (!this.getListaArticulosMasVendidos().contains(nodo) && this.getListaArticulosMasVendidos().get(0).cantVendidas == nodo.cantVendidas) {
                     this.getListaArticulosMasVendidos().add(nodo);
@@ -254,19 +233,17 @@ public class Sistema {
         }
     }
 
+    //Devuele una lista con los envases reutilizados
     public ArrayList<NodoEnvase> envasesReutilizables() {
         ArrayList<NodoEnvase> aux = new ArrayList<NodoEnvase>();
         for (int i = 0; i < this.getListaEnvasesReutilizables().size(); i++) {
             NodoEnvase nodo = this.getListaEnvasesReutilizables().get(i);
-            //Envase e = nodo.envase;
-            //if(nodo.cantVendidas!=0){
             aux.add(nodo);
-            //}
-
+          
         }
         return aux;
     }
-
+     //Devuele una lista con los articulos mas vendidos
     public ArrayList<NodoArticulo> articulosMasVendidos() {
         ArrayList<NodoArticulo> aux = new ArrayList<NodoArticulo>();
         for (int i = 0; i < this.getListaArticulosMasVendidos().size(); i++) {
@@ -276,7 +253,7 @@ public class Sistema {
         }
         return aux;
     }
-
+     //Devuele la cantidad de ventas en mes
     public int cantidadDeVentasEnMes(int mes) {
         int cantVentas = 0;
         for (int i = 0; i < this.getListaVentas().size(); i++) {
@@ -294,12 +271,10 @@ public class Sistema {
     public void agregarEnvase(Envase e) {
         this.getListaEnvases().add(e);
         NodoEnvase nodo = new NodoEnvase(e, 0);
-//        nodo.envase=e;
-//        nodo.cantVendidas =0;
         this.getListaEnvasesReutilizables().add(nodo);
-
     }
 
+     //Devuele una lista con las preventas antes de la fecha actual
     public ArrayList<PreVenta> preVentasAntesDeFecha() {
         ArrayList<PreVenta> aux = new ArrayList<PreVenta>();
         Date fechaActual = new Date();
@@ -317,7 +292,7 @@ public class Sistema {
         }
         return aux;
     }
-
+     //Devuele una lista con las preventas despues de la fecha actual
     public ArrayList<PreVenta> preVentasDespuesDeFecha() {
         ArrayList<PreVenta> aux = new ArrayList<PreVenta>();
         Date fechaActual = new Date();
@@ -339,7 +314,6 @@ public class Sistema {
     
 
     public void realizarVenta(PreVenta p) {
-        //this.getListaVentas().add(p.getVentaRealizar());
         this.agregarVenta(p.getVentaRealizar());
         this.getListaPreVenta().remove(p);
     }
@@ -353,11 +327,8 @@ public class Sistema {
     }
 
     
-
     public void agregarPreVenta(PreVenta pv) {
         this.getListaPreVenta().add(pv);
     }
-
-   
 
 }

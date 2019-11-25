@@ -13,16 +13,20 @@ import java.util.Date;
  */
 public class PreVenta {
 
+    private Date fecha;
+    private Venta ventaRealizar;
+    private String codigo;
+    
     public PreVenta(Date fecha, Venta ventaRealizar, String codigo) {
-        this.fecha = fecha;
-        this.ventaRealizar = ventaRealizar;
-        this.codigo = codigo;
+        this.setFecha(fecha);
+        this.setCodigo(codigo);
+        this.setVentaRealizar(ventaRealizar);
     }
 
     public PreVenta() {
-        this.fecha = null;
-        this.ventaRealizar = null;
-        this.codigo="";
+        this.setCodigo("");
+        this.setFecha(null);
+        this.setVentaRealizar(null);
     }
 
     public Date getFecha() {
@@ -48,9 +52,7 @@ public class PreVenta {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
-    private Date fecha;
-    private Venta ventaRealizar;
-    private String codigo;
+ 
     
       //Métodos sobreescritos
     @Override

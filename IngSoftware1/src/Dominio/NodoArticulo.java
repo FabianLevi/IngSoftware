@@ -11,23 +11,23 @@ package Dominio;
  */
 public class NodoArticulo {
 
-    //Atributos
-    Articulo articulo;
-    int cantVendidas;
-    int cantDonados;
+    //Atributos no privados porque accedo desde sistema
+     Articulo articulo;
+     int cantVendidas;
+     int cantDonados;
     
     
     //Constructores
     public NodoArticulo() {
-        this.articulo = null;
-        this.cantVendidas = 0;
-        this.cantDonados = 0;
+        this.setArticulo(null);
+        this.setCantDonados(0);
+        this.setCantVendidas(0);
     }
     
     public NodoArticulo(Articulo unArticulo, int unaCantVendidas, int unaCantDonados) {
-        this.articulo = unArticulo;
-        this.cantVendidas = unaCantVendidas;
-        this.cantDonados = unaCantDonados;
+        this.setArticulo(unArticulo);
+        this.setCantDonados(unaCantDonados);
+        this.setCantVendidas(unaCantVendidas);
     }
     
     

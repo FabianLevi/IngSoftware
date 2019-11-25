@@ -11,6 +11,10 @@ package Dominio;
  */
 public class NodoEnvase {
 
+    //Atributos no privados porque accedo desde el sistema    
+    Envase envase;
+    int cantVendidas;
+    
     public Envase getEnvase() {
         return envase;
     }
@@ -28,17 +32,15 @@ public class NodoEnvase {
     }
 
     public NodoEnvase(Envase envase, int cantVendidas) {
-        this.envase = envase;
-        this.cantVendidas = cantVendidas;
+        this.setEnvase(envase);
+        this.setCantVendidas(cantVendidas);
     }
     
     public NodoEnvase(){
-        this.envase = null;
-        this.cantVendidas = 0;
+        this.setEnvase(null);
+        this.setCantVendidas(0);
     }
-    
-    Envase envase;
-    int cantVendidas;
+
     
       //Métodos sobreescritos
     @Override
