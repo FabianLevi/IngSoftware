@@ -22,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -51,6 +52,8 @@ public class VentanaVerDonacionController implements Initializable {
     private Button btnBorrarDonacion;
     @FXML
     private Button btnDonar;
+    @FXML
+    private Label lblCantidadCarrito;
 
     /**
      * Initializes the controller class.
@@ -59,6 +62,14 @@ public class VentanaVerDonacionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ArrayList<NodoArticulo> d = Main.sistema.getDonacionActual();
         setearLista(d);
+        
+        int cant = 0;
+        if (d != null) {
+            for (int i = 0; i < d.size(); i++) {
+                cant += d.get(i).getCantDonados();
+            }
+        }
+        lblCantidadCarrito.setText("" + cant);
     }    
 
     @FXML
@@ -90,9 +101,19 @@ public class VentanaVerDonacionController implements Initializable {
 
     @FXML
     private void handleButtonDonar(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaConfirmarDonacion.fxml"));
-        Scene scene = new Scene(root);
-        Main.ventana.setScene(scene);
+        ArrayList<NodoArticulo> donActual = Main.sistema.getDonacionActual();
+        if (!donActual.isEmpty()) {
+            for (int i = 0; i < donActual.size(); i++) {
+                ArrayList<NodoArticulo> listaArtVendidos = Main.sistema.getListaArticulosVendidos();
+                NodoArticulo nodo = donActual.get(i);
+                int pos = listaArtVendidos.indexOf(nodo);
+                listaArtVendidos.get(pos).setCantDonados(listaArtVendidos.get(pos).getCantDonados() + nodo.getCantDonados());
+            }
+            donActual.clear();
+            Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
+            Scene scene = new Scene(root);
+            Main.ventana.setScene(scene);
+        }
     }
     
     public void setearLista(ArrayList<NodoArticulo> d) {

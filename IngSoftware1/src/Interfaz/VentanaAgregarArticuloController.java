@@ -104,17 +104,14 @@ public class VentanaAgregarArticuloController implements Initializable {
     private void handleButtonAgregarAlCarrito(ActionEvent event) throws IOException {
         String nombre = textNombre.getText();
         String precio = textPrecio.getText();
-        int precioN=0;
-        if(!precio.equals("")){
-            precioN = Integer.parseInt(precio);
-        }
+        int precioN = 0;
         String codigo = textCodigo.getText();
         String material = textMaterial.getText();
         String materiaPrima = textMateriaPrima.getText();
         boolean plastico = checkPlastico.isSelected();
         boolean vidirio = checkVidrio.isSelected();
         boolean carton = checkCarton.isSelected();
-        boolean nylon=checkNylon.isSelected();
+        boolean nylon = checkNylon.isSelected();
         boolean papel = checkPapel.isSelected();
         boolean espumaplast = checkEspumaPlast.isSelected();
         ArrayList<Envase> lista = new ArrayList<Envase>();
@@ -125,10 +122,17 @@ public class VentanaAgregarArticuloController implements Initializable {
         this.agregarEnvaseALista(lista, papel, "papel");
         this.agregarEnvaseALista(lista, espumaplast, "espuma plast");
         if(!nombre.equals("") && !precio.equals("") && !codigo.equals("") && !material.equals("")&&!materiaPrima.equals("")){
-            Articulo a = new Articulo(nombre,materiaPrima,precioN,material,codigo,lista,null,"/Imagenes/imagen.jpg");
-            Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
-            Scene scene = new Scene(root);
-            Main.ventana.setScene(scene);   
+            try {
+                precioN = Integer.parseInt(precio);
+                Articulo a = new Articulo(nombre, materiaPrima, precioN, material, codigo, lista, null, "/Imagenes/imagen.jpg");
+                Main.sistema.agregarArticulo(a);
+                Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
+                Scene scene = new Scene(root);
+                Main.ventana.setScene(scene);
+            }
+            catch (NumberFormatException e){
+                vacio.setText("el precio debe ser numérico");
+            }      
         }else{
             vacio.setText("Hay algun campo vacio");
         }

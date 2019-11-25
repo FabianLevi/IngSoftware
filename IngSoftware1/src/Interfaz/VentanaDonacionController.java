@@ -169,16 +169,18 @@ public class VentanaDonacionController implements Initializable {
     @FXML
     private void handleButtonDonar(ActionEvent event) throws IOException {
         ArrayList<NodoArticulo> donActual = Main.sistema.getDonacionActual();
-        for (int i = 0; i < donActual.size(); i++) {
-            ArrayList<NodoArticulo> listaArtVendidos = Main.sistema.getListaArticulosVendidos();
-            NodoArticulo nodo = donActual.get(i);
-            int pos = listaArtVendidos.indexOf(nodo);
-            listaArtVendidos.get(pos).setCantDonados(listaArtVendidos.get(pos).getCantDonados() + nodo.getCantDonados());
+        if (!donActual.isEmpty()) {
+            for (int i = 0; i < donActual.size(); i++) {
+                ArrayList<NodoArticulo> listaArtVendidos = Main.sistema.getListaArticulosVendidos();
+                NodoArticulo nodo = donActual.get(i);
+                int pos = listaArtVendidos.indexOf(nodo);
+                listaArtVendidos.get(pos).setCantDonados(listaArtVendidos.get(pos).getCantDonados() + nodo.getCantDonados());
+            }
+            donActual.clear();
+            Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
+            Scene scene = new Scene(root);
+            Main.ventana.setScene(scene);
         }
-        donActual.clear();
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
-        Scene scene = new Scene(root);
-        Main.ventana.setScene(scene);
     }
     
     

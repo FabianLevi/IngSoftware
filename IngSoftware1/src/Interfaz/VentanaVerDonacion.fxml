@@ -23,9 +23,9 @@
             <Image url="@../Imagenes/close-icon.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="114.0" fitWidth="138.0" layoutX="345.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="114.0" fitWidth="138.0" layoutX="355.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Imagenes/cart-icon-16.png" />
+            <Image url="@../Imagenes/Handshake2.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="65.0" fitWidth="57.0" layoutX="288.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
@@ -91,5 +91,15 @@
             <Font name="Rockwell" size="18.0" />
          </font>
       </Button>
+      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="145.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Imagenes/cart-icon-16.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblCantidadCarrito" layoutX="193.0" layoutY="40.0" text="0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
