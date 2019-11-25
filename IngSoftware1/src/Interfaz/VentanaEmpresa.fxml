@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -14,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaEmpresaController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.VentanaEmpresaController">
    <children>
       <ImageView fitHeight="245.0" fitWidth="625.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -92,9 +86,9 @@
             <Font name="Lucida Console" size="35.0" />
          </font>
       </Label>
-      <Button fx:id="btnAgregarArticulo" layoutX="-4.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleButtonAgregarArticulo" prefHeight="174.0" prefWidth="631.0" style="-fx-background-color: transpatent;" />
-      <Button fx:id="btnEjecutarPreventa" layoutX="-2.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleButtonEjecutarPreventa" prefHeight="174.0" prefWidth="625.0" style="-fx-background-color: transpatent;" />
-      <Button fx:id="btnEstadisticas" layoutY="519.0" mnemonicParsing="false" onAction="#handleButtonEstadistica" prefHeight="174.0" prefWidth="625.0" style="-fx-background-color: transpatent;" />
+      <Button fx:id="btnAgregarArticulo" layoutX="-4.0" layoutY="176.0" mnemonicParsing="false" onAction="#handleButtonAgregarArticulo" onMouseEntered="#entroMauseAgregarArticulo" onMouseExited="#salioMauseAgregarArticulo" prefHeight="174.0" prefWidth="631.0" style="-fx-background-color: transpatent;" />
+      <Button fx:id="btnEjecutarPreventa" layoutX="-2.0" layoutY="348.0" mnemonicParsing="false" onAction="#handleButtonEjecutarPreventa" onMouseEntered="#entroMausePreVenta" onMouseExited="#salioMausePreVenta" prefHeight="174.0" prefWidth="625.0" style="-fx-background-color: transpatent;" />
+      <Button fx:id="btnEstadisticas" layoutY="519.0" mnemonicParsing="false" onAction="#handleButtonEstadistica" onMouseEntered="#entroMauseEstadistica" onMouseExited="#salioMauseEstadistica" prefHeight="174.0" prefWidth="625.0" style="-fx-background-color: transpatent;" />
       <ImageView fx:id="btnAtras" fitHeight="32.0" fitWidth="67.0" layoutX="7.0" layoutY="4.0" onMouseClicked="#handleButtonAtras" onMousePressed="#handleButtonAtras2" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Imagenes/ios-back-icon-10.jpg" />
