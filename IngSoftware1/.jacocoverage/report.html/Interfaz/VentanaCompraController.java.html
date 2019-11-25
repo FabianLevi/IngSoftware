@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>VentanaCompraController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;IngSoftware1&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Interfaz</a> &gt; <span class="el_source">VentanaCompraController.java</span></div><h1>VentanaCompraController.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Interfaz;
+
+import Dominio.*;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javax.swing.JOptionPane;
+
+/**
+ * FXML Controller class
+ *
+ * @author Fabian
+ */
+<span class="nc" id="L31">public class VentanaCompraController implements Initializable {</span>
+
+    @FXML
+    private ImageView btnSalir;
+    @FXML
+    private ImageView btnAtras;
+    @FXML
+    private ImageView btnMenu;
+    @FXML
+    private TextField lblNombre;
+    @FXML
+    private TextField lblTarjeta;
+    @FXML
+    private Button btnFinalizarCompra;
+    @FXML
+    private Label vacio;
+    @FXML
+    private Label lblCantidadCarrito;
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+<span class="nc" id="L55">        lblNombre.setText(&quot;Alejandro Adorjan&quot;);</span>
+<span class="nc" id="L56">        lblTarjeta.setText(&quot;4485 7158 6086 8875&quot;);</span>
+        
+<span class="nc" id="L58">        int cant = 0;</span>
+<span class="nc" id="L59">        Venta v = Main.sistema.getVentaActual();</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        if (v != null) {</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">            for (int i = 0; i &lt; v.getArticulos().size(); i++) {</span>
+<span class="nc" id="L62">                cant += v.getArticulos().get(i).getCantVendidas();</span>
+            }
+        }
+<span class="nc" id="L65">        lblCantidadCarrito.setText(&quot;&quot; + cant);</span>
+<span class="nc" id="L66">    }    </span>
+
+    @FXML
+    private void handleButtonSalir(MouseEvent event) {
+<span class="nc" id="L70">        Main.ventana.close();</span>
+<span class="nc" id="L71">    }</span>
+
+    @FXML
+    private void handleButtonAtras(MouseEvent event) throws IOException {
+<span class="nc" id="L75">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPreCompra.fxml&quot;));</span>
+<span class="nc" id="L76">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L77">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L78">    }</span>
+
+    @FXML
+    private void handleButtonMenu(MouseEvent event) throws IOException {
+<span class="nc" id="L82">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPrincipal.fxml&quot;));</span>
+<span class="nc" id="L83">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L84">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L85">    }</span>
+    @FXML
+    private void handleButtonFinalizarCompra(ActionEvent event) throws IOException {
+<span class="nc" id="L88">        Venta v = Main.sistema.getVentaActual();</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        if(v!=null){</span>
+<span class="nc" id="L90">            Main.sistema.agregarVenta(v);</span>
+            //Main.sistema.setVentaActual(null);
+<span class="nc" id="L92">            Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaTicket.fxml&quot;));</span>
+<span class="nc" id="L93">            Scene scene = new Scene(root);</span>
+<span class="nc" id="L94">            Main.ventana.setScene(scene);</span>
+<span class="nc" id="L95">        }else{</span>
+<span class="nc" id="L96">            vacio.setText(&quot;El carrito esta vacio&quot;);</span>
+        }
+<span class="nc" id="L98">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

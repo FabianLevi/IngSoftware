@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>VentanaPreCompraController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;IngSoftware1&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Interfaz</a> &gt; <span class="el_source">VentanaPreCompraController.java</span></div><h1>VentanaPreCompraController.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Interfaz;
+
+import Dominio.Articulo;
+import Dominio.Venta;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+
+/**
+ * FXML Controller class
+ *
+ * @author Darío
+ */
+<span class="nc" id="L30">public class VentanaPreCompraController implements Initializable {</span>
+
+    @FXML
+    private ImageView btnSalir;
+    @FXML
+    private ImageView btnAtras;
+    @FXML
+    private ImageView btnMenu;
+    @FXML
+    private Button btnComprar;
+    @FXML
+    private ImageView imagen1;
+    @FXML
+    private ImageView imagen2;
+    @FXML
+    private ImageView imagen3;
+    @FXML
+    private ImageView imagen4;
+    @FXML
+    private ImageView imagen5;
+    @FXML
+    private ImageView imagen9;
+    @FXML
+    private ImageView imagen6;
+    @FXML
+    private ImageView imagen7;
+    @FXML
+    private ImageView imagen8;
+    @FXML
+    private ImageView imagen10;
+    @FXML
+    private ImageView imagen11;
+    @FXML
+    private ImageView imagen12;
+    @FXML
+    private ImageView btnSiguiente;
+    @FXML
+    private ImageView btnAnterior;
+    @FXML
+    private ImageView btnAtras2;
+    @FXML
+    private Button btnVerCarrito;
+    @FXML
+    private Label lblCantidadCarrito;
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+        
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        for (int i = 0; i &lt;= 12; i++) {</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">            if(i&lt;Main.sistema.getListaArticulo().size()){</span>
+<span class="nc" id="L84">                Articulo a = Main.sistema.getListaArticulo().get(i);</span>
+<span class="nc" id="L85">                Image img = new Image(a.getRutaImagen());</span>
+<span class="nc bnc" id="L86" title="All 13 branches missed.">                switch (i){</span>
+                    case 0:
+<span class="nc" id="L88">                        imagen1.setImage(img);</span>
+<span class="nc" id="L89">                        centerImage(imagen1);</span>
+<span class="nc" id="L90">                        break;</span>
+                    case 1:
+<span class="nc" id="L92">                        imagen2.setImage(img);</span>
+<span class="nc" id="L93">                        centerImage(imagen2);</span>
+<span class="nc" id="L94">                        break;</span>
+                    case 2:
+<span class="nc" id="L96">                        imagen3.setImage(img);</span>
+<span class="nc" id="L97">                        centerImage(imagen3);</span>
+<span class="nc" id="L98">                        break;    </span>
+                    case 3:
+<span class="nc" id="L100">                        imagen4.setImage(img);</span>
+<span class="nc" id="L101">                        centerImage(imagen4);</span>
+<span class="nc" id="L102">                        break;</span>
+                    case 4:
+<span class="nc" id="L104">                        imagen5.setImage(img);</span>
+<span class="nc" id="L105">                        centerImage(imagen5);</span>
+<span class="nc" id="L106">                        break;</span>
+                    case 5:
+<span class="nc" id="L108">                        imagen6.setImage(img);</span>
+<span class="nc" id="L109">                        centerImage(imagen6);</span>
+<span class="nc" id="L110">                        break;</span>
+                    case 6:
+<span class="nc" id="L112">                        imagen7.setImage(img);</span>
+<span class="nc" id="L113">                        centerImage(imagen7);</span>
+<span class="nc" id="L114">                        break;</span>
+                    case 7:
+<span class="nc" id="L116">                        imagen8.setImage(img);</span>
+<span class="nc" id="L117">                        centerImage(imagen8);</span>
+<span class="nc" id="L118">                        break;</span>
+                    case 8:
+<span class="nc" id="L120">                        imagen9.setImage(img);</span>
+<span class="nc" id="L121">                        centerImage(imagen9);</span>
+<span class="nc" id="L122">                        break;</span>
+                    case 9:
+<span class="nc" id="L124">                        imagen10.setImage(img);</span>
+<span class="nc" id="L125">                        centerImage(imagen10);</span>
+<span class="nc" id="L126">                        break;</span>
+                    case 10:
+<span class="nc" id="L128">                        imagen11.setImage(img);</span>
+<span class="nc" id="L129">                        centerImage(imagen11);</span>
+<span class="nc" id="L130">                        break;</span>
+                    case 11:
+<span class="nc" id="L132">                        imagen12.setImage(img);</span>
+<span class="nc" id="L133">                        centerImage(imagen12);</span>
+                        break;
+                       
+                }
+            }
+        }
+        
+<span class="nc" id="L140">        int cant = 0;</span>
+<span class="nc" id="L141">        Venta v = Main.sistema.getVentaActual();</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">        if (v != null) {</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">            for (int i = 0; i &lt; v.getArticulos().size(); i++) {</span>
+<span class="nc" id="L144">                cant += v.getArticulos().get(i).getCantVendidas();</span>
+            }
+        }
+<span class="nc" id="L147">        lblCantidadCarrito.setText(&quot;&quot; + cant);</span>
+<span class="nc" id="L148">    }    </span>
+
+    @FXML
+    private void handleButtonSalir(MouseEvent event) {
+<span class="nc" id="L152">        Main.ventana.close();</span>
+<span class="nc" id="L153">    }</span>
+
+    @FXML
+    private void handleButtonAtras(MouseEvent event) throws IOException {
+<span class="nc" id="L157">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaMenuUsuario.fxml&quot;));</span>
+<span class="nc" id="L158">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L159">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L160">    }</span>
+    
+    @FXML
+    private void handleButtonComprar(ActionEvent event) throws IOException {
+<span class="nc" id="L164">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaCompra.fxml&quot;));</span>
+<span class="nc" id="L165">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L166">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L167">    }</span>
+
+    @FXML
+    private void handleButtonMenu(MouseEvent event) throws IOException {
+<span class="nc" id="L171">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPrincipal.fxml&quot;));</span>
+<span class="nc" id="L172">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L173">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L174">    }</span>
+    
+    @FXML
+    private void handleButtonVerCarrito(ActionEvent event) throws IOException {
+<span class="nc" id="L178">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaCarrito.fxml&quot;));</span>
+<span class="nc" id="L179">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L180">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L181">    }</span>
+    
+    @FXML
+    private void handleImagen1(MouseEvent event) throws IOException {
+<span class="nc" id="L185">        Main.sistema.setArticulo(0);</span>
+<span class="nc" id="L186">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaArticulo.fxml&quot;));</span>
+<span class="nc" id="L187">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L188">        Main.ventana.setScene(scene);</span>
+        //Main.sistema.setArticulo(0);
+<span class="nc" id="L190">    }</span>
+    
+    @FXML
+    private void handleImagen2(MouseEvent event) throws IOException {
+<span class="nc" id="L194">        Main.sistema.setArticulo(1);</span>
+<span class="nc" id="L195">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaArticulo.fxml&quot;));</span>
+<span class="nc" id="L196">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L197">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L198">    }</span>
+    @FXML
+    private void handleImagen3(MouseEvent event) throws IOException {
+<span class="nc" id="L201">        Main.sistema.setArticulo(2);</span>
+<span class="nc" id="L202">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaArticulo.fxml&quot;));</span>
+<span class="nc" id="L203">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L204">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L205">    }</span>
+    @FXML
+    private void handleImagen4(MouseEvent event) throws IOException {
+<span class="nc" id="L208">        Main.sistema.setArticulo(3);</span>
+<span class="nc" id="L209">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaArticulo.fxml&quot;));</span>
+<span class="nc" id="L210">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L211">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L212">    }</span>
+    @FXML
+    private void handleImagen5(MouseEvent event) throws IOException {
+<span class="nc" id="L215">        Main.sistema.setArticulo(4);</span>
+<span class="nc" id="L216">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaArticulo.fxml&quot;));</span>
+<span class="nc" id="L217">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L218">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L219">    }</span>
+    @FXML
+    private void handleImagen6(MouseEvent event) throws IOException {
+<span class="nc" id="L222">        Main.sistema.setArticulo(5);</span>
+<span class="nc" id="L223">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaArticulo.fxml&quot;));</span>
+<span class="nc" id="L224">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L225">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L226">    }</span>
+    @FXML
+    private void handleImagen7(MouseEvent event) throws IOException {
+<span class="nc" id="L229">        Main.sistema.setArticulo(6);</span>
+<span class="nc" id="L230">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaArticulo.fxml&quot;));</span>
+<span class="nc" id="L231">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L232">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L233">    }</span>
+    @FXML
+    private void handleImagen8(MouseEvent event) throws IOException {
+<span class="nc" id="L236">        Main.sistema.setArticulo(7);</span>
+<span class="nc" id="L237">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaArticulo.fxml&quot;));</span>
+<span class="nc" id="L238">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L239">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L240">    }</span>
+    @FXML
+    private void handleImagen9(MouseEvent event) throws IOException {
+<span class="nc" id="L243">        Main.sistema.setArticulo(8);</span>
+<span class="nc" id="L244">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaArticulo.fxml&quot;));</span>
+<span class="nc" id="L245">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L246">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L247">    }</span>
+    @FXML
+    private void handleImagen10(MouseEvent event) throws IOException {
+<span class="nc" id="L250">        Main.sistema.setArticulo(9);</span>
+<span class="nc" id="L251">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaArticulo.fxml&quot;));</span>
+<span class="nc" id="L252">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L253">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L254">    }</span>
+    @FXML
+    private void handleImagen11(MouseEvent event) throws IOException {
+<span class="nc" id="L257">        Main.sistema.setArticulo(10);</span>
+<span class="nc" id="L258">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaArticulo.fxml&quot;));</span>
+<span class="nc" id="L259">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L260">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L261">    }</span>
+    @FXML
+    private void handleImagen12(MouseEvent event) throws IOException {
+<span class="nc" id="L264">        Main.sistema.setArticulo(11);</span>
+<span class="nc" id="L265">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaArticulo.fxml&quot;));</span>
+<span class="nc" id="L266">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L267">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L268">    }</span>
+    
+    public void centerImage(ImageView imv) {
+<span class="nc" id="L271">        Image img = imv.getImage();</span>
+<span class="nc bnc" id="L272" title="All 2 branches missed.">        if (img != null) {</span>
+<span class="nc" id="L273">            double w = 0;</span>
+<span class="nc" id="L274">            double h = 0;</span>
+
+<span class="nc" id="L276">            double ratioX = imv.getFitWidth() / img.getWidth();</span>
+<span class="nc" id="L277">            double ratioY = imv.getFitHeight() / img.getHeight();</span>
+
+<span class="nc" id="L279">            double reducCoeff = 0;</span>
+<span class="nc bnc" id="L280" title="All 2 branches missed.">            if(ratioX &gt;= ratioY) {</span>
+<span class="nc" id="L281">                reducCoeff = ratioY;</span>
+            } else {
+<span class="nc" id="L283">                reducCoeff = ratioX;</span>
+            }
+
+<span class="nc" id="L286">            w = img.getWidth() * reducCoeff;</span>
+<span class="nc" id="L287">            h = img.getHeight() * reducCoeff;</span>
+
+<span class="nc" id="L289">            imv.setX((imv.getFitWidth() - w) / 2);</span>
+<span class="nc" id="L290">            imv.setY((imv.getFitHeight() - h) / 2);</span>
+
+        }
+<span class="nc" id="L293">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

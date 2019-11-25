@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>VentanaTicketController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;IngSoftware1&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Interfaz</a> &gt; <span class="el_source">VentanaTicketController.java</span></div><h1>VentanaTicketController.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Interfaz;
+
+import Dominio.Articulo;
+import Dominio.ArticuloTabla;
+import Dominio.NodoArticulo;
+import Dominio.Venta;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+
+/**
+ * FXML Controller class
+ *
+ * @author Darío
+ */
+<span class="nc" id="L36">public class VentanaTicketController implements Initializable {</span>
+
+    @FXML
+    private Label lblFecha;
+    @FXML
+    private Label lblCodigoTicket;
+    @FXML
+    private Label lblHora;
+    @FXML
+    private Label lblTotal;
+    @FXML
+    private ImageView imgCodigoQR;
+    @FXML
+    private ImageView imgEcoShop;
+    @FXML
+    private TableColumn&lt;ArticuloTabla, String&gt; colArticulo;
+    @FXML
+    private TableColumn&lt;ArticuloTabla, Integer&gt; colCantidad;
+    @FXML
+    private TableColumn&lt;ArticuloTabla, String&gt; colPrecio;
+    @FXML
+    private ImageView btnAtras;
+    @FXML
+    private TableView&lt;ArticuloTabla&gt; tablaArticulos;
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+<span class="nc" id="L66">        Venta v = Main.sistema.getVentaActual();</span>
+<span class="nc" id="L67">        setearLista(v);</span>
+<span class="nc" id="L68">        calcularTotal(v);</span>
+<span class="nc" id="L69">        Main.sistema.setVentaActual(null);</span>
+<span class="nc" id="L70">    }    </span>
+
+    @FXML
+    private void handleButtonAtras(MouseEvent event) throws IOException {
+<span class="nc" id="L74">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaMenuUsuario.fxml&quot;));</span>
+<span class="nc" id="L75">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L76">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L77">    }</span>
+    
+    public void setearLista(Venta v) {
+<span class="nc bnc" id="L80" title="All 2 branches missed.">        if (v != null) {    </span>
+<span class="nc" id="L81">            ArrayList&lt;ArticuloTabla&gt; articulos = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">            for (int i = 0; i &lt; v.getArticulos().size(); i++) {</span>
+<span class="nc" id="L83">                Articulo a = v.getArticulos().get(i).getArticulo();</span>
+<span class="nc" id="L84">                String nombre = a.getNombre();</span>
+<span class="nc" id="L85">                int precio = a.getPrecio();</span>
+<span class="nc" id="L86">                int cantVendidas = v.getArticulos().get(i).getCantVendidas();</span>
+<span class="nc" id="L87">                ArticuloTabla artTab = new ArticuloTabla(nombre, precio, cantVendidas);</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">                if (articulos.contains(artTab)) {</span>
+<span class="nc" id="L89">                    int pos = articulos.indexOf(artTab);</span>
+<span class="nc" id="L90">                    ArticuloTabla aux = articulos.get(pos);</span>
+<span class="nc" id="L91">                    aux.setCantVendidas(aux.getCantVendidas() + artTab.getCantVendidas());</span>
+<span class="nc" id="L92">                }</span>
+                else {
+<span class="nc" id="L94">                    articulos.add(artTab);</span>
+                }
+            }
+<span class="nc" id="L97">            ObservableList&lt;ArticuloTabla&gt; listaArticulos = FXCollections.observableArrayList(articulos);</span>
+
+<span class="nc" id="L99">            colArticulo.setCellValueFactory(new PropertyValueFactory&lt;ArticuloTabla, String&gt;(&quot;nombre&quot;));</span>
+<span class="nc" id="L100">            colCantidad.setCellValueFactory(new PropertyValueFactory&lt;ArticuloTabla, Integer&gt;(&quot;cantVendidas&quot;));</span>
+<span class="nc" id="L101">            colPrecio.setCellValueFactory(new PropertyValueFactory&lt;ArticuloTabla, String&gt;(&quot;precio&quot;));</span>
+
+<span class="nc" id="L103">            colCantidad.setStyle(&quot;-fx-alignment: CENTER-RIGHT;&quot;);</span>
+<span class="nc" id="L104">            colPrecio.setStyle(&quot;-fx-alignment: CENTER-RIGHT;&quot;);</span>
+
+<span class="nc" id="L106">            tablaArticulos.setItems(listaArticulos);</span>
+        }
+<span class="nc" id="L108">    }</span>
+    
+    public void calcularTotal(Venta v) {
+<span class="nc" id="L111">        int total = 0;</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">        for (int i = 0; i &lt; v.getArticulos().size(); i++) {</span>
+<span class="nc" id="L113">            int cant = v.getArticulos().get(i).getCantVendidas();</span>
+<span class="nc" id="L114">            int precio = v.getArticulos().get(i).getArticulo().getPrecio();</span>
+<span class="nc" id="L115">            total += (cant * precio);</span>
+        }
+<span class="nc" id="L117">        lblTotal.setText(&quot;&quot; + total);</span>
+<span class="nc" id="L118">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

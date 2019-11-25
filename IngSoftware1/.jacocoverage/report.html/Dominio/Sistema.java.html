@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Sistema.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;IngSoftware1&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Dominio</a> &gt; <span class="el_source">Sistema.java</span></div><h1>Sistema.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Dominio;
+
+import Interfaz.Main;
+import java.util.ArrayList;
+import java.util.Date;
+import javafx.util.Pair;
+
+/**
+ *
+ * @author Fabian
+ */
+public class Sistema {
+
+//    class NodoArticulo {
+//        Articulo articulo;
+//        int cantVendidas;
+//        
+//        @Override
+//        public boolean equals(Object o){
+//            return articulo.getNombre().equals(((Articulo) o).getNombre());
+//        }
+//    }
+//    class NodoEnvase {
+//        Envase envase;
+//        int cantVendidas;
+//        
+//        
+//        @Override
+//        public boolean equals(Object o){
+//            return envase.getTipo().equals(((Envase) o).getTipo());
+//        }
+//    }
+    //Atributos
+    private ArrayList&lt;Envase&gt; listaEnvases;
+    private ArrayList&lt;Articulo&gt; listaArticulo;
+    private ArrayList&lt;Venta&gt; listaVentas;
+    private ArrayList&lt;PreVenta&gt; listaPreVenta;
+    //Atributos Auxiliares
+    private ArrayList&lt;NodoArticulo&gt; listaArticulosVendidos;
+    private ArrayList&lt;NodoArticulo&gt; listaArticulosMasVendidos;
+    private ArrayList&lt;NodoEnvase&gt; listaEnvasesReutilizables;
+    private int articulo;
+    private Venta ventaActual;
+    private Venta preventaActual;
+    private int cantVentas;
+    private ArrayList&lt;NodoArticulo&gt; donacionActual;
+
+    //Constructores
+    public Sistema(ArrayList&lt;Envase&gt; unaListaEnvases, ArrayList&lt;Articulo&gt; unaListaArticulo,
+            ArrayList&lt;Venta&gt; unaListaVentas, ArrayList&lt;PreVenta&gt; unaListaPreVenta,
+            ArrayList&lt;NodoArticulo&gt; unaListaArticulosVendidos, ArrayList&lt;NodoArticulo&gt; unaListaArticulosMasVendidos, 
+<span class="fc" id="L57">            ArrayList&lt;NodoEnvase&gt; unaListaEnvasesReutilizables, int num, Venta unaVenta, Venta unaPreventa, ArrayList&lt;NodoArticulo&gt; unaDonacionActual) {</span>
+<span class="fc" id="L58">        this.listaEnvases = unaListaEnvases;</span>
+<span class="fc" id="L59">        this.listaArticulo = unaListaArticulo;</span>
+<span class="fc" id="L60">        this.listaVentas = unaListaVentas;</span>
+<span class="fc" id="L61">        this.listaPreVenta = unaListaPreVenta;</span>
+<span class="fc" id="L62">        this.listaArticulosVendidos = unaListaArticulosVendidos;</span>
+<span class="fc" id="L63">        this.listaArticulosMasVendidos = unaListaArticulosMasVendidos;</span>
+<span class="fc" id="L64">        this.listaEnvasesReutilizables = unaListaEnvasesReutilizables;</span>
+<span class="fc" id="L65">        this.articulo = num;</span>
+<span class="fc" id="L66">        this.ventaActual = unaVenta;</span>
+<span class="fc" id="L67">        this.preventaActual = unaPreventa;</span>
+<span class="fc" id="L68">        this.cantVentas = 0;</span>
+<span class="fc" id="L69">        this.donacionActual = unaDonacionActual;</span>
+<span class="fc" id="L70">    }</span>
+
+<span class="fc" id="L72">    public Sistema() {</span>
+<span class="fc" id="L73">        this.listaArticulo = new ArrayList&lt;Articulo&gt;();</span>
+<span class="fc" id="L74">        this.listaEnvases = new ArrayList&lt;Envase&gt;();</span>
+<span class="fc" id="L75">        this.listaPreVenta = new ArrayList&lt;PreVenta&gt;();</span>
+<span class="fc" id="L76">        this.listaVentas = new ArrayList&lt;Venta&gt;();</span>
+<span class="fc" id="L77">        this.listaArticulosVendidos = new ArrayList&lt;NodoArticulo&gt;();</span>
+<span class="fc" id="L78">        this.listaArticulosMasVendidos = new ArrayList&lt;NodoArticulo&gt;();</span>
+<span class="fc" id="L79">        this.listaEnvasesReutilizables = new ArrayList&lt;NodoEnvase&gt;();</span>
+<span class="fc" id="L80">        this.setArticulo(0);</span>
+        //this.setVentaActual(null);
+<span class="fc" id="L82">        this.ventaActual = null;</span>
+<span class="fc" id="L83">        this.preventaActual = null;</span>
+<span class="fc" id="L84">        this.cantVentas = 0;</span>
+<span class="fc" id="L85">        this.donacionActual = new ArrayList&lt;NodoArticulo&gt;();</span>
+<span class="fc" id="L86">    }</span>
+
+    //Getters &amp; Setters
+    public ArrayList&lt;Envase&gt; getListaEnvases() {
+<span class="fc" id="L90">        return listaEnvases;</span>
+    }
+
+    public void setListaEnvases(ArrayList&lt;Envase&gt; listaEnvases) {
+<span class="fc" id="L94">        this.listaEnvases = listaEnvases;</span>
+<span class="fc" id="L95">    }</span>
+
+    public ArrayList&lt;Articulo&gt; getListaArticulo() {
+<span class="fc" id="L98">        return listaArticulo;</span>
+    }
+
+    public void setListaArticulo(ArrayList&lt;Articulo&gt; listaArticulo) {
+<span class="fc" id="L102">        this.listaArticulo = listaArticulo;</span>
+<span class="fc" id="L103">    }</span>
+
+   
+
+    public ArrayList&lt;Venta&gt; getListaVentas() {
+<span class="fc" id="L108">        return listaVentas;</span>
+    }
+
+    public void setListaVentas(ArrayList&lt;Venta&gt; listaVentas) {
+<span class="fc" id="L112">        this.listaVentas = listaVentas;</span>
+<span class="fc" id="L113">    }</span>
+
+    public ArrayList&lt;PreVenta&gt; getListaPreVenta() {
+<span class="fc" id="L116">        return listaPreVenta;</span>
+    }
+
+    public void setListaPreVenta(ArrayList&lt;PreVenta&gt; listaPreVenta) {
+<span class="fc" id="L120">        this.listaPreVenta = listaPreVenta;</span>
+<span class="fc" id="L121">    }</span>
+
+   
+    public ArrayList&lt;NodoArticulo&gt; getListaArticulosVendidos() {
+<span class="fc" id="L125">        return listaArticulosVendidos;</span>
+    }
+
+    public void setListaArticulosVendidos(ArrayList&lt;NodoArticulo&gt; listaArticulosVendidos) {
+<span class="fc" id="L129">        this.listaArticulosVendidos = listaArticulosVendidos;</span>
+<span class="fc" id="L130">    }</span>
+
+    public ArrayList&lt;NodoArticulo&gt; getListaArticulosMasVendidos() {
+<span class="fc" id="L133">        return listaArticulosMasVendidos;</span>
+    }
+
+    public void setListaArticulosMasVendidos(ArrayList&lt;NodoArticulo&gt; listaArticulosMasVendidos) {
+<span class="fc" id="L137">        this.listaArticulosMasVendidos = listaArticulosMasVendidos;</span>
+<span class="fc" id="L138">    }</span>
+
+    public int getCantVentas() {
+<span class="fc" id="L141">        return cantVentas;</span>
+    }
+
+    public void setCantVentas(int cantVentas) {
+<span class="fc" id="L145">        this.cantVentas = cantVentas;</span>
+<span class="fc" id="L146">    }</span>
+
+    public int getArticulo() {
+<span class="fc" id="L149">        return articulo;</span>
+    }
+
+    public void setArticulo(int articulo) {
+<span class="fc" id="L153">        this.articulo = articulo;</span>
+<span class="fc" id="L154">    }</span>
+
+    
+
+    public Venta getVentaActual() {
+<span class="fc" id="L159">        return ventaActual;</span>
+    }
+
+    public void setVentaActual(Venta ventaActual) {
+<span class="fc" id="L163">        this.ventaActual = ventaActual;</span>
+<span class="fc" id="L164">    }</span>
+
+    public ArrayList&lt;NodoEnvase&gt; getListaEnvasesReutilizables() {
+<span class="fc" id="L167">        return listaEnvasesReutilizables;</span>
+    }
+
+    public void setListaEnvasesReutilizables(ArrayList&lt;NodoEnvase&gt; listaEnvasesReutilizables) {
+<span class="fc" id="L171">        this.listaEnvasesReutilizables = listaEnvasesReutilizables;</span>
+<span class="fc" id="L172">    }</span>
+    
+    public ArrayList&lt;NodoArticulo&gt; getDonacionActual() {
+<span class="fc" id="L175">        return donacionActual;</span>
+    }
+
+    public void setDonacionActual(ArrayList&lt;NodoArticulo&gt; donacionActual) {
+<span class="fc" id="L179">        this.donacionActual = donacionActual;</span>
+<span class="fc" id="L180">    }</span>
+    
+    public Venta getPreventaActual() {
+<span class="fc" id="L183">        return preventaActual;</span>
+    }
+
+    public void setPreventaActual(Venta preventaActual) {
+<span class="fc" id="L187">        this.preventaActual = preventaActual;</span>
+<span class="fc" id="L188">    }</span>
+
+    //Funciones
+    
+
+    
+
+    public void agregarVenta(Venta v) {
+<span class="fc" id="L196">        this.getListaVentas().add(v);</span>
+<span class="fc" id="L197">        this.setCantVentas(this.getCantVentas() + 1);</span>
+<span class="fc" id="L198">        ArrayList&lt;NodoArticulo&gt; articulos = v.getArticulos();</span>
+<span class="fc bfc" id="L199" title="All 2 branches covered.">        for (int i = 0; i &lt; articulos.size(); i++) {</span>
+<span class="fc" id="L200">            int pos = 0;</span>
+<span class="fc bfc" id="L201" title="All 2 branches covered.">            while (!(this.getListaArticulosVendidos().get(pos).articulo.getNombre().equals(articulos.get(i).getArticulo().getNombre()))) {</span>
+<span class="fc" id="L202">                pos++;</span>
+            }
+<span class="fc" id="L204">            NodoArticulo nodo = this.getListaArticulosVendidos().get(pos);</span>
+<span class="fc" id="L205">            nodo.setCantVendidas(nodo.getCantVendidas() + v.getArticulos().get(i).getCantVendidas());</span>
+            //REVISAR desde acá...
+<span class="fc" id="L207">            nodo.setCantDonados(nodo.getCantDonados() - v.getArticulos().get(i).getCantVendidas());</span>
+<span class="pc bpc" id="L208" title="1 of 2 branches missed.">            if (nodo.getCantDonados() &lt; 0) {</span>
+<span class="fc" id="L209">                nodo.setCantDonados(0);</span>
+            }
+            //... hasta acá
+            //int posEnvase  = this.getListaEnvasesReutilizables().indexOf(articulos.get(i).getEnvaseElegido());
+<span class="fc" id="L213">            int posEnvase = 0;</span>
+<span class="pc bpc" id="L214" title="1 of 2 branches missed.">            while (!(this.getListaEnvasesReutilizables().get(posEnvase).envase.getTipo().equals(articulos.get(i).getArticulo().getEnvaseElegido().getTipo()))) {</span>
+<span class="nc" id="L215">                posEnvase++;</span>
+            }
+<span class="fc" id="L217">            NodoEnvase nodoEnvase = this.getListaEnvasesReutilizables().get(posEnvase);</span>
+<span class="fc" id="L218">            nodoEnvase.setCantVendidas(nodoEnvase.getCantVendidas() + v.getArticulos().get(i).getCantVendidas());</span>
+<span class="fc bfc" id="L219" title="All 2 branches covered.">            if (this.getListaArticulosMasVendidos().isEmpty()) {</span>
+<span class="fc" id="L220">                this.getListaArticulosMasVendidos().add(nodo);</span>
+            } //|| this.getListaArticulosMasVendidos().get(0).cantVendidas == nodo.cantVendidas 
+            else {
+<span class="pc bpc" id="L223" title="1 of 4 branches missed.">                if (!this.getListaArticulosMasVendidos().contains(nodo) &amp;&amp; this.getListaArticulosMasVendidos().get(0).cantVendidas == nodo.cantVendidas) {</span>
+<span class="fc" id="L224">                    this.getListaArticulosMasVendidos().add(nodo);</span>
+                } else {
+<span class="pc bpc" id="L226" title="1 of 2 branches missed.">                    if (this.getListaArticulosMasVendidos().contains(nodo)) {</span>
+<span class="nc" id="L227">                        this.getListaArticulosMasVendidos().clear();</span>
+<span class="nc" id="L228">                        this.getListaArticulosMasVendidos().add(nodo);</span>
+                    } else {
+<span class="pc bpc" id="L230" title="1 of 2 branches missed.">                        if (this.getListaArticulosMasVendidos().get(0).cantVendidas &lt; nodo.cantVendidas) {</span>
+<span class="fc" id="L231">                            this.getListaArticulosMasVendidos().clear();</span>
+<span class="fc" id="L232">                            this.getListaArticulosMasVendidos().add(nodo);</span>
+                        }
+
+                    }
+                }
+
+            }
+        }
+<span class="fc" id="L240">    }</span>
+
+    public ArrayList&lt;NodoEnvase&gt; envasesReutilizables() {
+<span class="fc" id="L243">        ArrayList&lt;NodoEnvase&gt; aux = new ArrayList&lt;NodoEnvase&gt;();</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">        for (int i = 0; i &lt; this.getListaEnvasesReutilizables().size(); i++) {</span>
+<span class="fc" id="L245">            NodoEnvase nodo = this.getListaEnvasesReutilizables().get(i);</span>
+            //Envase e = nodo.envase;
+            //if(nodo.cantVendidas!=0){
+<span class="fc" id="L248">            aux.add(nodo);</span>
+            //}
+
+        }
+<span class="fc" id="L252">        return aux;</span>
+    }
+
+    public ArrayList&lt;NodoArticulo&gt; articulosMasVendidos() {
+<span class="fc" id="L256">        ArrayList&lt;NodoArticulo&gt; aux = new ArrayList&lt;NodoArticulo&gt;();</span>
+<span class="fc bfc" id="L257" title="All 2 branches covered.">        for (int i = 0; i &lt; this.getListaArticulosMasVendidos().size(); i++) {</span>
+<span class="fc" id="L258">            NodoArticulo nodo = this.getListaArticulosMasVendidos().get(i);</span>
+            //Articulo a = nodo.articulo;
+<span class="fc" id="L260">            aux.add(nodo);</span>
+        }
+<span class="fc" id="L262">        return aux;</span>
+    }
+
+    public int cantidadDeVentasEnMes(int mes) {
+<span class="fc" id="L266">        int cantVentas = 0;</span>
+<span class="fc bfc" id="L267" title="All 2 branches covered.">        for (int i = 0; i &lt; this.getListaVentas().size(); i++) {</span>
+<span class="fc" id="L268">            Venta v = this.getListaVentas().get(i);</span>
+<span class="fc" id="L269">            int mesVenta = v.getFecha().getMonth();</span>
+<span class="pc bpc" id="L270" title="1 of 2 branches missed.">            if (mesVenta == mes) {</span>
+<span class="fc" id="L271">                cantVentas++;</span>
+
+            }
+        }
+
+<span class="fc" id="L276">        return cantVentas;</span>
+    }
+
+    public void agregarEnvase(Envase e) {
+<span class="fc" id="L280">        this.getListaEnvases().add(e);</span>
+<span class="fc" id="L281">        NodoEnvase nodo = new NodoEnvase(e, 0);</span>
+//        nodo.envase=e;
+//        nodo.cantVendidas =0;
+<span class="fc" id="L284">        this.getListaEnvasesReutilizables().add(nodo);</span>
+
+<span class="fc" id="L286">    }</span>
+
+    public ArrayList&lt;PreVenta&gt; preVentasAntesDeFecha() {
+<span class="fc" id="L289">        ArrayList&lt;PreVenta&gt; aux = new ArrayList&lt;PreVenta&gt;();</span>
+<span class="fc" id="L290">        Date fechaActual = new Date();</span>
+<span class="fc bfc" id="L291" title="All 2 branches covered.">        for (int i = 0; i &lt; this.getListaPreVenta().size(); i++) {</span>
+<span class="fc" id="L292">            PreVenta p = this.getListaPreVenta().get(i);</span>
+<span class="fc bfc" id="L293" title="All 2 branches covered.">            if ((p.getFecha().getMonth() == fechaActual.getMonth())) {</span>
+<span class="pc bpc" id="L294" title="1 of 2 branches missed.">                if(p.getFecha().getDate() &lt;= fechaActual.getDate()){</span>
+<span class="fc" id="L295">                    aux.add(p);</span>
+                }
+            }else{
+<span class="pc bpc" id="L298" title="1 of 2 branches missed.">                if(p.getFecha().getMonth() &lt; fechaActual.getMonth()){</span>
+<span class="fc" id="L299">                    aux.add(p);</span>
+                }
+            }
+        }
+<span class="fc" id="L303">        return aux;</span>
+    }
+
+    public ArrayList&lt;PreVenta&gt; preVentasDespuesDeFecha() {
+<span class="fc" id="L307">        ArrayList&lt;PreVenta&gt; aux = new ArrayList&lt;PreVenta&gt;();</span>
+<span class="fc" id="L308">        Date fechaActual = new Date();</span>
+<span class="fc bfc" id="L309" title="All 2 branches covered.">        for (int i = 0; i &lt; this.getListaPreVenta().size(); i++) {</span>
+<span class="fc" id="L310">            PreVenta p = this.getListaPreVenta().get(i);</span>
+<span class="fc bfc" id="L311" title="All 2 branches covered.">            if ((p.getFecha().getMonth()==fechaActual.getMonth())) {</span>
+<span class="pc bpc" id="L312" title="1 of 2 branches missed.">                if(p.getFecha().getDate()&gt;fechaActual.getDate()){</span>
+<span class="fc" id="L313">                    aux.add(p);</span>
+                }
+            }else{
+<span class="pc bpc" id="L316" title="1 of 2 branches missed.">                if(p.getFecha().getMonth()&gt;fechaActual.getMonth()){</span>
+<span class="fc" id="L317">                    aux.add(p);</span>
+                }
+            }
+        }
+<span class="fc" id="L321">        return aux;</span>
+    }
+    
+    
+
+    public void realizarVenta(PreVenta p) {
+        //this.getListaVentas().add(p.getVentaRealizar());
+<span class="fc" id="L328">        this.agregarVenta(p.getVentaRealizar());</span>
+<span class="fc" id="L329">        this.getListaPreVenta().remove(p);</span>
+<span class="fc" id="L330">    }</span>
+
+    public void agregarArticulo(Articulo a) {
+<span class="fc" id="L333">        this.getListaArticulo().add(a);</span>
+<span class="fc" id="L334">        NodoArticulo nodo = new NodoArticulo(a, 0, 0);</span>
+<span class="fc" id="L335">        nodo.articulo = a;</span>
+<span class="fc" id="L336">        nodo.cantVendidas = 0;</span>
+<span class="fc" id="L337">        this.getListaArticulosVendidos().add(nodo);</span>
+<span class="fc" id="L338">    }</span>
+
+    
+
+    public void agregarPreVenta(PreVenta pv) {
+<span class="fc" id="L343">        this.getListaPreVenta().add(pv);</span>
+<span class="fc" id="L344">    }</span>
+
+   
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

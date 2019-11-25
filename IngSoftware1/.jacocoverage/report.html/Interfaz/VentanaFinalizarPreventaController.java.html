@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>VentanaFinalizarPreventaController.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;IngSoftware1&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">Interfaz</a> &gt; <span class="el_source">VentanaFinalizarPreventaController.java</span></div><h1>VentanaFinalizarPreventaController.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Interfaz;
+
+import Dominio.PreVenta;
+import Dominio.Venta;
+import java.io.IOException;
+import static java.lang.Integer.max;
+import static java.lang.Integer.min;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import java.util.concurrent.ThreadLocalRandom;
+import javafx.scene.control.TextField;
+
+/**
+ * FXML Controller class
+ *
+ * @author Sabrina
+ */
+<span class="nc" id="L36">public class VentanaFinalizarPreventaController implements Initializable {</span>
+
+    @FXML
+    private ImageView btnSalir;
+    @FXML
+    private ImageView btnAtras;
+    @FXML
+    private ImageView btnMenu;
+    @FXML
+    private Button btnFinalizarPreventa;
+    @FXML
+    private TextField lblNombre;
+    @FXML
+    private TextField lblTarjeta;
+    @FXML
+    private DatePicker datePicker;
+    @FXML
+    private Label vacio;
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+<span class="nc" id="L60">        datePicker.setValue(LocalDate.now());</span>
+<span class="nc" id="L61">        lblNombre.setText(&quot;Alejandro Adorjan&quot;);</span>
+<span class="nc" id="L62">        lblTarjeta.setText(&quot;4485 7158 6086 8875&quot;);</span>
+<span class="nc" id="L63">    }</span>
+
+    @FXML
+    private void handleButtonSalir(MouseEvent event) {
+<span class="nc" id="L67">        Main.ventana.close();</span>
+<span class="nc" id="L68">    }</span>
+
+    @FXML
+    private void handleButtonAtras(MouseEvent event) throws IOException {
+<span class="nc" id="L72">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPreventa.fxml&quot;));</span>
+<span class="nc" id="L73">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L74">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L75">    }</span>
+
+    @FXML
+    private void handleButtonMenu(MouseEvent event) throws IOException {
+<span class="nc" id="L79">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPrincipal.fxml&quot;));</span>
+<span class="nc" id="L80">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L81">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L82">    }</span>
+
+    @FXML
+    private void handleButtonFinalizarCompra(ActionEvent event) throws IOException {
+
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        if (datePicker.getValue().getYear() != 0) {</span>
+<span class="nc" id="L88">            int dia = datePicker.getValue().getDayOfMonth();</span>
+<span class="nc" id="L89">            int mes = datePicker.getValue().getMonthValue();</span>
+<span class="nc" id="L90">            int ano = datePicker.getValue().getYear();            </span>
+<span class="nc" id="L91">            Date fechaPreVenta = new Date();</span>
+<span class="nc" id="L92">            fechaPreVenta.setDate(dia);</span>
+<span class="nc" id="L93">            fechaPreVenta.setMonth(mes - 1);</span>
+<span class="nc" id="L94">            fechaPreVenta.setYear(ano - 1900);</span>
+<span class="nc" id="L95">            Venta v = Main.sistema.getPreventaActual();</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">            if (v != null) {</span>
+<span class="nc" id="L97">                PreVenta pv = new PreVenta();</span>
+<span class="nc" id="L98">                pv.setVentaRealizar(v);</span>
+<span class="nc" id="L99">                pv.setFecha(fechaPreVenta);</span>
+<span class="nc" id="L100">                int numero = ThreadLocalRandom.current().nextInt(10000, 50000 + 1);</span>
+<span class="nc" id="L101">                pv.setCodigo(numero + &quot;&quot;);</span>
+<span class="nc" id="L102">                Main.sistema.agregarPreVenta(pv);</span>
+<span class="nc" id="L103">                Main.sistema.setPreventaActual(null);</span>
+<span class="nc" id="L104">                Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaMenuUsuario.fxml&quot;));</span>
+<span class="nc" id="L105">                Scene scene = new Scene(root);</span>
+<span class="nc" id="L106">                Main.ventana.setScene(scene);</span>
+<span class="nc" id="L107">            } else {</span>
+<span class="nc" id="L108">                vacio.setText(&quot;El carrito esta vacio&quot;);</span>
+            }
+
+        }
+<span class="nc" id="L112">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
