@@ -58,56 +58,58 @@ import javafx.scene.control.TextField;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 <span class="nc" id="L60">        datePicker.setValue(LocalDate.now());</span>
-<span class="nc" id="L61">    }    </span>
+<span class="nc" id="L61">        lblNombre.setText(&quot;Alejandro Adorjan&quot;);</span>
+<span class="nc" id="L62">        lblTarjeta.setText(&quot;4485 7158 6086 8875&quot;);</span>
+<span class="nc" id="L63">    }</span>
 
     @FXML
-    private void handleButtonSalir(MouseEvent event)  {
-<span class="nc" id="L65">        Main.ventana.close();</span>
-<span class="nc" id="L66">    }</span>
+    private void handleButtonSalir(MouseEvent event) {
+<span class="nc" id="L67">        Main.ventana.close();</span>
+<span class="nc" id="L68">    }</span>
 
     @FXML
     private void handleButtonAtras(MouseEvent event) throws IOException {
-<span class="nc" id="L70">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPreventa.fxml&quot;));</span>
-<span class="nc" id="L71">        Scene scene = new Scene(root);</span>
-<span class="nc" id="L72">        Main.ventana.setScene(scene);</span>
-<span class="nc" id="L73">    }</span>
+<span class="nc" id="L72">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPreventa.fxml&quot;));</span>
+<span class="nc" id="L73">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L74">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L75">    }</span>
 
     @FXML
     private void handleButtonMenu(MouseEvent event) throws IOException {
-<span class="nc" id="L77">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPrincipal.fxml&quot;));</span>
-<span class="nc" id="L78">        Scene scene = new Scene(root);</span>
-<span class="nc" id="L79">        Main.ventana.setScene(scene);</span>
-<span class="nc" id="L80">    }</span>
+<span class="nc" id="L79">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPrincipal.fxml&quot;));</span>
+<span class="nc" id="L80">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L81">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L82">    }</span>
 
     @FXML
     private void handleButtonFinalizarCompra(ActionEvent event) throws IOException {
-        
-<span class="nc bnc" id="L85" title="All 2 branches missed.">        if(datePicker.getValue().getYear()!= 0){</span>
-<span class="nc" id="L86">            int dia = datePicker.getValue().getDayOfMonth();</span>
-<span class="nc" id="L87">            int mes = datePicker.getValue().getMonthValue();</span>
-<span class="nc" id="L88">            int ano = datePicker.getValue().getYear();</span>
-<span class="nc" id="L89">            Date fechaPreVenta = new Date();</span>
-<span class="nc" id="L90">            fechaPreVenta.setDate(dia);</span>
-<span class="nc" id="L91">            fechaPreVenta.setMonth(mes);</span>
-<span class="nc" id="L92">            fechaPreVenta.setYear(ano);</span>
-<span class="nc" id="L93">            Venta v = Main.sistema.getVentaActual();</span>
-<span class="nc bnc" id="L94" title="All 2 branches missed.">            if(v!=null){</span>
-<span class="nc" id="L95">                PreVenta pv = new PreVenta();</span>
-<span class="nc" id="L96">                pv.setVentaRealizar(v);</span>
-<span class="nc" id="L97">                pv.setFecha(fechaPreVenta);</span>
-<span class="nc" id="L98">                int numero = ThreadLocalRandom.current().nextInt(10000, 50000 + 1);</span>
-<span class="nc" id="L99">                pv.setCodigo(numero + &quot;&quot;);</span>
-<span class="nc" id="L100">                Main.sistema.agregarPreVenta(pv);</span>
-<span class="nc" id="L101">                Main.sistema.setVentaActual(null);</span>
-<span class="nc" id="L102">                Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaMenuUsuario.fxml&quot;));</span>
-<span class="nc" id="L103">                Scene scene = new Scene(root);</span>
-<span class="nc" id="L104">                Main.ventana.setScene(scene);</span>
-<span class="nc" id="L105">            }else{</span>
-<span class="nc" id="L106">                vacio.setText(&quot;El carrito esta vacio&quot;);</span>
+
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        if (datePicker.getValue().getYear() != 0) {</span>
+<span class="nc" id="L88">            int dia = datePicker.getValue().getDayOfMonth();</span>
+<span class="nc" id="L89">            int mes = datePicker.getValue().getMonthValue();</span>
+<span class="nc" id="L90">            int ano = datePicker.getValue().getYear();            </span>
+<span class="nc" id="L91">            Date fechaPreVenta = new Date();</span>
+<span class="nc" id="L92">            fechaPreVenta.setDate(dia);</span>
+<span class="nc" id="L93">            fechaPreVenta.setMonth(mes - 1);</span>
+<span class="nc" id="L94">            fechaPreVenta.setYear(ano - 1900);</span>
+<span class="nc" id="L95">            Venta v = Main.sistema.getPreventaActual();</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">            if (v != null) {</span>
+<span class="nc" id="L97">                PreVenta pv = new PreVenta();</span>
+<span class="nc" id="L98">                pv.setVentaRealizar(v);</span>
+<span class="nc" id="L99">                pv.setFecha(fechaPreVenta);</span>
+<span class="nc" id="L100">                int numero = ThreadLocalRandom.current().nextInt(10000, 50000 + 1);</span>
+<span class="nc" id="L101">                pv.setCodigo(numero + &quot;&quot;);</span>
+<span class="nc" id="L102">                Main.sistema.agregarPreVenta(pv);</span>
+<span class="nc" id="L103">                Main.sistema.setPreventaActual(null);</span>
+<span class="nc" id="L104">                Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaMenuUsuario.fxml&quot;));</span>
+<span class="nc" id="L105">                Scene scene = new Scene(root);</span>
+<span class="nc" id="L106">                Main.ventana.setScene(scene);</span>
+<span class="nc" id="L107">            } else {</span>
+<span class="nc" id="L108">                vacio.setText(&quot;El carrito esta vacio&quot;);</span>
             }
-                
+
         }
-<span class="nc" id="L110">    }</span>
-    
+<span class="nc" id="L112">    }</span>
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

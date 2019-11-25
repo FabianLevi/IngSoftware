@@ -194,7 +194,7 @@ public class Sistema {
 
     public void agregarVenta(Venta v) {
         this.getListaVentas().add(v);
-        Main.sistema.setCantVentas(Main.sistema.getCantVentas() + 1);
+        this.setCantVentas(this.getCantVentas() + 1);
         ArrayList<NodoArticulo> articulos = v.getArticulos();
         for (int i = 0; i < articulos.size(); i++) {
             int pos = 0;
@@ -342,5 +342,7 @@ public class Sistema {
     public void agregarPreVenta(PreVenta pv) {
         this.getListaPreVenta().add(pv);
     }
+
+   
 
 }

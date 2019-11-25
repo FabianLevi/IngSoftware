@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -32,7 +33,7 @@ import javafx.scene.input.MouseEvent;
  *
  * @author Darío
  */
-<span class="nc" id="L35">public class VentanaCarritoController implements Initializable {</span>
+<span class="nc" id="L36">public class VentanaCarritoController implements Initializable {</span>
 
     @FXML
     private ImageView btnSalir;
@@ -52,79 +53,89 @@ import javafx.scene.input.MouseEvent;
     private Button btnBorrarVenta;
     @FXML
     private Button btnComprar;
+    @FXML
+    private Label lblCantidadCarrito;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-<span class="nc" id="L61">        Venta v = Main.sistema.getVentaActual();</span>
-<span class="nc" id="L62">        setearLista(v);</span>
-<span class="nc" id="L63">    }    </span>
+<span class="nc" id="L64">        Venta v = Main.sistema.getVentaActual();</span>
+<span class="nc" id="L65">        setearLista(v);</span>
+        
+<span class="nc" id="L67">        int cant = 0;</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        if (v != null) {</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">            for (int i = 0; i &lt; v.getArticulos().size(); i++) {</span>
+<span class="nc" id="L70">                cant += v.getArticulos().get(i).getCantVendidas();</span>
+            }
+        }
+<span class="nc" id="L73">        lblCantidadCarrito.setText(&quot;&quot; + cant);</span>
+<span class="nc" id="L74">    }    </span>
 
     @FXML
     private void handleButtonSalir(MouseEvent event) {
-<span class="nc" id="L67">        Main.ventana.close();</span>
-<span class="nc" id="L68">    }</span>
+<span class="nc" id="L78">        Main.ventana.close();</span>
+<span class="nc" id="L79">    }</span>
 
     @FXML
     private void handleButtonAtras(MouseEvent event) throws IOException {
-<span class="nc" id="L72">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPreCompra.fxml&quot;));</span>
-<span class="nc" id="L73">        Scene scene = new Scene(root);</span>
-<span class="nc" id="L74">        Main.ventana.setScene(scene);</span>
-<span class="nc" id="L75">    }</span>
+<span class="nc" id="L83">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPreCompra.fxml&quot;));</span>
+<span class="nc" id="L84">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L85">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L86">    }</span>
 
     @FXML
     private void handleButtonMenu(MouseEvent event) throws IOException {
-<span class="nc" id="L79">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPrincipal.fxml&quot;));</span>
-<span class="nc" id="L80">        Scene scene = new Scene(root);</span>
-<span class="nc" id="L81">        Main.ventana.setScene(scene);</span>
-<span class="nc" id="L82">    }</span>
+<span class="nc" id="L90">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPrincipal.fxml&quot;));</span>
+<span class="nc" id="L91">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L92">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L93">    }</span>
     
     @FXML
     private void handleButtonBorrarVenta(ActionEvent event) throws IOException {
-<span class="nc" id="L86">        Main.sistema.setVentaActual(null);</span>
-<span class="nc" id="L87">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPreCompra.fxml&quot;));</span>
-<span class="nc" id="L88">        Scene scene = new Scene(root);</span>
-<span class="nc" id="L89">        Main.ventana.setScene(scene);</span>
-<span class="nc" id="L90">    }</span>
+<span class="nc" id="L97">        Main.sistema.setVentaActual(null);</span>
+<span class="nc" id="L98">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPreCompra.fxml&quot;));</span>
+<span class="nc" id="L99">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L100">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L101">    }</span>
     
     @FXML
     private void handleButtonComprar(ActionEvent event) throws IOException {
-<span class="nc" id="L94">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaCompra.fxml&quot;));</span>
-<span class="nc" id="L95">        Scene scene = new Scene(root);</span>
-<span class="nc" id="L96">        Main.ventana.setScene(scene);</span>
-<span class="nc" id="L97">    }</span>
+<span class="nc" id="L105">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaCompra.fxml&quot;));</span>
+<span class="nc" id="L106">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L107">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L108">    }</span>
     
     public void setearLista(Venta v) {
-<span class="nc bnc" id="L100" title="All 2 branches missed.">        if (v != null) {</span>
-<span class="nc" id="L101">            ArrayList&lt;ArticuloTabla&gt; articulos = new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L102" title="All 2 branches missed.">            for (int i = 0; i &lt; v.getArticulos().size(); i++) {</span>
-<span class="nc" id="L103">                Articulo a = v.getArticulos().get(i).getArticulo();</span>
-<span class="nc" id="L104">                String nombre = a.getNombre();</span>
-<span class="nc" id="L105">                int precio = a.getPrecio();</span>
-<span class="nc" id="L106">                int cantVendidas = v.getArticulos().get(i).getCantVendidas();</span>
-<span class="nc" id="L107">                ArticuloTabla artTab = new ArticuloTabla(nombre, precio, cantVendidas);</span>
-<span class="nc bnc" id="L108" title="All 2 branches missed.">                if (articulos.contains(artTab)) {</span>
-<span class="nc" id="L109">                    int pos = articulos.indexOf(artTab);</span>
-<span class="nc" id="L110">                    ArticuloTabla aux = articulos.get(pos);</span>
-<span class="nc" id="L111">                    aux.setCantVendidas(aux.getCantVendidas() + artTab.getCantVendidas());</span>
-<span class="nc" id="L112">                }</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">        if (v != null) {</span>
+<span class="nc" id="L112">            ArrayList&lt;ArticuloTabla&gt; articulos = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">            for (int i = 0; i &lt; v.getArticulos().size(); i++) {</span>
+<span class="nc" id="L114">                Articulo a = v.getArticulos().get(i).getArticulo();</span>
+<span class="nc" id="L115">                String nombre = a.getNombre();</span>
+<span class="nc" id="L116">                int precio = a.getPrecio();</span>
+<span class="nc" id="L117">                int cantVendidas = v.getArticulos().get(i).getCantVendidas();</span>
+<span class="nc" id="L118">                ArticuloTabla artTab = new ArticuloTabla(nombre, precio, cantVendidas);</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">                if (articulos.contains(artTab)) {</span>
+<span class="nc" id="L120">                    int pos = articulos.indexOf(artTab);</span>
+<span class="nc" id="L121">                    ArticuloTabla aux = articulos.get(pos);</span>
+<span class="nc" id="L122">                    aux.setCantVendidas(aux.getCantVendidas() + artTab.getCantVendidas());</span>
+<span class="nc" id="L123">                }</span>
                 else {
-<span class="nc" id="L114">                    articulos.add(artTab);</span>
+<span class="nc" id="L125">                    articulos.add(artTab);</span>
                 }
             }
-<span class="nc" id="L117">            ObservableList&lt;ArticuloTabla&gt; listaArticulos = FXCollections.observableArrayList(articulos);</span>
+<span class="nc" id="L128">            ObservableList&lt;ArticuloTabla&gt; listaArticulos = FXCollections.observableArrayList(articulos);</span>
 
-<span class="nc" id="L119">            colArticulo.setCellValueFactory(new PropertyValueFactory&lt;ArticuloTabla, String&gt;(&quot;nombre&quot;));</span>
-<span class="nc" id="L120">            colPrecio.setCellValueFactory(new PropertyValueFactory&lt;ArticuloTabla, String&gt;(&quot;cantVendidas&quot;));</span>
-<span class="nc" id="L121">            colCantidad.setCellValueFactory(new PropertyValueFactory&lt;ArticuloTabla, Integer&gt;(&quot;precio&quot;));</span>
+<span class="nc" id="L130">            colArticulo.setCellValueFactory(new PropertyValueFactory&lt;ArticuloTabla, String&gt;(&quot;nombre&quot;));</span>
+<span class="nc" id="L131">            colPrecio.setCellValueFactory(new PropertyValueFactory&lt;ArticuloTabla, String&gt;(&quot;cantVendidas&quot;));</span>
+<span class="nc" id="L132">            colCantidad.setCellValueFactory(new PropertyValueFactory&lt;ArticuloTabla, Integer&gt;(&quot;precio&quot;));</span>
 
-<span class="nc" id="L123">            colCantidad.setStyle(&quot;-fx-alignment: CENTER-RIGHT;&quot;);</span>
-<span class="nc" id="L124">            colPrecio.setStyle(&quot;-fx-alignment: CENTER-RIGHT;&quot;);</span>
+<span class="nc" id="L134">            colCantidad.setStyle(&quot;-fx-alignment: CENTER-RIGHT;&quot;);</span>
+<span class="nc" id="L135">            colPrecio.setStyle(&quot;-fx-alignment: CENTER-RIGHT;&quot;);</span>
 
-<span class="nc" id="L126">            tablaCarrito.setItems(listaArticulos);</span>
+<span class="nc" id="L137">            tablaCarrito.setItems(listaArticulos);</span>
         }
-<span class="nc" id="L128">    }</span>
+<span class="nc" id="L139">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

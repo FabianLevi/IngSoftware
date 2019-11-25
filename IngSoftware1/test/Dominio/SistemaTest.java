@@ -284,10 +284,12 @@ public class SistemaTest {
         ArrayList<Envase> envases = new ArrayList<Envase>();
         Envase e1 = new Envase("plastico", "imagenEnvase", 3);
         envases.add(e1);
+        instance.agregarEnvase(e1);
         Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
+        instance.agregarArticulo(a1);
         NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
         resultadoEsperado.add(na1);
-        instance.getListaArticulosMasVendidos().add(new NodoArticulo(a1, 3, 2));
+        instance.setListaArticulosMasVendidos(resultadoEsperado);
         ArrayList<NodoArticulo> resultadoObtenido = instance.getListaArticulosMasVendidos();
         assertEquals(resultadoEsperado, resultadoObtenido);
     }
@@ -407,30 +409,49 @@ public class SistemaTest {
      */
     @Test
     public void testAgregarVenta() {
-//        ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
-//        ArrayList<Envase> envases = new ArrayList<Envase>();
-//        Envase e1 = new Envase("plastico", "imagenEnvase", 3);
-//        envases.add(e1);
-//        Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
-//        NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
-//        listaArticulos.add(na1);
-//        Date fecha = new Date(116, 5, 3);
-//        Venta v = new Venta();
-//        v.setArticulos(listaArticulos);
-//        v.setFecha(fecha);
-//        instance.agregarVenta(v);
-//        ArrayList<Venta> aux = instance.getListaVentas();
-//        assertEquals(v.getArticulos().get(0).getArticulo().getNombre(), aux.get(0).getArticulos().get(0).getArticulo().getNombre());
         ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
         ArrayList<Envase> envases = new ArrayList<Envase>();
         Envase e1 = new Envase("plastico", "imagenEnvase", 3);
         envases.add(e1);
+        instance.agregarEnvase(e1);
         Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
+        instance.agregarArticulo(a1);
         NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
         listaArticulos.add(na1);
         Date fecha = new Date(116, 5, 3);
         Venta resultadoEsperado = new Venta(listaArticulos, fecha);
-        instance.getListaVentas().add(new Venta(listaArticulos, fecha));
+        instance.agregarVenta(resultadoEsperado);
+        //instance.getListaVentas().add(new Venta(listaArticulos, fecha));
+        Venta resultadoObtenido = instance.getListaVentas().get(0);
+        assertEquals(resultadoEsperado, resultadoObtenido);
+    }
+    @Test
+    public void testAgregarVenta2() {
+        ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
+        ArrayList<Envase> envases = new ArrayList<Envase>();
+        Envase e1 = new Envase("plastico", "imagenEnvase", 3);
+        envases.add(e1);
+        instance.agregarEnvase(e1);
+        Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
+        instance.agregarArticulo(a1);
+        NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
+        listaArticulos.add(na1);
+        Date fecha = new Date(116, 5, 3);
+        Venta resultadoEsperado = new Venta(listaArticulos, fecha);
+        instance.agregarVenta(resultadoEsperado);
+        ArrayList<NodoArticulo> listaArticulos2 = new ArrayList<NodoArticulo>();
+        ArrayList<Envase> envases2 = new ArrayList<Envase>();
+        Envase e2 = new Envase("plastico", "imagenEnvase", 3);
+        envases.add(e2);
+        instance.agregarEnvase(e2);
+        Articulo a2 = new Articulo("manzana", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
+        instance.agregarArticulo(a2);
+        NodoArticulo na2 = new NodoArticulo(a2, 3, 2);
+        listaArticulos2.add(na2);
+        Date fecha2 = new Date(116, 5, 3);
+        Venta resultadoEsperado2 = new Venta(listaArticulos2, fecha2);
+        instance.agregarVenta(resultadoEsperado2);
+        //instance.getListaVentas().add(new Venta(listaArticulos, fecha));
         Venta resultadoObtenido = instance.getListaVentas().get(0);
         assertEquals(resultadoEsperado, resultadoObtenido);
     }
@@ -440,12 +461,33 @@ public class SistemaTest {
      */
     @Test
     public void testEnvasesReutilizables() {
+        ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
+        ArrayList<NodoArticulo> listaArticulos2 = new ArrayList<NodoArticulo>();
         ArrayList<NodoEnvase> resultadoEsperado = new ArrayList<NodoEnvase>();
-        Envase e1 = new Envase("espuma plast", "imagen1",3);
+        ArrayList<Envase> envases = new ArrayList<Envase>();
+        Envase e1 = new Envase("plastico", "imagenEnvase", 3);
+        envases.add(e1);
         NodoEnvase ne1 = new NodoEnvase(e1, 3);
         Envase e2 = new Envase("espuma plast", "imagen1",3);
+        instance.agregarEnvase(e1);
+        instance.agregarEnvase(e2);
         NodoEnvase ne2 = new NodoEnvase(e2, 3);
-        instance.envasesReutilizables().add(ne2);
+        Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
+        Articulo a2 = new Articulo("manzanas", "campo", 90, "organico", "G57YB", envases, e1, "imagenManzana");
+        instance.agregarArticulo(a1);
+        instance.agregarArticulo(a2);
+        NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
+        NodoArticulo na2 = new NodoArticulo(a2, 5, 2);
+        listaArticulos.add(na1);
+        listaArticulos2.add(na2);
+        Date fecha = new Date(116, 5, 3);
+        Date fecha2 = new Date(120, 4, 6);
+        Venta v1 = new Venta(listaArticulos,fecha);
+        Venta v2 = new Venta(listaArticulos2,fecha);
+        instance.agregarVenta(v1);
+        instance.agregarVenta(v2);
+        resultadoEsperado.add(ne1);
+        resultadoEsperado.add(ne2);
         ArrayList<NodoEnvase> resultadoObtenido = instance.envasesReutilizables();
         assertEquals(resultadoEsperado, resultadoObtenido);
     }
@@ -455,24 +497,28 @@ public class SistemaTest {
      */
     @Test
     public void testArticulosMasVendidos() {
-        ArrayList<NodoArticulo> resultadoEsperado = new ArrayList<NodoArticulo>();
         ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
+        ArrayList<NodoArticulo> listaArticulos2 = new ArrayList<NodoArticulo>();
         ArrayList<Envase> envases = new ArrayList<Envase>();
         Envase e1 = new Envase("plastico", "imagenEnvase", 3);
         envases.add(e1);
+        instance.agregarEnvase(e1);
         Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
         Articulo a2 = new Articulo("manzanas", "campo", 90, "organico", "G57YB", envases, e1, "imagenManzana");
+        instance.agregarArticulo(a1);
+        instance.agregarArticulo(a2);
         NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
         NodoArticulo na2 = new NodoArticulo(a2, 5, 2);
-        resultadoEsperado.add(na2);
-        if(na1.getCantVendidas() > na2.getCantVendidas()){
-            listaArticulos.add(na1);
-        }else{
-            listaArticulos.add(na2);
-        }
-        instance.setListaArticulosMasVendidos(listaArticulos);
-        ArrayList<NodoArticulo> resultadoObtenido = instance.getListaArticulosMasVendidos();
-        assertEquals(resultadoEsperado, resultadoObtenido);
+        listaArticulos.add(na1);
+        listaArticulos2.add(na2);
+        Date fecha = new Date(116, 5, 3);
+        Date fecha2 = new Date(120, 4, 6);
+        Venta v1 = new Venta(listaArticulos,fecha);
+        Venta v2 = new Venta(listaArticulos2,fecha);
+        instance.agregarVenta(v1);
+        instance.agregarVenta(v2);
+        ArrayList<NodoArticulo> resultadoObtenido = instance.articulosMasVendidos();
+        assertEquals(listaArticulos2, resultadoObtenido);
     }
 
     /**
@@ -485,12 +531,14 @@ public class SistemaTest {
         ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
         ArrayList<Envase> envases = new ArrayList<Envase>();
         Envase e1 = new Envase("plastico", "imagenEnvase", 3);
-        envases.add(e1);
+       // envases.add(e1);
         Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
         NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
-        listaArticulos.add(na1);
+        //listaArticulos.add(na1);
         Date fecha = new Date(116, 5, 3);
         Venta v = new Venta(listaArticulos, fecha);
+        instance.agregarArticulo(a1);
+        instance.agregarEnvase(e1);
         instance.agregarVenta(v);
         int cant = instance.cantidadDeVentasEnMes(5);
         assertEquals(1, cant);
@@ -512,13 +560,45 @@ public class SistemaTest {
      */
     @Test
     public void testPreVentasAntesDeFecha() {
-        System.out.println("preVentasAntesDeFecha");
-        Sistema instance = new Sistema();
-        ArrayList<PreVenta> expResult = null;
-        ArrayList<PreVenta> result = instance.preVentasAntesDeFecha();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
+        ArrayList<Envase> envases = new ArrayList<Envase>();
+        Envase e1 = new Envase("plastico", "imagenEnvase", 3);
+       // envases.add(e1);
+        Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
+        NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
+        //listaArticulos.add(na1);
+        Date fecha = new Date(116, 5, 3);
+        Venta v = new Venta(listaArticulos, fecha);
+        instance.agregarArticulo(a1);
+        instance.agregarEnvase(e1);
+        //instance.agregarVenta(v);
+        PreVenta pv = new PreVenta();
+        pv.setFecha(fecha);
+        pv.setVentaRealizar(v);
+        pv.setCodigo("123");
+        instance.agregarPreVenta(pv);
+        assertEquals(1, instance.preVentasAntesDeFecha().size());
+    }
+    @Test
+    public void testPreVentasAntesDeFecha2() {
+        ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
+        ArrayList<Envase> envases = new ArrayList<Envase>();
+        Envase e1 = new Envase("plastico", "imagenEnvase", 3);
+       // envases.add(e1);
+        Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
+        NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
+        //listaArticulos.add(na1);
+        Date fecha = new Date(116, 10, 3);
+        Venta v = new Venta(listaArticulos, fecha);
+        instance.agregarArticulo(a1);
+        instance.agregarEnvase(e1);
+        //instance.agregarVenta(v);
+        PreVenta pv = new PreVenta();
+        pv.setFecha(fecha);
+        pv.setVentaRealizar(v);
+        pv.setCodigo("123");
+        instance.agregarPreVenta(pv);
+        assertEquals(1, instance.preVentasAntesDeFecha().size());
     }
 
     /**
@@ -526,13 +606,43 @@ public class SistemaTest {
      */
     @Test
     public void testPreVentasDespuesDeFecha() {
-        System.out.println("preVentasDespuesDeFecha");
-        Sistema instance = new Sistema();
-        ArrayList<PreVenta> expResult = null;
-        ArrayList<PreVenta> result = instance.preVentasDespuesDeFecha();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
+        ArrayList<Envase> envases = new ArrayList<Envase>();
+        Envase e1 = new Envase("plastico", "imagenEnvase", 3);
+       // envases.add(e1);
+        Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
+        NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
+        //listaArticulos.add(na1);
+        Date fecha = new Date(116, 11, 3);
+        Venta v = new Venta(listaArticulos, fecha);
+        instance.agregarArticulo(a1);
+        instance.agregarEnvase(e1);
+        PreVenta pv = new PreVenta();
+        pv.setFecha(fecha);
+        pv.setVentaRealizar(v);
+        pv.setCodigo("123");
+        instance.agregarPreVenta(pv);
+        assertEquals(1, instance.preVentasDespuesDeFecha().size());
+    }
+    @Test
+    public void testPreVentasDespuesDeFecha2() {
+        ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
+        ArrayList<Envase> envases = new ArrayList<Envase>();
+        Envase e1 = new Envase("plastico", "imagenEnvase", 3);
+       // envases.add(e1);
+        Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
+        NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
+        //listaArticulos.add(na1);
+        Date fecha = new Date(116, 10, 29);
+        Venta v = new Venta(listaArticulos, fecha);
+        instance.agregarArticulo(a1);
+        instance.agregarEnvase(e1);
+        PreVenta pv = new PreVenta();
+        pv.setFecha(fecha);
+        pv.setVentaRealizar(v);
+        pv.setCodigo("123");
+        instance.agregarPreVenta(pv);
+        assertEquals(1, instance.preVentasDespuesDeFecha().size());
     }
 
     /**
@@ -543,17 +653,20 @@ public class SistemaTest {
         ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
         ArrayList<Envase> envases = new ArrayList<Envase>();
         Envase e1 = new Envase("plastico", "imagenEnvase", 3);
-        envases.add(e1);
+        instance.agregarEnvase(e1);
+        //envases.add(e1);
         Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
         NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
-        listaArticulos.add(na1);
+        instance.agregarArticulo(a1);
+       // listaArticulos.add(na1);
         Date fecha = new Date(116, 5, 3);
         Date fecha2 = new Date(120, 4, 6);
         Venta v = new Venta(listaArticulos, fecha);
         PreVenta preVenta = new PreVenta(fecha2, v, "VG53ED" );
-        instance.getListaPreVenta().add(preVenta);
-        instance.getListaVentas().add(preVenta.getVentaRealizar());
-        instance.getListaPreVenta().remove(preVenta);
+        //instance.getListaPreVenta().add(preVenta);
+        //instance.getListaVentas().add(preVenta.getVentaRealizar());
+        //instance.getListaPreVenta().remove(preVenta);
+        instance.realizarVenta(preVenta);
         assertEquals(0, instance.getListaPreVenta().size());
         
     }
@@ -592,5 +705,67 @@ public class SistemaTest {
         ArrayList<PreVenta> aux = instance.getListaPreVenta();
         assertEquals(preVenta, aux.get(0));
     }
+    /**
+     * Test of preVentasAntesDeFecha method, of class Sistema.
+     */
+    @Test
+    public void testGetPreVentaActual() {
+        ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
+        ArrayList<Envase> envases = new ArrayList<Envase>();
+        Envase e1 = new Envase("plastico", "imagenEnvase", 3);
+        instance.agregarEnvase(e1);
+        Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
+        NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
+        instance.agregarArticulo(a1);
+        //listaArticulos.add(na1);
+        Date fecha = new Date(116, 5, 3);
+        Venta v = new Venta(listaArticulos, fecha);
+        //instance.agregarArticulo(a1);
+       // instance.agregarEnvase(e1);
+        //instance.agregarVenta(v);
+        PreVenta pv = new PreVenta();
+        pv.setFecha(fecha);
+        pv.setVentaRealizar(v);
+        pv.setCodigo("123");
+        instance.setPreventaActual(v);
+        assertEquals(v, instance.getPreventaActual());
+    }
+    @Test
+    public void testGetDonacionActual() {
+        ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
+        ArrayList<Envase> envases = new ArrayList<Envase>();
+        Envase e1 = new Envase("plastico", "imagenEnvase", 3);
+        instance.agregarEnvase(e1);
+        Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
+        NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
+        instance.agregarArticulo(a1);
+        instance.getDonacionActual().add(na1);
+        assertEquals(a1, instance.getDonacionActual().get(0).getArticulo());
+    }
+    @Test
+    public void testSetDonacionActual() {
+        ArrayList<NodoArticulo> listaArticulos = new ArrayList<NodoArticulo>();
+        ArrayList<Envase> envases = new ArrayList<Envase>();
+        Envase e1 = new Envase("plastico", "imagenEnvase", 3);
+        instance.agregarEnvase(e1);
+        Articulo a1 = new Articulo("bananas", "campo", 100, "organico", "AB543", envases, e1, "imagenBanana");
+        NodoArticulo na1 = new NodoArticulo(a1, 3, 2);
+        instance.agregarArticulo(a1);
+        listaArticulos.add(na1);
+        instance.setDonacionActual(listaArticulos);
+        assertEquals(a1, instance.getDonacionActual().get(0).getArticulo());
+    }
+    @Test
+    public void testSetListaEnvasesReutilizados() {
+        ArrayList<NodoEnvase> listaEnvase = new ArrayList<NodoEnvase>();
+        ArrayList<Envase> envases = new ArrayList<Envase>();
+        Envase e1 = new Envase("plastico", "imagenEnvase", 3);
+        instance.agregarEnvase(e1);
+        NodoEnvase ne1 = new NodoEnvase(e1, 3);
+        listaEnvase.add(ne1);
+        instance.setListaEnvasesReutilizables(listaEnvase);
+        assertEquals(e1, instance.getListaEnvasesReutilizables().get(0).getEnvase());
+    }
+    
     
 }

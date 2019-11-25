@@ -44,45 +44,57 @@ import javax.swing.JOptionPane;
     private Button btnFinalizarCompra;
     @FXML
     private Label vacio;
+    @FXML
+    private Label lblCantidadCarrito;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-<span class="nc" id="L54">    }    </span>
+<span class="nc" id="L55">        lblNombre.setText(&quot;Alejandro Adorjan&quot;);</span>
+<span class="nc" id="L56">        lblTarjeta.setText(&quot;4485 7158 6086 8875&quot;);</span>
+        
+<span class="nc" id="L58">        int cant = 0;</span>
+<span class="nc" id="L59">        Venta v = Main.sistema.getVentaActual();</span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">        if (v != null) {</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">            for (int i = 0; i &lt; v.getArticulos().size(); i++) {</span>
+<span class="nc" id="L62">                cant += v.getArticulos().get(i).getCantVendidas();</span>
+            }
+        }
+<span class="nc" id="L65">        lblCantidadCarrito.setText(&quot;&quot; + cant);</span>
+<span class="nc" id="L66">    }    </span>
 
     @FXML
     private void handleButtonSalir(MouseEvent event) {
-<span class="nc" id="L58">        Main.ventana.close();</span>
-<span class="nc" id="L59">    }</span>
+<span class="nc" id="L70">        Main.ventana.close();</span>
+<span class="nc" id="L71">    }</span>
 
     @FXML
     private void handleButtonAtras(MouseEvent event) throws IOException {
-<span class="nc" id="L63">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPreCompra.fxml&quot;));</span>
-<span class="nc" id="L64">        Scene scene = new Scene(root);</span>
-<span class="nc" id="L65">        Main.ventana.setScene(scene);</span>
-<span class="nc" id="L66">    }</span>
+<span class="nc" id="L75">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPreCompra.fxml&quot;));</span>
+<span class="nc" id="L76">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L77">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L78">    }</span>
 
     @FXML
     private void handleButtonMenu(MouseEvent event) throws IOException {
-<span class="nc" id="L70">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPrincipal.fxml&quot;));</span>
-<span class="nc" id="L71">        Scene scene = new Scene(root);</span>
-<span class="nc" id="L72">        Main.ventana.setScene(scene);</span>
-<span class="nc" id="L73">    }</span>
+<span class="nc" id="L82">        Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaPrincipal.fxml&quot;));</span>
+<span class="nc" id="L83">        Scene scene = new Scene(root);</span>
+<span class="nc" id="L84">        Main.ventana.setScene(scene);</span>
+<span class="nc" id="L85">    }</span>
     @FXML
     private void handleButtonFinalizarCompra(ActionEvent event) throws IOException {
-<span class="nc" id="L76">        Venta v = Main.sistema.getVentaActual();</span>
-<span class="nc bnc" id="L77" title="All 2 branches missed.">        if(v!=null){</span>
-<span class="nc" id="L78">            Main.sistema.agregarVenta(v);</span>
+<span class="nc" id="L88">        Venta v = Main.sistema.getVentaActual();</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        if(v!=null){</span>
+<span class="nc" id="L90">            Main.sistema.agregarVenta(v);</span>
             //Main.sistema.setVentaActual(null);
-<span class="nc" id="L80">            Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaTicket.fxml&quot;));</span>
-<span class="nc" id="L81">            Scene scene = new Scene(root);</span>
-<span class="nc" id="L82">            Main.ventana.setScene(scene);</span>
-<span class="nc" id="L83">        }else{</span>
-<span class="nc" id="L84">            vacio.setText(&quot;El carrito esta vacio&quot;);</span>
+<span class="nc" id="L92">            Parent root = FXMLLoader.load(getClass().getResource(&quot;VentanaTicket.fxml&quot;));</span>
+<span class="nc" id="L93">            Scene scene = new Scene(root);</span>
+<span class="nc" id="L94">            Main.ventana.setScene(scene);</span>
+<span class="nc" id="L95">        }else{</span>
+<span class="nc" id="L96">            vacio.setText(&quot;El carrito esta vacio&quot;);</span>
         }
-<span class="nc" id="L86">    }</span>
+<span class="nc" id="L98">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -168,24 +168,24 @@ public class Sistema {
     }
 
     public void setListaEnvasesReutilizables(ArrayList&lt;NodoEnvase&gt; listaEnvasesReutilizables) {
-<span class="nc" id="L171">        this.listaEnvasesReutilizables = listaEnvasesReutilizables;</span>
-<span class="nc" id="L172">    }</span>
+<span class="fc" id="L171">        this.listaEnvasesReutilizables = listaEnvasesReutilizables;</span>
+<span class="fc" id="L172">    }</span>
     
     public ArrayList&lt;NodoArticulo&gt; getDonacionActual() {
-<span class="nc" id="L175">        return donacionActual;</span>
+<span class="fc" id="L175">        return donacionActual;</span>
     }
 
     public void setDonacionActual(ArrayList&lt;NodoArticulo&gt; donacionActual) {
-<span class="nc" id="L179">        this.donacionActual = donacionActual;</span>
-<span class="nc" id="L180">    }</span>
+<span class="fc" id="L179">        this.donacionActual = donacionActual;</span>
+<span class="fc" id="L180">    }</span>
     
     public Venta getPreventaActual() {
-<span class="nc" id="L183">        return preventaActual;</span>
+<span class="fc" id="L183">        return preventaActual;</span>
     }
 
     public void setPreventaActual(Venta preventaActual) {
-<span class="nc" id="L187">        this.preventaActual = preventaActual;</span>
-<span class="nc" id="L188">    }</span>
+<span class="fc" id="L187">        this.preventaActual = preventaActual;</span>
+<span class="fc" id="L188">    }</span>
 
     //Funciones
     
@@ -193,43 +193,43 @@ public class Sistema {
     
 
     public void agregarVenta(Venta v) {
-<span class="nc" id="L196">        this.getListaVentas().add(v);</span>
-<span class="nc" id="L197">        Main.sistema.setCantVentas(Main.sistema.getCantVentas() + 1);</span>
-<span class="nc" id="L198">        ArrayList&lt;NodoArticulo&gt; articulos = v.getArticulos();</span>
-<span class="nc bnc" id="L199" title="All 2 branches missed.">        for (int i = 0; i &lt; articulos.size(); i++) {</span>
-<span class="nc" id="L200">            int pos = 0;</span>
-<span class="nc bnc" id="L201" title="All 2 branches missed.">            while (!(this.getListaArticulosVendidos().get(pos).articulo.getNombre().equals(articulos.get(i).getArticulo().getNombre()))) {</span>
-<span class="nc" id="L202">                pos++;</span>
+<span class="fc" id="L196">        this.getListaVentas().add(v);</span>
+<span class="fc" id="L197">        this.setCantVentas(this.getCantVentas() + 1);</span>
+<span class="fc" id="L198">        ArrayList&lt;NodoArticulo&gt; articulos = v.getArticulos();</span>
+<span class="fc bfc" id="L199" title="All 2 branches covered.">        for (int i = 0; i &lt; articulos.size(); i++) {</span>
+<span class="fc" id="L200">            int pos = 0;</span>
+<span class="fc bfc" id="L201" title="All 2 branches covered.">            while (!(this.getListaArticulosVendidos().get(pos).articulo.getNombre().equals(articulos.get(i).getArticulo().getNombre()))) {</span>
+<span class="fc" id="L202">                pos++;</span>
             }
-<span class="nc" id="L204">            NodoArticulo nodo = this.getListaArticulosVendidos().get(pos);</span>
-<span class="nc" id="L205">            nodo.setCantVendidas(nodo.getCantVendidas() + v.getArticulos().get(i).getCantVendidas());</span>
+<span class="fc" id="L204">            NodoArticulo nodo = this.getListaArticulosVendidos().get(pos);</span>
+<span class="fc" id="L205">            nodo.setCantVendidas(nodo.getCantVendidas() + v.getArticulos().get(i).getCantVendidas());</span>
             //REVISAR desde acá...
-<span class="nc" id="L207">            nodo.setCantDonados(nodo.getCantDonados() - v.getArticulos().get(i).getCantVendidas());</span>
-<span class="nc bnc" id="L208" title="All 2 branches missed.">            if (nodo.getCantDonados() &lt; 0) {</span>
-<span class="nc" id="L209">                nodo.setCantDonados(0);</span>
+<span class="fc" id="L207">            nodo.setCantDonados(nodo.getCantDonados() - v.getArticulos().get(i).getCantVendidas());</span>
+<span class="pc bpc" id="L208" title="1 of 2 branches missed.">            if (nodo.getCantDonados() &lt; 0) {</span>
+<span class="fc" id="L209">                nodo.setCantDonados(0);</span>
             }
             //... hasta acá
             //int posEnvase  = this.getListaEnvasesReutilizables().indexOf(articulos.get(i).getEnvaseElegido());
-<span class="nc" id="L213">            int posEnvase = 0;</span>
-<span class="nc bnc" id="L214" title="All 2 branches missed.">            while (!(this.getListaEnvasesReutilizables().get(posEnvase).envase.getTipo().equals(articulos.get(i).getArticulo().getEnvaseElegido().getTipo()))) {</span>
+<span class="fc" id="L213">            int posEnvase = 0;</span>
+<span class="pc bpc" id="L214" title="1 of 2 branches missed.">            while (!(this.getListaEnvasesReutilizables().get(posEnvase).envase.getTipo().equals(articulos.get(i).getArticulo().getEnvaseElegido().getTipo()))) {</span>
 <span class="nc" id="L215">                posEnvase++;</span>
             }
-<span class="nc" id="L217">            NodoEnvase nodoEnvase = this.getListaEnvasesReutilizables().get(posEnvase);</span>
-<span class="nc" id="L218">            nodoEnvase.setCantVendidas(nodoEnvase.getCantVendidas() + v.getArticulos().get(i).getCantVendidas());</span>
-<span class="nc bnc" id="L219" title="All 2 branches missed.">            if (this.getListaArticulosMasVendidos().isEmpty()) {</span>
-<span class="nc" id="L220">                this.getListaArticulosMasVendidos().add(nodo);</span>
+<span class="fc" id="L217">            NodoEnvase nodoEnvase = this.getListaEnvasesReutilizables().get(posEnvase);</span>
+<span class="fc" id="L218">            nodoEnvase.setCantVendidas(nodoEnvase.getCantVendidas() + v.getArticulos().get(i).getCantVendidas());</span>
+<span class="fc bfc" id="L219" title="All 2 branches covered.">            if (this.getListaArticulosMasVendidos().isEmpty()) {</span>
+<span class="fc" id="L220">                this.getListaArticulosMasVendidos().add(nodo);</span>
             } //|| this.getListaArticulosMasVendidos().get(0).cantVendidas == nodo.cantVendidas 
             else {
-<span class="nc bnc" id="L223" title="All 4 branches missed.">                if (!this.getListaArticulosMasVendidos().contains(nodo) &amp;&amp; this.getListaArticulosMasVendidos().get(0).cantVendidas == nodo.cantVendidas) {</span>
-<span class="nc" id="L224">                    this.getListaArticulosMasVendidos().add(nodo);</span>
+<span class="pc bpc" id="L223" title="1 of 4 branches missed.">                if (!this.getListaArticulosMasVendidos().contains(nodo) &amp;&amp; this.getListaArticulosMasVendidos().get(0).cantVendidas == nodo.cantVendidas) {</span>
+<span class="fc" id="L224">                    this.getListaArticulosMasVendidos().add(nodo);</span>
                 } else {
-<span class="nc bnc" id="L226" title="All 2 branches missed.">                    if (this.getListaArticulosMasVendidos().contains(nodo)) {</span>
+<span class="pc bpc" id="L226" title="1 of 2 branches missed.">                    if (this.getListaArticulosMasVendidos().contains(nodo)) {</span>
 <span class="nc" id="L227">                        this.getListaArticulosMasVendidos().clear();</span>
 <span class="nc" id="L228">                        this.getListaArticulosMasVendidos().add(nodo);</span>
                     } else {
-<span class="nc bnc" id="L230" title="All 2 branches missed.">                        if (this.getListaArticulosMasVendidos().get(0).cantVendidas &lt; nodo.cantVendidas) {</span>
-<span class="nc" id="L231">                            this.getListaArticulosMasVendidos().clear();</span>
-<span class="nc" id="L232">                            this.getListaArticulosMasVendidos().add(nodo);</span>
+<span class="pc bpc" id="L230" title="1 of 2 branches missed.">                        if (this.getListaArticulosMasVendidos().get(0).cantVendidas &lt; nodo.cantVendidas) {</span>
+<span class="fc" id="L231">                            this.getListaArticulosMasVendidos().clear();</span>
+<span class="fc" id="L232">                            this.getListaArticulosMasVendidos().add(nodo);</span>
                         }
 
                     }
@@ -237,15 +237,15 @@ public class Sistema {
 
             }
         }
-<span class="nc" id="L240">    }</span>
+<span class="fc" id="L240">    }</span>
 
     public ArrayList&lt;NodoEnvase&gt; envasesReutilizables() {
 <span class="fc" id="L243">        ArrayList&lt;NodoEnvase&gt; aux = new ArrayList&lt;NodoEnvase&gt;();</span>
-<span class="pc bpc" id="L244" title="1 of 2 branches missed.">        for (int i = 0; i &lt; this.getListaEnvasesReutilizables().size(); i++) {</span>
-<span class="nc" id="L245">            NodoEnvase nodo = this.getListaEnvasesReutilizables().get(i);</span>
+<span class="fc bfc" id="L244" title="All 2 branches covered.">        for (int i = 0; i &lt; this.getListaEnvasesReutilizables().size(); i++) {</span>
+<span class="fc" id="L245">            NodoEnvase nodo = this.getListaEnvasesReutilizables().get(i);</span>
             //Envase e = nodo.envase;
             //if(nodo.cantVendidas!=0){
-<span class="nc" id="L248">            aux.add(nodo);</span>
+<span class="fc" id="L248">            aux.add(nodo);</span>
             //}
 
         }
@@ -253,22 +253,22 @@ public class Sistema {
     }
 
     public ArrayList&lt;NodoArticulo&gt; articulosMasVendidos() {
-<span class="nc" id="L256">        ArrayList&lt;NodoArticulo&gt; aux = new ArrayList&lt;NodoArticulo&gt;();</span>
-<span class="nc bnc" id="L257" title="All 2 branches missed.">        for (int i = 0; i &lt; this.getListaArticulosMasVendidos().size(); i++) {</span>
-<span class="nc" id="L258">            NodoArticulo nodo = this.getListaArticulosMasVendidos().get(i);</span>
+<span class="fc" id="L256">        ArrayList&lt;NodoArticulo&gt; aux = new ArrayList&lt;NodoArticulo&gt;();</span>
+<span class="fc bfc" id="L257" title="All 2 branches covered.">        for (int i = 0; i &lt; this.getListaArticulosMasVendidos().size(); i++) {</span>
+<span class="fc" id="L258">            NodoArticulo nodo = this.getListaArticulosMasVendidos().get(i);</span>
             //Articulo a = nodo.articulo;
-<span class="nc" id="L260">            aux.add(nodo);</span>
+<span class="fc" id="L260">            aux.add(nodo);</span>
         }
-<span class="nc" id="L262">        return aux;</span>
+<span class="fc" id="L262">        return aux;</span>
     }
 
     public int cantidadDeVentasEnMes(int mes) {
 <span class="fc" id="L266">        int cantVentas = 0;</span>
-<span class="pc bpc" id="L267" title="1 of 2 branches missed.">        for (int i = 0; i &lt; this.getListaVentas().size(); i++) {</span>
-<span class="nc" id="L268">            Venta v = this.getListaVentas().get(i);</span>
-<span class="nc" id="L269">            int mesVenta = v.getFecha().getMonth();</span>
-<span class="nc bnc" id="L270" title="All 2 branches missed.">            if (mesVenta == mes) {</span>
-<span class="nc" id="L271">                cantVentas++;</span>
+<span class="fc bfc" id="L267" title="All 2 branches covered.">        for (int i = 0; i &lt; this.getListaVentas().size(); i++) {</span>
+<span class="fc" id="L268">            Venta v = this.getListaVentas().get(i);</span>
+<span class="fc" id="L269">            int mesVenta = v.getFecha().getMonth();</span>
+<span class="pc bpc" id="L270" title="1 of 2 branches missed.">            if (mesVenta == mes) {</span>
+<span class="fc" id="L271">                cantVentas++;</span>
 
             }
         }
@@ -288,62 +288,62 @@ public class Sistema {
     public ArrayList&lt;PreVenta&gt; preVentasAntesDeFecha() {
 <span class="fc" id="L289">        ArrayList&lt;PreVenta&gt; aux = new ArrayList&lt;PreVenta&gt;();</span>
 <span class="fc" id="L290">        Date fechaActual = new Date();</span>
-<span class="fc" id="L291">        fechaActual.setMonth(9);</span>
-<span class="pc bpc" id="L292" title="1 of 2 branches missed.">        for (int i = 0; i &lt; this.getListaPreVenta().size(); i++) {</span>
-<span class="nc" id="L293">            PreVenta p = this.getListaPreVenta().get(i);</span>
-<span class="nc bnc" id="L294" title="All 2 branches missed.">            if (( p.getFecha().getMonth()==fechaActual.getMonth())) {</span>
-<span class="nc bnc" id="L295" title="All 2 branches missed.">                if(p.getFecha().getDay()&lt;=fechaActual.getDay()){</span>
-<span class="nc" id="L296">                    aux.add(p);</span>
+<span class="fc bfc" id="L291" title="All 2 branches covered.">        for (int i = 0; i &lt; this.getListaPreVenta().size(); i++) {</span>
+<span class="fc" id="L292">            PreVenta p = this.getListaPreVenta().get(i);</span>
+<span class="fc bfc" id="L293" title="All 2 branches covered.">            if ((p.getFecha().getMonth() == fechaActual.getMonth())) {</span>
+<span class="pc bpc" id="L294" title="1 of 2 branches missed.">                if(p.getFecha().getDate() &lt;= fechaActual.getDate()){</span>
+<span class="fc" id="L295">                    aux.add(p);</span>
                 }
             }else{
-<span class="nc bnc" id="L299" title="All 2 branches missed.">                if(p.getFecha().getMonth()&lt;fechaActual.getMonth()){</span>
-<span class="nc" id="L300">                    aux.add(p);</span>
+<span class="pc bpc" id="L298" title="1 of 2 branches missed.">                if(p.getFecha().getMonth() &lt; fechaActual.getMonth()){</span>
+<span class="fc" id="L299">                    aux.add(p);</span>
                 }
             }
         }
-<span class="fc" id="L304">        return aux;</span>
+<span class="fc" id="L303">        return aux;</span>
     }
 
     public ArrayList&lt;PreVenta&gt; preVentasDespuesDeFecha() {
-<span class="fc" id="L308">        ArrayList&lt;PreVenta&gt; aux = new ArrayList&lt;PreVenta&gt;();</span>
-<span class="fc" id="L309">        Date fechaActual = new Date();</span>
-<span class="fc" id="L310">        fechaActual.setMonth(9);</span>
-<span class="pc bpc" id="L311" title="1 of 2 branches missed.">        for (int i = 0; i &lt; this.getListaPreVenta().size(); i++) {</span>
-<span class="nc" id="L312">            PreVenta p = this.getListaPreVenta().get(i);</span>
-<span class="nc bnc" id="L313" title="All 2 branches missed.">            if (( p.getFecha().getMonth()==fechaActual.getMonth())) {</span>
-<span class="nc bnc" id="L314" title="All 2 branches missed.">                if(p.getFecha().getDay()&gt;fechaActual.getDay()){</span>
-<span class="nc" id="L315">                    aux.add(p);</span>
+<span class="fc" id="L307">        ArrayList&lt;PreVenta&gt; aux = new ArrayList&lt;PreVenta&gt;();</span>
+<span class="fc" id="L308">        Date fechaActual = new Date();</span>
+<span class="fc bfc" id="L309" title="All 2 branches covered.">        for (int i = 0; i &lt; this.getListaPreVenta().size(); i++) {</span>
+<span class="fc" id="L310">            PreVenta p = this.getListaPreVenta().get(i);</span>
+<span class="fc bfc" id="L311" title="All 2 branches covered.">            if ((p.getFecha().getMonth()==fechaActual.getMonth())) {</span>
+<span class="pc bpc" id="L312" title="1 of 2 branches missed.">                if(p.getFecha().getDate()&gt;fechaActual.getDate()){</span>
+<span class="fc" id="L313">                    aux.add(p);</span>
                 }
             }else{
-<span class="nc bnc" id="L318" title="All 2 branches missed.">                if(p.getFecha().getMonth()&gt;fechaActual.getMonth()){</span>
-<span class="nc" id="L319">                    aux.add(p);</span>
+<span class="pc bpc" id="L316" title="1 of 2 branches missed.">                if(p.getFecha().getMonth()&gt;fechaActual.getMonth()){</span>
+<span class="fc" id="L317">                    aux.add(p);</span>
                 }
             }
         }
-<span class="fc" id="L323">        return aux;</span>
+<span class="fc" id="L321">        return aux;</span>
     }
     
     
 
     public void realizarVenta(PreVenta p) {
         //this.getListaVentas().add(p.getVentaRealizar());
-<span class="nc" id="L330">        this.agregarVenta(p.getVentaRealizar());</span>
-<span class="nc" id="L331">        this.getListaPreVenta().remove(p);</span>
-<span class="nc" id="L332">    }</span>
+<span class="fc" id="L328">        this.agregarVenta(p.getVentaRealizar());</span>
+<span class="fc" id="L329">        this.getListaPreVenta().remove(p);</span>
+<span class="fc" id="L330">    }</span>
 
     public void agregarArticulo(Articulo a) {
-<span class="fc" id="L335">        this.getListaArticulo().add(a);</span>
-<span class="fc" id="L336">        NodoArticulo nodo = new NodoArticulo(a, 0, 0);</span>
-<span class="fc" id="L337">        nodo.articulo = a;</span>
-<span class="fc" id="L338">        nodo.cantVendidas = 0;</span>
-<span class="fc" id="L339">        this.getListaArticulosVendidos().add(nodo);</span>
-<span class="fc" id="L340">    }</span>
+<span class="fc" id="L333">        this.getListaArticulo().add(a);</span>
+<span class="fc" id="L334">        NodoArticulo nodo = new NodoArticulo(a, 0, 0);</span>
+<span class="fc" id="L335">        nodo.articulo = a;</span>
+<span class="fc" id="L336">        nodo.cantVendidas = 0;</span>
+<span class="fc" id="L337">        this.getListaArticulosVendidos().add(nodo);</span>
+<span class="fc" id="L338">    }</span>
 
     
 
     public void agregarPreVenta(PreVenta pv) {
-<span class="fc" id="L345">        this.getListaPreVenta().add(pv);</span>
-<span class="fc" id="L346">    }</span>
+<span class="fc" id="L343">        this.getListaPreVenta().add(pv);</span>
+<span class="fc" id="L344">    }</span>
+
+   
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
