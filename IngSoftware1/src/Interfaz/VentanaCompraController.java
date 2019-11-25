@@ -86,16 +86,20 @@ public class VentanaCompraController implements Initializable {
     @FXML
     private void handleButtonFinalizarCompra(ActionEvent event) throws IOException {
         Venta v = Main.sistema.getVentaActual();
-        if(v!=null){
-            Main.sistema.agregarVenta(v);
-            //Main.sistema.setVentaActual(null);
-            Main.sistema.setNombreUsuarioVenta(lblNombre.getText());
-            Main.sistema.setNumeroTarjetaUsuarioVenta(lblTarjeta.getText());
-            Parent root = FXMLLoader.load(getClass().getResource("VentanaTicket.fxml"));
-            Scene scene = new Scene(root);
-            Main.ventana.setScene(scene);
-        }else{
-            vacio.setText("El carrito esta vacio");
+        if (!lblNombre.getText().isEmpty() && !lblTarjeta.getText().isEmpty()) {
+            if (v!=null) {
+                Main.sistema.agregarVenta(v);
+                //Main.sistema.setVentaActual(null);
+                Main.sistema.setNombreUsuarioVenta(lblNombre.getText());
+                Main.sistema.setNumeroTarjetaUsuarioVenta(lblTarjeta.getText());
+                Parent root = FXMLLoader.load(getClass().getResource("VentanaTicket.fxml"));
+                Scene scene = new Scene(root);
+                Main.ventana.setScene(scene);
+            } else{
+                vacio.setText("El carrito esta vacio");
+            }
+        } else {
+            vacio.setText("No puede dejar campos vacíos");
         }
     }
 }

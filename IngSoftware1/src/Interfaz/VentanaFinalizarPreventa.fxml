@@ -105,7 +105,7 @@
          </font>
       </Label>
       <DatePicker fx:id="datePicker" layoutX="211.0" layoutY="126.0" prefHeight="25.0" prefWidth="267.0" />
-      <Label fx:id="vacio" layoutX="376.0" layoutY="574.0" prefHeight="17.0" prefWidth="221.0">
+      <Label fx:id="vacio" layoutX="109.0" layoutY="614.0" prefHeight="80.0" prefWidth="221.0" wrapText="true">
          <font>
             <Font size="24.0" />
          </font>

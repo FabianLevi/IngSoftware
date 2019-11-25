@@ -104,22 +104,24 @@ public class VentanaFinalizarPreventaController implements Initializable {
             fechaPreVenta.setMonth(mes - 1);
             fechaPreVenta.setYear(ano - 1900);
             Venta v = Main.sistema.getPreventaActual();
-            if (v != null) {
-                PreVenta pv = new PreVenta();
-                pv.setVentaRealizar(v);
-                pv.setFecha(fechaPreVenta);
-                int numero = ThreadLocalRandom.current().nextInt(10000, 50000 + 1);
-                pv.setCodigo(numero + "");
-                Main.sistema.agregarPreVenta(pv);
-                Main.sistema.setPreventaActual(null);
-                Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
-                Scene scene = new Scene(root);
-                Main.ventana.setScene(scene);
-            } else {
-                vacio.setText("El carrito esta vacio");
+            if (!lblNombre.getText().isEmpty() && !lblTarjeta.getText().isEmpty()) {
+                if (v != null) {
+                    PreVenta pv = new PreVenta();
+                    pv.setVentaRealizar(v);
+                    pv.setFecha(fechaPreVenta);
+                    int numero = ThreadLocalRandom.current().nextInt(10000, 50000 + 1);
+                    pv.setCodigo(numero + "");
+                    Main.sistema.agregarPreVenta(pv);
+                    Main.sistema.setPreventaActual(null);
+                    Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
+                    Scene scene = new Scene(root);
+                    Main.ventana.setScene(scene);
+                } else {
+                    vacio.setText("El carrito esta vacio");
+                }
+            }else {
+                vacio.setText("No puede dejar campos vacíos");
             }
-
         }
     }
-
 }
