@@ -124,7 +124,7 @@ public class VentanaAgregarArticuloController implements Initializable {
         this.agregarEnvaseALista(lista, nylon, "nylon");
         this.agregarEnvaseALista(lista, papel, "papel");
         this.agregarEnvaseALista(lista, espumaplast, "espuma plast");
-        if(!nombre.equals("") || !precio.equals("") || !codigo.equals("") || !material.equals("")||!materiaPrima.equals("")){
+        if(!nombre.equals("") && !precio.equals("") && !codigo.equals("") && !material.equals("")&&!materiaPrima.equals("")){
             Articulo a = new Articulo(nombre,materiaPrima,precioN,material,codigo,lista,null,"/Imagenes/imagen.jpg");
             Parent root = FXMLLoader.load(getClass().getResource("VentanaPrincipal.fxml"));
             Scene scene = new Scene(root);

@@ -31,8 +31,8 @@ public class Venta {
     
     //Constructores
     public Venta(ArrayList<NodoArticulo> listaArticulos,Date unaFecha) {
-        articulos = listaArticulos;
-        fecha=unaFecha;
+        this.articulos = listaArticulos;
+        this.fecha=unaFecha;
     }
 
     public Venta(){
