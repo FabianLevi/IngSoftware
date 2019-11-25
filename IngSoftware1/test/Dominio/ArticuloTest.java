@@ -220,7 +220,7 @@ public class ArticuloTest {
         listaEnvases.add(e2);
         instance.setEnvasesPosibles(listaEnvases);
         ArrayList<Envase> resultadoObtenido = instance.getEnvasesPosibles();
-        assertEquals(resultadoEsperado, resultadoObtenido);
+        assertEquals(resultadoEsperado.get(0).getTipo(), resultadoObtenido.get(0).getTipo());
     }
 
     /**

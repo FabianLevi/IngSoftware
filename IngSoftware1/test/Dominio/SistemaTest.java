@@ -56,7 +56,7 @@ public class SistemaTest {
         listaArticulos.add(na1);
         Date fecha = new Date();
         Venta v = new Venta(listaArticulos, fecha);
-        Sistema sis = new Sistema(envases, articulos, null, null, null, null, null, 4, v, null, null);
+        Sistema sis = new Sistema(envases, articulos, null, null, null, null, null, 4, v, null, null, "", "");
     }
 
     /**
@@ -540,7 +540,7 @@ public class SistemaTest {
         instance.agregarArticulo(a1);
         instance.agregarEnvase(e1);
         instance.agregarVenta(v);
-        int cant = instance.cantidadDeVentasEnMes(5);
+        int cant = instance.cantidadDeVentasEnMes(6);
         assertEquals(1, cant);
     }
 

@@ -174,7 +174,7 @@ public class VentanaPreventaArticuloController implements Initializable {
                         art.setEnvaseElegido(env);
                         nodo.setArticulo(art);
                         nodo.setCantVendidas(Integer.parseInt(boxCantidad.getSelectionModel().getSelectedItem()));
-                        Main.sistema.getVentaActual().getArticulos().add(nodo);
+                        Main.sistema.getPreventaActual().getArticulos().add(nodo);
                         Parent root = FXMLLoader.load(getClass().getResource("VentanaPreventa.fxml"));
                         Scene scene = new Scene(root);
                         Main.ventana.setScene(scene);
@@ -184,7 +184,7 @@ public class VentanaPreventaArticuloController implements Initializable {
                     nodo.setArticulo(Main.sistema.getListaArticulo().get(Main.sistema.getArticulo()));
                     nodo.getArticulo().setEnvaseElegido(lstEnvases.getSelectionModel().getSelectedItem());
                     nodo.setCantVendidas(Integer.parseInt(boxCantidad.getSelectionModel().getSelectedItem()));
-                    Main.sistema.getVentaActual().getArticulos().add(nodo);
+                    Main.sistema.getPreventaActual().getArticulos().add(nodo);
                     Parent root = FXMLLoader.load(getClass().getResource("VentanaPreventa.fxml"));
                     Scene scene = new Scene(root);
                     Main.ventana.setScene(scene);

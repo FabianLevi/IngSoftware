@@ -50,7 +50,7 @@ public class NodoEnvaseTest {
         Envase e = new Envase("plastico", "imagen", 3);
         instance.setEnvase(e);
         Envase resultadoObtenido = instance.getEnvase();
-        assertEquals(resultadoEsperado, resultadoObtenido);
+        assertEquals(resultadoEsperado.getTipo(), resultadoObtenido.getTipo());
     }
 
     /**
@@ -63,7 +63,7 @@ public class NodoEnvaseTest {
         Envase e = new Envase("plastico", "imagen", 3);
         instance.setEnvase(e);
         Envase resultadoObtenido = instance.getEnvase();
-        assertEquals(resultadoEsperado, resultadoObtenido);
+        assertEquals(resultadoEsperado.getTipo(), resultadoObtenido.getTipo());
     }
 
     /**
