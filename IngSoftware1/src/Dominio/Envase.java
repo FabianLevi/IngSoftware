@@ -29,15 +29,15 @@ public class Envase {
 
     //Constructores
     public Envase(String unTipo, String unaRutaImagen,int unDanoAmbiental) {
-        tipo = unTipo;
-        rutaImagen = unaRutaImagen;
-        danoAmbiental=unDanoAmbiental;
+        this.setTipo(unTipo);
+        this.setRutaImagen(unaRutaImagen);
+        this.setDanoAmbiental(unDanoAmbiental);
     }
     
     public Envase(){
-        tipo = "";
-        rutaImagen = "";
-        danoAmbiental = 0;
+        this.setTipo("");
+        this.setDanoAmbiental(0);
+        this.setRutaImagen("");
     }
     
     //Setters

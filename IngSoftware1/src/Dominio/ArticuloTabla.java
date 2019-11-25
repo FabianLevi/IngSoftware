@@ -17,15 +17,15 @@ public class ArticuloTabla {
 
     //Constructores
     public ArticuloTabla() {
-        this.nombre = "";
-        this.precio = 0;
-        this.cantVendidas = 0;
+        this.setNombre("");
+        this.setCantVendidas(0);
+        this.setPrecio(0);
     }
     
     public ArticuloTabla(String unNombre, int unPrecio, int unaCantVendidas) {
-        this.nombre = unNombre;
-        this.precio = unPrecio;
-        this.cantVendidas = unaCantVendidas;
+        this.setCantVendidas(unaCantVendidas);
+        this.setNombre(unNombre);
+        this.setPrecio(unPrecio);
     }
     
     //Getters & Setters

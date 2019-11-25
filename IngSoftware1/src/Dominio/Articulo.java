@@ -27,18 +27,24 @@ public class Articulo {
     //Constructores
     public Articulo(String unNombre, String unOrigenMatPrima, int unPrecio, String unMaterial, String unCodigo, 
             ArrayList<Envase> listaEnvasesPosibles, Envase unEnvaseElegido, String unaRutaImagen) {
-        nombre = unNombre;
-        origenMatPrima = unOrigenMatPrima;
+        this.setNombre(unNombre);
+        this.setOrigenMatPrima(unOrigenMatPrima);
         this.setPrecio(unPrecio);
-        material = unMaterial;
-        codigo = unCodigo;
-        envasesPosibles = listaEnvasesPosibles;
-        envaseElegido = unEnvaseElegido;
-        rutaImagen = unaRutaImagen;
+        this.setMaterial(unMaterial);
+        this.setCodigo(unCodigo);
+        this.setEnvasesPosibles(listaEnvasesPosibles);
+        this.setEnvaseElegido(unEnvaseElegido);
+        this.setRutaImagen(unaRutaImagen);
     }
     public Articulo(){
         this.setPrecio(0);
-        //this.envasesPosibles = null;
+        this.setCodigo("");
+        this.setEnvaseElegido(null);
+        this.setMaterial("");
+        this.setEnvasesPosibles(null);
+        this.setNombre("");
+        this.setRutaImagen("");
+        
     }
     
     public Articulo(Articulo a) {

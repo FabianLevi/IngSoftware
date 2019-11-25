@@ -31,12 +31,12 @@ public class Venta {
     
     //Constructores
     public Venta(ArrayList<NodoArticulo> listaArticulos,Date unaFecha) {
-        articulos = listaArticulos;
-        fecha=unaFecha;
+        this.setArticulos(listaArticulos);
+        this.setFecha(unaFecha);
     }
 
     public Venta(){
-        articulos = null;
+        this.setArticulos(null);
         this.setFecha(new Date());
     }
     //Setters
