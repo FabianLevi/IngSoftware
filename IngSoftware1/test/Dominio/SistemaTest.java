@@ -71,7 +71,7 @@ public class SistemaTest {
         listaEnvases.add(new Envase("plastico", "imagenEnvase", 3));
         instance.setListaEnvases(listaEnvases);        
         ArrayList<Envase> resultadoObtenido = instance.getListaEnvases();
-        assertEquals(resultadoEsperado, resultadoObtenido);
+        assertEquals(resultadoEsperado.get(0).getTipo(), resultadoObtenido.get(0).getTipo());
     }
 
     /**
@@ -86,7 +86,7 @@ public class SistemaTest {
         listaEnvases.add(new Envase("plastico", "imagenEnvase", 3));
         instance.setListaEnvases(listaEnvases);        
         ArrayList<Envase> resultadoObtenido = instance.getListaEnvases();
-        assertEquals(resultadoEsperado, resultadoObtenido);
+        assertEquals(resultadoEsperado.get(0).getTipo(), resultadoObtenido.get(0).getTipo());
     }
 
     /**
