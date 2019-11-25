@@ -32,12 +32,12 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         sistema = new Sistema();
         
-        Envase e1 = new Envase("plastico", "/Imagenes/plastico.jpg",10);
-        Envase e2 = new Envase("espuma plast", "/Imagenes/espuma plast.jpg",20);
-        Envase e3 = new Envase("carton", "/Imagenes/carton.jpg",30);
-        Envase e4 = new Envase("vidrio", "/Imagenes/vidrio.jpg",40);
-        Envase e5 = new Envase("nylon", "",40);
-        Envase e6 = new Envase("papel", "",40);
+        Envase e1 = new Envase("Plastico", "/Imagenes/plastico.jpg",10);
+        Envase e2 = new Envase("Espuma Plast", "/Imagenes/espuma plast.jpg",20);
+        Envase e3 = new Envase("Carton", "/Imagenes/carton.jpg",30);
+        Envase e4 = new Envase("Vidrio", "/Imagenes/vidrio.jpg",40);
+        Envase e5 = new Envase("Nylon", "",40);
+        Envase e6 = new Envase("Papel", "",40);
         
         sistema.agregarEnvase(e1);
         sistema.agregarEnvase(e2);
@@ -70,18 +70,18 @@ public class Main extends Application {
         int numero11 = ThreadLocalRandom.current().nextInt(10000, 50000 + 1);
         int numero12 = ThreadLocalRandom.current().nextInt(10000, 50000 + 1);
         
-        Articulo art1 = new Articulo("bananas", "campo", 12, "orgánico", numero1+"", listaEnvases, e1, "/Imagenes/bananas.jpg");
-        Articulo art2 = new Articulo("manzanas", "campo", 15, "organico", numero2+"", listaEnvases, e1, "/Imagenes/manzana.png");
-        Articulo art3 = new Articulo("peras", "campo", 12, "orgánico", numero3+"", listaEnvases, e1, "/Imagenes/peras.jpg");
-        Articulo art4 = new Articulo("naranjas", "campo", 15, "organico", numero4+"", listaEnvases, e1, "/Imagenes/naranjas.jpg");
-        Articulo art5 = new Articulo("limon", "campo", 15, "organico", numero5+"", listaEnvases, e1, "/Imagenes/limon.jpeg");
-        Articulo art6 = new Articulo("ciruela", "campo", 34, "organico", numero6+"", listaEnvases, e1, "/Imagenes/ciruela.jpg");
-        Articulo art7 = new Articulo("piña", "campo", 45, "organico", numero7+"", listaEnvases, e1, "/Imagenes/pina.jpg");
-        Articulo art8 = new Articulo("aguacate", "campo", 55, "organico", numero8+"", listaEnvases2, e1, "/Imagenes/aguacate.jpg");
-        Articulo art9 = new Articulo("pomelo", "campo", 5, "organico", numero9+"", listaEnvases, e1, "/Imagenes/pomelo.jpg");
-        Articulo art10 = new Articulo("sandia", "campo", 75, "organico", numero10+"", listaEnvases2, e1, "/Imagenes/sandia.jpg");
-        Articulo art11= new Articulo("uva", "campo", 9, "organico", numero11+"", listaEnvases, e1, "/Imagenes/uva.jpg");
-        Articulo art12 = new Articulo("frutilla", "campo", 25, "organico", numero12+"", listaEnvases2, e1, "/Imagenes/frutilla.jpg");
+        Articulo art1 = new Articulo("Bananas", "Campo", 12, "Orgánico", numero1+"", listaEnvases, e1, "/Imagenes/bananas.jpg");
+        Articulo art2 = new Articulo("Manzanas", "Campo", 15, "Orgánico", numero2+"", listaEnvases, e1, "/Imagenes/manzana.png");
+        Articulo art3 = new Articulo("Peras", "Campo", 12, "Orgánico", numero3+"", listaEnvases, e1, "/Imagenes/peras.jpg");
+        Articulo art4 = new Articulo("Naranjas", "Campo", 15, "Orgánico", numero4+"", listaEnvases, e1, "/Imagenes/naranjas.jpg");
+        Articulo art5 = new Articulo("Limon", "Campo", 15, "Orgánico", numero5+"", listaEnvases, e1, "/Imagenes/limon.jpeg");
+        Articulo art6 = new Articulo("Ciruela", "Campo", 34, "Orgánico", numero6+"", listaEnvases, e1, "/Imagenes/ciruela.jpg");
+        Articulo art7 = new Articulo("Piña", "Campo", 45, "Orgánico", numero7+"", listaEnvases, e1, "/Imagenes/pina.jpg");
+        Articulo art8 = new Articulo("Aguacate", "Campo", 55, "Orgánico", numero8+"", listaEnvases2, e1, "/Imagenes/aguacate.jpg");
+        Articulo art9 = new Articulo("Pomelo", "Campo", 5, "Orgánico", numero9+"", listaEnvases, e1, "/Imagenes/pomelo.jpg");
+        Articulo art10 = new Articulo("Sandia", "Campo", 75, "Orgánico", numero10+"", listaEnvases2, e1, "/Imagenes/sandia.jpg");
+        Articulo art11= new Articulo("Uva", "Campo", 9, "Orgánico", numero11+"", listaEnvases, e1, "/Imagenes/uva.jpg");
+        Articulo art12 = new Articulo("Frutilla", "Campo", 25, "Orgánico", numero12+"", listaEnvases2, e1, "/Imagenes/frutilla.jpg");
         
         sistema.agregarArticulo(art1);
         sistema.agregarArticulo(art2);

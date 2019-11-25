@@ -258,10 +258,9 @@ public class Sistema {
         int cantVentas = 0;
         for (int i = 0; i < this.getListaVentas().size(); i++) {
             Venta v = this.getListaVentas().get(i);
-            int mesVenta = v.getFecha().getMonth();
+            int mesVenta = v.getFecha().getMonth() + 1;
             if (mesVenta == mes) {
                 cantVentas++;
-
             }
         }
 

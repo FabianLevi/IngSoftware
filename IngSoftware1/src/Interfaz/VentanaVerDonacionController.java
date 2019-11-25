@@ -54,6 +54,8 @@ public class VentanaVerDonacionController implements Initializable {
     private Button btnDonar;
     @FXML
     private Label lblCantidadCarrito;
+    @FXML
+    private Label vacio;
 
     /**
      * Initializes the controller class.
@@ -113,6 +115,9 @@ public class VentanaVerDonacionController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("VentanaMenuUsuario.fxml"));
             Scene scene = new Scene(root);
             Main.ventana.setScene(scene);
+        }
+        else {
+            vacio.setText("No hay artículos para donar");
         }
     }
     
