@@ -90,4 +90,40 @@ public class VentanaEmpresaController implements Initializable {
         Scene scene = new Scene(root);
         Main.ventana.setScene(scene);
     }
+
+    @FXML
+    private void salioMauseAgregarArticulo(MouseEvent event) {
+        imgAgregarArticulo.setFitHeight(imgAgregarArticulo.getFitHeight() - 20);
+        imgAgregarArticulo.setFitWidth(imgAgregarArticulo.getFitWidth() - 20);
+    }
+
+    @FXML
+    private void entroMauseAgregarArticulo(MouseEvent event) {
+        imgAgregarArticulo.setFitHeight(imgAgregarArticulo.getFitHeight() + 20);
+        imgAgregarArticulo.setFitWidth(imgAgregarArticulo.getFitWidth() + 20);
+    }
+
+    @FXML
+    private void salioMauseEstadistica(MouseEvent event) {
+        imgEstadisticas.setFitHeight(imgEstadisticas.getFitHeight() - 15);
+        imgEstadisticas.setFitWidth(imgEstadisticas.getFitWidth() - 15);
+    }
+
+    @FXML
+    private void entroMauseEstadistica(MouseEvent event) {
+         imgEstadisticas.setFitHeight(imgEstadisticas.getFitHeight() + 15);
+         imgEstadisticas.setFitWidth(imgEstadisticas.getFitWidth() + 15);
+    }
+
+    @FXML
+    private void salioMausePreVenta(MouseEvent event) {
+        imgPreventa.setFitHeight(imgPreventa.getFitHeight() - 20);
+        imgPreventa.setFitWidth(imgPreventa.getFitWidth() - 20);
+    }
+
+    @FXML
+    private void entroMausePreVenta(MouseEvent event) {
+        imgPreventa.setFitHeight(imgPreventa.getFitHeight() + 20);
+        imgPreventa.setFitWidth(imgPreventa.getFitWidth() + 20);
+    }
 }
